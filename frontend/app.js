@@ -829,9 +829,21 @@
     return head === "FoF" ? "Other" : head || "Other";
   }
 
+  /** Every source page an assistant reply cites. A comparison cites one page per column; its
+   *  citation_url is only the first column's, so the columns are read too. */
+  function citedSourceUrls(msgs) {
+    const urls = new Set();
+    for (const m of msgs) {
+      if (m.role !== "assistant") continue;
+      if (m.citation_url) urls.add(m.citation_url);
+      const columns = m.comparison && Array.isArray(m.comparison.columns) ? m.comparison.columns : [];
+      for (const c of columns) if (c && c.url) urls.add(c.url);
+    }
+    return urls;
+  }
+
   function citedUrls() {
-    const msgs = state.activeId ? state.messages.get(state.activeId) || [] : [];
-    return new Set(msgs.filter((m) => m.role === "assistant" && m.citation_url).map((m) => m.citation_url));
+    return citedSourceUrls(state.activeId ? state.messages.get(state.activeId) || [] : []);
   }
 
   function renderScopeChips() {

@@ -75,3 +75,41 @@ async def test_chat_management_controls_are_served(catalog, store):
         assert control in html
     assert 'aria-controls="sidebar"' in html
     assert "text/markdown" in js and 'method: "PATCH"' in js
+
+
+def _js_function(js: str, name: str) -> str:
+    """The source of a top-level `function name(...) { ... }` in app.js (brace-matched)."""
+    start = js.index(f"function {name}(")
+    depth, i = 0, js.index("{", start)
+    while True:
+        depth += {"{": 1, "}": -1}.get(js[i], 0)
+        i += 1
+        if depth == 0:
+            return js[start:i]
+
+
+def test_knowledge_scope_counts_every_compared_scheme_as_cited():
+    """A comparison reply cites one page per column, but its citation_url is only the first
+    column's. "Cited in this chat" must mark every compared scheme, not just the first."""
+    import json
+    import shutil
+    import subprocess
+
+    node = shutil.which("node")
+    if node is None:
+        pytest.skip("node is not installed")
+    js = (FRONTEND / "app.js").read_text(encoding="utf-8")
+    assert "citedSourceUrls(state.activeId" in js  # the scheme panel uses the helper
+    a, b, c = (f"https://groww.in/mutual-funds/{s}" for s in ("a", "b", "c"))
+    msgs = [
+        {"role": "user", "content": "compare A and B"},
+        {"role": "assistant", "type": "comparison", "citation_url": a,
+         "comparison": {"columns": [{"url": a}, {"url": b}], "rows": []}},
+        {"role": "assistant", "type": "answer", "citation_url": c, "comparison": None},
+        {"role": "assistant", "type": "pii_blocked", "citation_url": None},
+    ]
+    call = f"[...citedSourceUrls({json.dumps(msgs)})]"
+    script = (_js_function(js, "citedSourceUrls")
+              + f"\nprocess.stdout.write(JSON.stringify({call}));")
+    out = subprocess.run([node, "-e", script], capture_output=True, text=True, check=True)
+    assert sorted(json.loads(out.stdout)) == [a, b, c]
