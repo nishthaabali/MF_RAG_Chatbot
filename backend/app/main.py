@@ -36,6 +36,16 @@ FRONTEND_DIR = ROOT_DIR / "frontend"
 GENERIC_ERROR = "Something went wrong. Please try again."
 
 
+class UIFiles(StaticFiles):
+    """The chat UI, always revalidated. The assets have no version in their names, so without
+    this a browser may keep running an old app.js after a deploy (heuristic caching)."""
+
+    async def get_response(self, path, scope):
+        response = await super().get_response(path, scope)
+        response.headers["Cache-Control"] = "no-cache"
+        return response
+
+
 def load_pipeline(settings: Settings, pipeline_cls):
     """The full pipeline, or a degraded one when no corpus is installed or it can't be loaded.
 
@@ -119,7 +129,7 @@ def create_app(services: Services | None = None, settings: Settings | None = Non
     # The chat UI (Phase 9): plain HTML/CSS/JS served from the same origin as the API, so no
     # CORS or build step is needed. Mounted last so /api/* and /docs take precedence.
     if frontend_dir is not None and (frontend_dir / "index.html").is_file():
-        app.mount("/", StaticFiles(directory=frontend_dir, html=True), name="frontend")
+        app.mount("/", UIFiles(directory=frontend_dir, html=True), name="frontend")
 
     @app.exception_handler(Exception)
     async def unexpected(request: Request, exc: Exception) -> JSONResponse:

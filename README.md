@@ -85,12 +85,12 @@ Groww is an aggregator, so its figures may lag AMC factsheets, KIMs and SIDs. Th
 | **Health and status** | A status card in the UI: sources indexed, limited mode, stale sources, or server unreachable | `GET /api/health` reports index status, LLM status, per-source fetch dates and bundle freshness | `api/meta.py`, `frontend/app.js` |
 | **Daily data refresh** | Footer dates stay current | A GitHub Actions workflow re-ingests every source daily, runs a quality gate and publishes a data bundle as a GitHub Release. The server pulls it, verifies it and hot-swaps the corpus with no restart | `.github/workflows/daily-ingest.yml`, `ingest/bundle.py`, `ingest/gate.py`, `app/jobs.py` |
 | **Operations hardening** | — | Per-IP rate limit on message posts, JSON logs that never contain message text, a thread retention job (30 days), a daily summary log line, and degraded start-up with no corpus | `middleware/rate_limit.py`, `observability.py`, `jobs.py`, `bootstrap.py` |
+| **Production hosting on Railway** | The whole app (API and chat UI) at one Railway URL | One Docker container serves the API and the static UI from the same origin, and redeploys on every push to `main`. UI files are sent with `Cache-Control: no-cache`, so browsers pick up a new `app.js` after each deploy | `Dockerfile`, `railway.json`, `app/main.py` |
 
 ### Partially implemented
 
 | Item | Current state |
 |---|---|
-| **Production deployment** (Railway API and Vercel frontend) | `Dockerfile`, `railway.json`, `frontend/vercel.json` and [config/settings.production.yaml](config/settings.production.yaml) exist and are covered by tests. The production CORS origin is still a `TODO` placeholder, and the [deployment plan](docs/deployment-plan.md) lists go-live checks that are not yet ticked |
 | **Release evaluation** | The golden set has 150 cases. The last full real-API run did not meet the factual (86%) and follow-up (80%) gates. Failing cases were fixed and pass in targeted re-runs, but a clean full run with all fixes is still to do. See [§12](#12-testing-and-evaluation) |
 
 ### Not implemented (by design)
@@ -147,7 +147,7 @@ There is no ELSS scheme in the list, so ELSS questions are answered from the gen
 |---|---|---|
 | Language | Python ≥ 3.11 (Docker and CI use 3.12) | Package metadata in [pyproject.toml](pyproject.toml) |
 | API server | FastAPI + Uvicorn | Async handlers. The OpenAPI docs are at `/docs` |
-| Frontend | Plain HTML, CSS and vanilla JavaScript | No build step. Served by FastAPI locally, or by Vercel |
+| Frontend | Plain HTML, CSS and vanilla JavaScript | No build step. Served by FastAPI from the same origin as the API |
 | Fetching | `httpx` (static pages); Playwright headless Chromium (pages rendered client-side: the AMFI glossary and the CAMS pages) | Polite fetcher: rate limit, retries, robots.txt |
 | Parsing | `selectolax`, BeautifulSoup, `pdfplumber` | Groww facts come from the page's embedded `__NEXT_DATA__` JSON |
 | Relational storage | SQLite via SQLAlchemy (WAL mode) | Two databases: `corpus.db` (facts) and `app.db` (threads) |
@@ -159,7 +159,7 @@ There is no ELSS scheme in the list, so ELSS questions are answered from the gen
 | Configuration | `pydantic-settings` + YAML | `config/settings.yaml`, with secrets from the environment |
 | Background jobs | APScheduler (in-process) | Corpus reload, bundle pull, retention, daily summary |
 | CI and data pipeline | GitHub Actions + GitHub Releases | Daily ingest, quality gate, bundle publish |
-| Hosting (planned) | Railway (API, Docker) + Vercel (static frontend) | See [docs/deployment-plan.md](docs/deployment-plan.md) |
+| Hosting | Railway (one Docker container serving the API and the UI) | See [§11](#11-deployment-and-daily-data-refresh) |
 | Tooling | `pytest`, `pytest-asyncio`, `ruff` | `pip install -e ".[dev]"` |
 
 ---
@@ -304,7 +304,7 @@ All routes are under `/api`. The full schema is at `/docs` when the server is ru
 │   │   ├── check_sources.py      # Validates the config/ YAML files
 │   │   └── facts_report.py       # Prints stored scheme data for manual review
 │   └── tests/                    # pytest suite (~1,000 tests) with HTML fixtures and a fake Groq client
-├── frontend/                     # Chat UI: index.html, app.js, styles.css, config.js (API base URL), vercel.json
+├── frontend/                     # Chat UI: index.html, app.js, styles.css, config.js (API base URL)
 ├── config/
 │   ├── settings.yaml             # All runtime settings (development)
 │   ├── settings.production.yaml  # Railway settings (selected with APP_SETTINGS_FILE)
@@ -487,17 +487,17 @@ Corpus content is configured in [config/sources.yaml](config/sources.yaml), [con
 ```mermaid
 flowchart LR
     GA[GitHub Actions<br/>daily 10:00 IST] -->|ingest, gate, tests,<br/>no-LLM eval| REL[(GitHub Release<br/>data-latest)]
-    REL -->|pull, verify checksum,<br/>load, swap| API[Railway<br/>FastAPI container]
-    FE[Vercel<br/>static frontend] -->|/api calls| API
+    REL -->|pull, verify checksum,<br/>load, swap| API[Railway<br/>FastAPI container<br/>API + chat UI]
+    U[Browser] -->|UI and /api,<br/>same origin| API
     API --> VOL[(Railway volume<br/>data/)]
 ```
 
 - **Daily refresh** ([.github/workflows/daily-ingest.yml](.github/workflows/daily-ingest.yml)): The workflow restores the previous bundle and ingests every source. It then runs the quality gate (fetch failures ≤ 20%, no newly missing core facts, chunk count within 20%, index consistency, smoke retrieval), the unit tests and a no-LLM evaluation. Finally it publishes a dated release and moves `data-latest`. A failed run publishes nothing, so the last good bundle stays live. Dated releases older than 14 days are deleted. The workflow can also be started by hand, with options to rebuild the index or fetch only some sources.
 - **Server side:** `app.bootstrap` installs the first bundle on an empty volume. The bundle puller (`data_refresh.pull_cron`, 10:45 IST) downloads newer bundles, verifies every file, loads them and switches `data/bundles/CURRENT` without a restart.
 - **Container:** The [Dockerfile](Dockerfile) installs CPU-only PyTorch and bakes in the embedding model. It runs `python -m app.bootstrap` and then Uvicorn with one worker. [railway.json](railway.json) uses `/api/health` as the health check.
-- **Frontend:** [frontend/vercel.json](frontend/vercel.json) writes `config.js` from the `API_BASE_URL` variable at build time.
+- **Frontend:** The image includes `frontend/`, and FastAPI serves it at `/`, so the UI calls the API on the same origin (`config.js` sets `/api`) and needs no CORS setup. Railway rebuilds the container on every push to `main`.
 
-The full steps, variables, rollback and go-live checklist are in [docs/deployment-plan.md](docs/deployment-plan.md).
+[docs/deployment-plan.md](docs/deployment-plan.md) has the original plan, with rollback and operations notes. It describes a separate Vercel frontend that was not used: `frontend/vercel.json` is left over from that plan.
 
 ---
 
@@ -558,7 +558,6 @@ The failing cases were fixed afterwards and pass in targeted re-runs (`eval/resu
 Open items taken from the [implementation plan](docs/implementation-plan.md) and [deployment plan](docs/deployment-plan.md):
 
 - [ ] One clean full real-API evaluation run with all fixes, with the pass rates recorded here
-- [ ] Production go-live: set the Vercel origin in `config/settings.production.yaml` (currently `TODO`), deploy to Railway and Vercel, and complete the go-live checks
 - [ ] Short demo script or recording, and a tagged release
 - [ ] Keep `eval/golden.yaml` values in step with refreshed data, or make value checks tolerant of daily changes
 
@@ -577,7 +576,7 @@ Possible extensions that the current design leaves room for:
 | [docs/problemStatement.md](docs/problemStatement.md) | The original brief |
 | [docs/architecture.md](docs/architecture.md) | Detailed design: corpus policy, pipeline steps, validator rules, threads, security |
 | [docs/implementation-plan.md](docs/implementation-plan.md) | Phases 0–12, status, bugs found, and the release checklist |
-| [docs/deployment-plan.md](docs/deployment-plan.md) | Railway and Vercel deployment, operations and rollback |
+| [docs/deployment-plan.md](docs/deployment-plan.md) | Original deployment plan (Railway; the Vercel part was not used), operations and rollback |
 | [docs/edge-case.md](docs/edge-case.md) | Edge cases by pipeline stage |
 | [docs/eval.md](docs/eval.md) | Evaluation design |
 | [docs/chunking-research.md](docs/chunking-research.md) | Corpus profile and the chunking and retrieval benchmark |

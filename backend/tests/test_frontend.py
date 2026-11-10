@@ -113,3 +113,14 @@ def test_knowledge_scope_counts_every_compared_scheme_as_cited():
               + f"\nprocess.stdout.write(JSON.stringify({call}));")
     out = subprocess.run([node, "-e", script], capture_output=True, text=True, check=True)
     assert sorted(json.loads(out.stdout)) == [a, b, c]
+
+
+async def test_ui_assets_are_always_revalidated(catalog, store):
+    """Asset names carry no version, so a browser must revalidate them or it may keep running
+    an old app.js after a deploy. The API routes are unaffected."""
+    app, _, _ = build(catalog, store)
+    async with await client_for(app) as c:
+        for path in ("/", "/app.js", "/styles.css"):
+            r = await c.get(path)
+            assert r.status_code == 200 and r.headers["cache-control"] == "no-cache", path
+        assert "cache-control" not in (await c.get("/api/meta")).headers
