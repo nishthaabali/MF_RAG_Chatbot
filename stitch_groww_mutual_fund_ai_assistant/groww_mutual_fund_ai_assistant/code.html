@@ -1,0 +1,740 @@
+<!DOCTYPE html><html lang="en" style="width: 1280px; height: 1627px; overflow: hidden; position: relative;"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-variant": "#dee2ef", "secondary-fixed-dim": "#bcc2ff", "surface-container-high": "#e4e8f5", "secondary-container": "#4f63fb", "primary-fixed": "#59fdc5", "on-secondary-fixed-variant": "#102bcd", "on-secondary-fixed": "#000b62", "on-surface-variant": "#3c4a43", "outline-variant": "#bacac1", "tertiary": "#934b07", "inverse-surface": "#2c313a", "on-tertiary-fixed": "#301400", "tertiary-fixed": "#ffdcc6", "surface-container": "#eaeefa", "tertiary-container": "#ffa15b", "on-primary": "#ffffff", "on-background": "#171c25", "on-primary-fixed": "#002116", "primary-container": "#00d09c", "on-primary-fixed-variant": "#00513b", "on-secondary-container": "#fffbff", "surface": "#f9f9ff", "secondary": "#3247e2", "tertiary-fixed-dim": "#ffb785", "secondary-fixed": "#dfe0ff", "on-tertiary-container": "#733800", "surface-tint": "#006c4f", "surface-container-lowest": "#ffffff", "on-secondary": "#ffffff", "on-surface": "#171c25", "surface-container-low": "#f0f3ff", "on-tertiary-fixed-variant": "#713700", "primary-fixed-dim": "#2fe0aa", "on-error": "#ffffff", "inverse-on-surface": "#ecf0fd", "surface-bright": "#f9f9ff", "primary": "#006c4f", "error": "#ba1a1a", "outline": "#6b7b72", "on-tertiary": "#ffffff", "error-container": "#ffdad6", "surface-dim": "#d6dae6", "on-error-container": "#93000a", "surface-container-highest": "#dee2ef", "inverse-primary": "#2fe0aa", "on-primary-container": "#00533c", "background": "#f9f9ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-mobile": "1rem", "margin": "2rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "gutter": "1.5rem", "space-md": "1rem", "gutter-mobile": "1rem", "space-xl": "2rem" }, "fontFamily": { "label-sm": ["Inter"], "label-md": ["Inter"], "body-md": ["Inter"], "display-lg": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "num-metric-lg": ["Inter"], "num-metric-md": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "body-lg": ["Inter"] }, "fontSize": { "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}], "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}], "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "headline-xl-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}], "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "600"}], "num-metric-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "num-metric-md": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "500"}], "headline-sm": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400"}], "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}] } } } }</script></head><body class="bg-surface font-body-md text-on-surface antialiased">
+<!-- Floating Toast Notification System -->
+<div class="fixed top-5 left-1/2 -translate-x-1/2 z-50 transform transition-all duration-300 ease-out flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-on-surface text-surface-bright shadow-2xl translate-y-0 opacity-100" id="toastNotification">
+<span class="material-symbols-outlined text-[18px] text-primary-container" id="toastIcon">refresh</span>
+<span class="font-label-md text-label-md" id="toastMessage">Regenerating RAG response with fresh NAV...</span>
+</div>
+<!-- Left Collapsible Sidebar -->
+<aside class="fixed left-0 top-0 h-full bg-surface-container-lowest z-40 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)] transition-all duration-300 ease-in-out w-[280px]" id="mainSidebar">
+<div class="flex flex-col h-full overflow-hidden">
+<!-- Sidebar Header (Expanded Mode) -->
+<div class="h-16 px-space-md flex items-center justify-between shrink-0" id="sidebarHeaderExpanded">
+<div class="flex items-center gap-space-sm overflow-hidden">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-container text-[20px]">query_stats</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="font-headline-sm text-headline-sm text-on-surface leading-tight truncate">Groww MF</span>
+<span class="font-label-sm text-label-sm text-primary truncate">AI Intelligence</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">v2.4</span>
+<button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface-variant transition-colors" id="sidebarCollapseBtn" title="Collapse sidebar" type="button">
+<span class="material-symbols-outlined text-[18px]">dock_to_right</span>
+</button>
+</div>
+</div>
+<!-- Sidebar Header (Collapsed Rail Mode) -->
+<div class="h-16 flex-col items-center justify-center shrink-0 gap-1 border-b border-surface-container-high/40 hidden" id="sidebarHeaderCollapsed">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container text-primary transition-colors" id="sidebarExpandBtn" title="Expand sidebar" type="button">
+<span class="material-symbols-outlined text-[20px]">menu_open</span>
+</button>
+</div>
+<!-- Full Content Container (Hidden when collapsed) -->
+<div class="flex flex-col flex-1 overflow-hidden" id="sidebarFullContent">
+<div class="px-space-md pt-space-xs pb-space-sm shrink-0">
+<button class="w-full h-11 rounded-lg bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-label-md text-label-md flex items-center justify-center gap-space-sm shadow-[0_4px_12px_rgba(0,0,0,0.04)] transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>New Chat</span>
+</button>
+</div>
+<div class="px-space-md py-space-xs shrink-0">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-9 pl-9 pr-12 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Search threads..." type="text">
+<span class="absolute right-2 px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">⌘K</span>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-space-md py-space-sm space-y-space-md">
+<div class="space-y-space-xs">
+<div class="px-2 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Pinned</div>
+<nav class="space-y-1" data-active-classes="bg-surface-container-high text-on-surface font-label-md">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md group" data-path="portfolio-analysis" href="#">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-[16px] text-primary">push_pin</span>
+<span class="truncate">Groww Large Cap vs Nifty</span>
+</div>
+<span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 text-on-surface-variant">more_horiz</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md group" data-path="elss-tax-saving" href="#">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-[16px] text-primary">push_pin</span>
+<span class="truncate">FY25 80C Tax Harvest Plan</span>
+</div>
+<span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 text-on-surface-variant">more_horiz</span>
+</a>
+</nav>
+</div>
+<div class="space-y-space-xs">
+<div class="px-2 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Today</div>
+<nav class="space-y-1" data-active-classes="bg-surface-container-high text-on-surface font-label-md">
+<!-- Active Thread Item with Interactive 3-Dots Action Menu -->
+<div class="relative" id="activeThreadItemContainer">
+<div class="flex items-center justify-between px-3 py-2 rounded-lg transition-colors group bg-surface-container-high text-on-surface font-label-md cursor-pointer">
+<div class="flex items-center gap-2 truncate flex-1 min-w-0">
+<span class="material-symbols-outlined text-[16px] shrink-0">chat_bubble</span>
+<span class="truncate" id="activeThreadTitleText">SIP Return Backtest 10Y</span>
+</div>
+<!-- 3-Dots Menu Trigger Button -->
+<button aria-expanded="false" aria-label="Thread options" class="w-6 h-6 flex items-center justify-center rounded hover:bg-surface-container text-primary transition-colors ml-1 shrink-0" id="threadMenuTriggerBtn" type="button">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+<!-- Interactive Thread Options Dropdown Popover -->
+<div class="absolute left-6 top-full mt-1 w-52 rounded-xl bg-surface-container-lowest p-1.5 shadow-xl z-50 border border-surface-container/60 space-y-0.5 transition-all duration-150 origin-top-left hidden" id="threadOptionsMenu">
+<button class="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-surface-container-low text-left font-body-sm text-body-sm text-on-surface transition-colors thread-menu-item" data-action="rename" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">edit</span>
+<span>Rename</span>
+</button>
+<button class="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-surface-container-low text-left font-body-sm text-body-sm text-on-surface transition-colors thread-menu-item" data-action="pin" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">push_pin</span>
+<span>Pin to top</span>
+</button>
+<button class="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-surface-container-low text-left font-body-sm text-body-sm text-on-surface transition-colors thread-menu-item" data-action="export" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">download</span>
+<span>Export (Markdown)</span>
+</button>
+<div class="my-1 border-t border-surface-container h-[1px]"></div>
+<button class="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-error-container/40 text-left font-body-sm text-body-sm text-error transition-colors thread-menu-item" data-action="delete" type="button">
+<span class="material-symbols-outlined text-[16px] text-error">delete</span>
+<span>Delete</span>
+</button>
+</div>
+</div>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md group" data-path="small-cap-volatility" href="#">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-[16px]">chat_bubble</span>
+<span class="truncate">Mid Cap vs Small Cap Allocation</span>
+</div>
+<span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 text-on-surface-variant">more_vert</span>
+</a>
+</nav>
+</div>
+<div class="space-y-space-xs">
+<div class="px-2 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Previous 7 Days</div>
+<nav class="space-y-1" data-active-classes="bg-surface-container-high text-on-surface font-label-md">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md group" data-path="debt-arbitrage-review" href="#">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span class="truncate">Arbitrage Fund vs Liquid</span>
+</div>
+<span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 text-on-surface-variant">more_vert</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md group" data-path="expense-ratio-audit" href="#">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span class="truncate">TER &amp; Exit Load Matrix</span>
+</div>
+<span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 text-on-surface-variant">more_vert</span>
+</a>
+</nav>
+</div>
+</div>
+<div class="p-space-md shrink-0">
+<div class="p-space-sm rounded-xl bg-surface-container-low shadow-[0_4px_12px_rgba(0,0,0,0.04)] space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div>
+<span class="font-label-md text-label-md text-on-surface">RAG Grounded</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary">Live SEBI</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Synced with AMFI NAV daily indices &amp; Groww MF fact sheets.</p>
+</div>
+</div>
+</div>
+<!-- Collapsed State Compact Rail Icons -->
+<div class="flex-col items-center py-3 flex-1 justify-between hidden" id="sidebarCollapsedRail">
+<div class="flex flex-col items-center gap-3 w-full">
+<button class="w-10 h-10 rounded-lg bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container flex items-center justify-center shadow-sm transition-colors" title="New Chat" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+<button class="w-10 h-10 rounded-lg text-on-surface-variant hover:bg-surface-container flex items-center justify-center transition-colors" title="Search (⌘K)" type="button">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+<div class="w-8 h-[1px] bg-surface-container-high my-1"></div>
+<button class="w-10 h-10 rounded-lg bg-surface-container-high text-primary flex items-center justify-center transition-colors" title="SIP Return Backtest 10Y (Active)" type="button">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+</button>
+<button class="w-10 h-10 rounded-lg text-on-surface-variant hover:bg-surface-container flex items-center justify-center transition-colors" title="Mid Cap vs Small Cap Allocation" type="button">
+<span class="material-symbols-outlined text-[20px]">chat_bubble_outline</span>
+</button>
+<button class="w-10 h-10 rounded-lg text-on-surface-variant hover:bg-surface-container flex items-center justify-center transition-colors" title="Pinned Threads" type="button">
+<span class="material-symbols-outlined text-[20px]">push_pin</span>
+</button>
+</div>
+<div class="w-full flex flex-col items-center gap-2 pb-2">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container animate-pulse" title="RAG Grounded: Live SEBI"></div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Workspace Layout Container (Smooth padding transition with sidebar) -->
+<div class="pr-[320px] transition-all duration-300 ease-in-out pl-[280px]" id="mainLayoutContainer">
+<main class="w-full bg-surface min-h-screen">
+<div class="flex flex-col w-full">
+<!-- Top Context Header Bar within Main Workspace -->
+<div class="sticky top-0 z-20 flex flex-wrap items-center justify-between gap-space-sm px-space-lg py-space-sm bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<!-- Uncollapse shortcut button when collapsed -->
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-colors shrink-0 hidden" id="inlineExpandBtn" title="Expand Sidebar" type="button">
+<span class="material-symbols-outlined text-[18px]">menu</span>
+</button>
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">push_pin</span>
+<h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Parag Parikh Flexi Cap vs HDFC Mid-Cap Analysis</h1>
+<button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface-variant transition-colors" id="headerRenameBtn" title="Rename Thread" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+</div>
+<div class="hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed/50 text-secondary font-label-sm text-label-sm shrink-0">
+<span class="material-symbols-outlined text-[14px]">library_books</span>
+<span>Scope: 19 Verified Groww MF URLs</span>
+</div>
+</div>
+<!-- Action Toolbar with Active Export Popover View -->
+<div class="relative flex items-center gap-2 shrink-0">
+<!-- Export Popover Container -->
+<div class="relative">
+<button class="h-8 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center gap-1.5 transition-colors" id="exportDropdownBtn" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">file_download</span>
+<span>Export (Markdown)</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+<div class="absolute right-0 mt-2 w-64 rounded-xl bg-surface-container-lowest p-2 shadow-xl z-50 border border-surface-container/60 hidden" id="exportDropdownMenu">
+<div class="px-2.5 py-1 text-[11px] font-label-sm uppercase tracking-wider text-on-surface-variant">Export Active Query</div>
+<button class="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-surface-container-low text-left font-body-sm text-body-sm text-on-surface transition-colors export-action-btn" data-export-type="markdown_file" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">markdown</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface">Export as Markdown (.md)</span>
+<span class="text-on-surface-variant text-[11px]">With citations &amp; table raw data</span>
+</div>
+</button>
+<button class="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-surface-container-low text-left font-body-sm text-body-sm text-on-surface transition-colors export-action-btn" data-export-type="copy_markdown" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">content_copy</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface">Copy Markdown</span>
+<span class="text-on-surface-variant text-[11px]">Clipboard ready .md content</span>
+</div>
+</button>
+</div>
+</div>
+<button class="h-8 px-2.5 rounded-lg text-error hover:bg-error-container/40 font-label-sm text-label-sm flex items-center gap-1 transition-colors" id="clearChatBtn" title="Clear Thread" type="button">
+<span class="material-symbols-outlined text-[16px]">delete_sweep</span>
+<span class="hidden sm:inline">Clear Chat</span>
+</button>
+</div>
+</div>
+<!-- Main Scrollable Thread Workspace -->
+<div class="px-space-lg py-space-md space-y-space-lg max-w-5xl mx-auto w-full">
+<!-- Active Conversation Flow -->
+<div class="space-y-space-lg pb-32">
+<!-- User Query Bubble -->
+<div class="flex justify-end">
+<div class="flex items-start gap-3 max-w-2xl">
+<div class="p-space-md rounded-2xl rounded-tr-sm bg-primary-fixed/20 shadow-sm space-y-1">
+<div class="flex items-center justify-between gap-4">
+<span class="font-label-sm text-label-sm text-primary font-semibold">Investor Query</span>
+<span class="text-on-surface-variant text-[11px]">10:42 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                  Compare the expense ratio, exit load, and 3Y CAGR of Parag Parikh Flexi Cap Fund and HDFC Mid-Cap Opportunities Fund from the indexed Groww pages.
+                </p>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-md text-label-md shrink-0 shadow-sm">
+<span>RK</span>
+</div>
+</div>
+</div>
+<!-- Assistant RAG-Grounded Detailed Response Card -->
+<div class="flex items-start gap-3 w-full">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">query_stats</span>
+</div>
+<div class="flex-1 space-y-space-md min-w-0">
+<!-- Main AI Response Card Container -->
+<div class="p-space-md sm:p-space-lg rounded-2xl bg-surface-container-lowest shadow-md space-y-space-md">
+<!-- Header Grounding Badge -->
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-label-md text-label-md text-on-surface">RAG-Grounded Comparative Analysis</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed/30 text-on-primary-fixed-variant text-[11px] font-label-sm">Fact-Checked</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>AMFI NAV Grounded: 24 May 2024</span>
+</div>
+</div>
+<!-- Intro Summary grounded in URLs -->
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Based on the crawled official Groww mutual fund documentation, here is the granular direct plan comparison between 
+                  <strong class="text-on-surface font-semibold">Parag Parikh Flexi Cap Fund Direct-Growth</strong>
+<sup class="inline-flex items-center px-1.5 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold cursor-pointer hover:underline">[1]</sup>
+                  and <strong class="text-on-surface font-semibold">HDFC Mid-Cap Opportunities Fund Direct-Growth</strong>
+<sup class="inline-flex items-center px-1.5 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold cursor-pointer hover:underline">[2]</sup>. Both funds are evaluated under their zero-commission Direct Growth variants.
+                </p>
+<!-- Metrics Snapshot Cards with SVG Sparkline visuals -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Parag Parikh Metric Tile -->
+<div class="p-space-md rounded-xl bg-surface-container-low space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-[10px] text-primary">PP</div>
+<span class="font-label-md text-label-md text-on-surface truncate">Parag Parikh Flexi Cap</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary-fixed/40 text-on-primary-fixed-variant text-label-sm font-semibold">+21.4% (3Y)</span>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<div>
+<span class="text-[11px] font-label-sm text-on-surface-variant">NAV (Direct-Growth)</span>
+<div class="font-num-metric-lg text-num-metric-lg text-on-surface">₹74.12</div>
+</div>
+<div class="text-right">
+<span class="text-[11px] font-label-sm text-on-surface-variant">Expense Ratio</span>
+<div class="font-label-md text-label-md text-primary font-bold">0.63% <span class="text-on-surface-variant font-normal text-[11px]">TER</span></div>
+</div>
+</div>
+<!-- Inline SVG Sparkline -->
+<div class="w-full h-8 pt-1">
+<svg class="w-full h-full text-primary" fill="none" viewBox="0 0 240 32">
+<path d="M0 28 L30 24 L60 26 L90 18 L120 20 L150 12 L180 14 L210 6 L240 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<circle cx="240" cy="4" fill="currentColor" r="3"></circle>
+</svg>
+</div>
+</div>
+<!-- HDFC Mid-Cap Metric Tile -->
+<div class="p-space-md rounded-xl bg-surface-container-low space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-[10px] text-secondary">HD</div>
+<span class="font-label-md text-label-md text-on-surface truncate">HDFC Mid-Cap Opportunities</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary-fixed/40 text-on-primary-fixed-variant text-label-sm font-semibold">+28.9% (3Y)</span>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<div>
+<span class="text-[11px] font-label-sm text-on-surface-variant">NAV (Direct-Growth)</span>
+<div class="font-num-metric-lg text-num-metric-lg text-on-surface">₹186.45</div>
+</div>
+<div class="text-right">
+<span class="text-[11px] font-label-sm text-on-surface-variant">Expense Ratio</span>
+<div class="font-label-md text-label-md text-on-surface font-bold">0.78% <span class="text-on-surface-variant font-normal text-[11px]">TER</span></div>
+</div>
+</div>
+<!-- Inline SVG Sparkline -->
+<div class="w-full h-8 pt-1">
+<svg class="w-full h-full text-secondary" fill="none" viewBox="0 0 240 32">
+<path d="M0 30 L30 26 L60 28 L90 16 L120 22 L150 10 L180 12 L210 2 L240 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<circle cx="240" cy="3" fill="currentColor" r="3"></circle>
+</svg>
+</div>
+</div>
+</div>
+<!-- Financial Comparison Table -->
+<div class="overflow-x-auto rounded-xl bg-surface-container-low">
+<table class="w-full text-left font-body-md text-body-md">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-4">Financial Metric</th>
+<th class="py-3 px-4 text-on-surface font-semibold">Parag Parikh Flexi Cap Direct</th>
+<th class="py-3 px-4 text-on-surface font-semibold">HDFC Mid-Cap Direct</th>
+<th class="py-3 px-4 text-right">Key Takeaway</th>
+</tr>
+</thead>
+<tbody class="text-on-surface">
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-4 font-label-md text-label-md text-on-surface-variant">Expense Ratio (TER)</td>
+<td class="py-3 px-4 font-semibold text-primary">0.63%</td>
+<td class="py-3 px-4">0.78%</td>
+<td class="py-3 px-4 text-right font-label-sm text-label-sm text-primary">PPFAS is 15 bps cheaper</td>
+</tr>
+<tr class="bg-surface-container-lowest/50 hover:bg-surface-container transition-colors">
+<td class="py-3 px-4 font-label-md text-label-md text-on-surface-variant">3Y CAGR (Annualized)</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-primary-fixed/40 text-on-primary-fixed-variant font-semibold">+21.4%</span></td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant font-semibold">+28.9%</span></td>
+<td class="py-3 px-4 text-right font-label-sm text-label-sm text-on-surface-variant">HDFC outpaces by +7.5%</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-4 font-label-md text-label-md text-on-surface-variant">5Y CAGR</td>
+<td class="py-3 px-4 font-semibold text-on-surface">+23.2%</td>
+<td class="py-3 px-4 font-semibold text-on-surface">+26.1%</td>
+<td class="py-3 px-4 text-right font-label-sm text-label-sm text-on-surface-variant">Both top quartile</td>
+</tr>
+<tr class="bg-surface-container-lowest/50 hover:bg-surface-container transition-colors">
+<td class="py-3 px-4 font-label-md text-label-md text-on-surface-variant">Exit Load Rules</td>
+<td class="py-3 px-4 text-body-sm">
+<div class="font-medium text-error">2.00% if &lt; 365 days</div>
+<div class="text-on-surface-variant">1.00% if 366-730 days</div>
+</td>
+<td class="py-3 px-4 text-body-sm">
+<div class="font-medium text-on-surface">1.00% if &lt; 365 days</div>
+<div class="text-on-surface-variant">Nil after 1 year</div>
+</td>
+<td class="py-3 px-4 text-right font-label-sm text-label-sm text-on-surface-variant">HDFC allows exit at 1 yr</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-4 font-label-md text-label-md text-on-surface-variant">SEBI Riskometer</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm">Very High Risk</span></td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm">Very High Risk</span></td>
+<td class="py-3 px-4 text-right font-label-sm text-label-sm text-on-surface-variant">Identical Mandate Tier</td>
+</tr>
+<tr class="bg-surface-container-lowest/50 hover:bg-surface-container transition-colors">
+<td class="py-3 px-4 font-label-md text-label-md text-on-surface-variant">Top Holding / Asset Mix</td>
+<td class="py-3 px-4 text-body-sm">ITC Ltd, Bajaj Holdings, Alphabet (14% Int'l)</td>
+<td class="py-3 px-4 text-body-sm">Indian Hotels, Bharat Electronics, Tata Tech</td>
+<td class="py-3 px-4 text-right font-label-sm text-label-sm text-on-surface-variant">PPFAS holds offshore equity</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Verification Accordion (RAG Traceability) -->
+<div class="p-space-sm sm:p-space-md rounded-xl bg-surface-container-low space-y-space-xs">
+<div class="flex items-center justify-between cursor-pointer select-none">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">verified_user</span>
+<span class="font-label-md text-label-md text-on-surface">Verified from 2 of 19 Indexed Groww Mutual Fund URLs</span>
+</div>
+<span class="text-secondary font-label-sm text-label-sm">2 Citations Active</span>
+</div>
+<div class="pt-2 grid grid-cols-1 md:grid-cols-2 gap-2 text-body-sm text-body-sm">
+<a class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-between text-secondary group" href="https://groww.in/mutual-funds/parag-parikh-flexi-cap-fund-direct-growth" target="_blank">
+<span class="truncate">[1] groww.in/.../parag-parikh-flexi-cap-fund-direct-growth</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform">open_in_new</span>
+</a>
+<a class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-between text-secondary group" href="https://groww.in/mutual-funds/hdfc-mid-cap-opportunities-fund-direct-growth" target="_blank">
+<span class="truncate">[2] groww.in/.../hdfc-mid-cap-opportunities-fund-direct-growth</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- AI Message Action Toolbar -->
+<div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t-0">
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" onclick="showToast('Response copied to clipboard', 'content_copy')" title="Copy Response" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors" onclick="showToast('Feedback noted: Helpful response!', 'thumb_up')" title="Helpful" type="button">
+
+</button>
+
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center gap-1.5 transition-colors" onclick="showToast('Exporting comparison markdown (.md)...', 'download')" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">markdown</span>
+<span>Export (Markdown)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Floating Prompt Composer -->
+<div class="sticky bottom-0 z-30 w-full px-space-lg pb-space-md pt-2 bg-gradient-to-t from-surface via-surface to-transparent">
+<div class="max-w-4xl mx-auto space-y-2">
+<!-- Composer Input Box with Scope Badge Inside -->
+<div class="p-2 sm:p-2.5 rounded-2xl bg-surface-container-lowest shadow-xl flex flex-col gap-2 border border-surface-container/40">
+<div class="flex items-center gap-2 flex-wrap">
+<!-- Removable Active Scope Chip -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">dataset</span>
+<span>@ Scope: 19 Groww Funds</span>
+<button class="hover:text-error transition-colors flex items-center" type="button">
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+</div>
+<span class="text-on-surface-variant text-[11px]">Strict Factsheet Extraction Mode</span>
+</div>
+<div class="flex items-end gap-2">
+<textarea class="w-full resize-none bg-transparent font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none px-2 py-1 leading-normal" placeholder="Ask anything about NAV, returns, exit load, or holdings across the 19 Groww Mutual Funds..." rows="2"></textarea>
+<div class="flex items-center gap-1 pb-1 shrink-0">
+<button class="w-9 h-9 rounded-lg bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container flex items-center justify-center transition-colors shadow-sm" onclick="showToast('Query submitted to RAG engine...', 'send')" title="Submit Query" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_upward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Mandatory Regulatory & Grounding Disclaimer Footer -->
+<p class="text-center font-body-sm text-body-sm text-on-surface-variant leading-tight">
+            Responses are strictly grounded in the 19 selected Groww Mutual Fund URLs. Mutual Fund investments are subject to market risks, read all scheme related documents carefully.
+          </p>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Right Knowledge Scope Drawer -->
+<aside class="fixed right-0 top-0 h-full w-[320px] bg-surface-container-lowest z-40 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+<div class="h-16 px-space-md flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">database</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Knowledge Scope</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">19/19 Active</span>
+</div>
+<div class="p-space-md space-y-space-sm">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[18px]">filter_list</span>
+<input class="w-full h-9 pl-9 pr-3 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Filter index assets..." type="text">
+</div>
+<div class="flex items-center gap-1 overflow-x-auto pb-1">
+<button class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm shrink-0" type="button">Equity</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-sm text-label-sm shrink-0 transition-colors" type="button">Flexi Cap</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-sm text-label-sm shrink-0 transition-colors" type="button">Mid/Small</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-sm text-label-sm shrink-0 transition-colors" type="button">ELSS</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-space-md py-space-xs space-y-space-sm">
+<div class="p-space-sm rounded-xl bg-surface-container-low space-y-1.5 transition-all hover:bg-surface-container">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface truncate">Groww Nifty Total Mkt Index</span>
+<span class="font-label-sm text-label-sm text-primary">+18.4%</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>AUM: ₹1,420 Cr</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface">NAV ₹24.12</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-secondary">
+<span class="material-symbols-outlined text-[13px]">auto_awesome</span>
+<span>Cited in active thread</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low space-y-1.5 transition-all hover:bg-surface-container">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface truncate">Groww Large Cap Fund Direct</span>
+<span class="font-label-sm text-label-sm text-primary">+16.2%</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>AUM: ₹2,110 Cr</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface">NAV ₹31.85</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low space-y-1.5 transition-all hover:bg-surface-container">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface truncate">Groww ELSS Tax Saver Direct</span>
+<span class="font-label-sm text-label-sm text-primary">+21.8%</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>AUM: ₹940 Cr</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface">NAV ₹19.44</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-secondary">
+<span class="material-symbols-outlined text-[13px]">auto_awesome</span>
+<span>Cited in active thread</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low space-y-1.5 transition-all hover:bg-surface-container">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface truncate">Groww Arbitrage Fund Direct</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">+7.4%</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>AUM: ₹3,200 Cr</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface">NAV ₹12.04</span>
+</div>
+</div>
+</div>
+<div class="p-space-md">
+<div class="p-space-sm rounded-lg bg-surface-container text-on-surface-variant font-body-sm text-body-sm flex items-center justify-between">
+<span class="font-label-sm text-label-sm">Vector Index: v3.8</span>
+<span class="font-label-sm text-label-sm text-primary">99.8% Match</span>
+</div>
+</div>
+</aside>
+<script>
+  // Toast Notification Engine
+  let toastTimer = null;
+  function showToast(message, iconName = 'check_circle') {
+    const toast = document.getElementById('toastNotification');
+    const toastMsg = document.getElementById('toastMessage');
+    const toastIcon = document.getElementById('toastIcon');
+    if (!toast || !toastMsg) return;
+
+    toastMsg.textContent = message;
+    if (toastIcon && iconName) {
+      toastIcon.textContent = iconName;
+    }
+
+    // Clear active timeout
+    if (toastTimer) clearTimeout(toastTimer);
+
+    // Show toast
+    toast.classList.remove('-translate-y-12', 'opacity-0', 'pointer-events-none');
+    toast.classList.add('translate-y-0', 'opacity-100');
+
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('translate-y-0', 'opacity-100');
+      toast.classList.add('-translate-y-12', 'opacity-0', 'pointer-events-none');
+    }, 2800);
+  }
+
+  // 1. Sidebar Collapsible State Controller
+  const sidebar = document.getElementById('mainSidebar');
+  const layoutContainer = document.getElementById('mainLayoutContainer');
+  const collapseBtn = document.getElementById('sidebarCollapseBtn');
+  const expandBtn = document.getElementById('sidebarExpandBtn');
+  const inlineExpandBtn = document.getElementById('inlineExpandBtn');
+  const fullContent = document.getElementById('sidebarFullContent');
+  const collapsedRail = document.getElementById('sidebarCollapsedRail');
+  const headerExpanded = document.getElementById('sidebarHeaderExpanded');
+  const headerCollapsed = document.getElementById('sidebarHeaderCollapsed');
+
+  let isSidebarCollapsed = false;
+
+  function toggleSidebar(collapse) {
+    isSidebarCollapsed = collapse !== undefined ? collapse : !isSidebarCollapsed;
+
+    if (isSidebarCollapsed) {
+      // Transition to Collapsed Rail
+      sidebar.classList.remove('w-[280px]');
+      sidebar.classList.add('w-[68px]');
+      layoutContainer.classList.remove('pl-[280px]');
+      layoutContainer.classList.add('pl-[68px]');
+
+      fullContent.classList.add('hidden');
+      headerExpanded.classList.add('hidden');
+
+      collapsedRail.classList.remove('hidden');
+      collapsedRail.classList.add('flex');
+      headerCollapsed.classList.remove('hidden');
+      headerCollapsed.classList.add('flex');
+
+      if (inlineExpandBtn) inlineExpandBtn.classList.remove('hidden');
+      showToast('Sidebar collapsed to icon rail', 'dock_to_right');
+    } else {
+      // Transition to Expanded
+      sidebar.classList.remove('w-[68px]');
+      sidebar.classList.add('w-[280px]');
+      layoutContainer.classList.remove('pl-[68px]');
+      layoutContainer.classList.add('pl-[280px]');
+
+      collapsedRail.classList.remove('flex');
+      collapsedRail.classList.add('hidden');
+      headerCollapsed.classList.remove('flex');
+      headerCollapsed.classList.add('hidden');
+
+      fullContent.classList.remove('hidden');
+      headerExpanded.classList.remove('hidden');
+
+      if (inlineExpandBtn) inlineExpandBtn.classList.add('hidden');
+      showToast('Sidebar expanded', 'dock_to_left');
+    }
+  }
+
+  if (collapseBtn) collapseBtn.addEventListener('click', () => toggleSidebar(true));
+  if (expandBtn) expandBtn.addEventListener('click', () => toggleSidebar(false));
+  if (inlineExpandBtn) inlineExpandBtn.addEventListener('click', () => toggleSidebar(false));
+
+  // 2. 3-Dots Thread Options Menu Interactivity
+  const threadMenuTrigger = document.getElementById('threadMenuTriggerBtn');
+  const threadOptionsMenu = document.getElementById('threadOptionsMenu');
+  const activeTitle = document.getElementById('activeThreadTitleText');
+
+  let isThreadMenuOpen = true; // initially visible as in current screenshot
+
+  function setThreadMenuVisibility(open) {
+    isThreadMenuOpen = open;
+    if (threadOptionsMenu) {
+      if (open) {
+        threadOptionsMenu.classList.remove('hidden');
+        threadOptionsMenu.classList.add('block');
+      } else {
+        threadOptionsMenu.classList.remove('block');
+        threadOptionsMenu.classList.add('hidden');
+      }
+    }
+    if (threadMenuTrigger) {
+      threadMenuTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+  }
+
+  if (threadMenuTrigger && threadOptionsMenu) {
+    threadMenuTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setThreadMenuVisibility(!isThreadMenuOpen);
+    });
+
+    // Handle Thread Action Clicks with neat visual feedback
+    const actionButtons = threadOptionsMenu.querySelectorAll('.thread-menu-item');
+    actionButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const action = btn.getAttribute('data-action');
+        setThreadMenuVisibility(false);
+
+        if (action === 'rename') {
+          const current = activeTitle ? activeTitle.textContent.trim() : 'SIP Return Backtest 10Y';
+          const newName = prompt('Enter new thread title:', current);
+          if (newName && newName.trim()) {
+            if (activeTitle) activeTitle.textContent = newName.trim();
+            showToast(`Thread renamed to "${newName.trim()}"`, 'edit');
+          }
+        } else if (action === 'pin') {
+          showToast('Thread pinned to top of list', 'push_pin');
+        } else if (action === 'export') {
+          showToast('Exporting thread in Markdown format...', 'download');
+        } else if (action === 'delete') {
+          showToast('Thread marked for deletion', 'delete');
+        }
+      });
+    });
+  }
+
+  // Header Toolbar Dropdown & Other Action Buttons
+  const exportBtn = document.getElementById('exportDropdownBtn');
+  const exportMenu = document.getElementById('exportDropdownMenu');
+  if (exportBtn && exportMenu) {
+    exportBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      exportMenu.classList.toggle('hidden');
+    });
+
+    const exportActionButtons = exportMenu.querySelectorAll('.export-action-btn');
+    exportActionButtons.forEach(b => {
+      b.addEventListener('click', (e) => {
+        e.stopPropagation();
+        exportMenu.classList.add('hidden');
+        const type = b.getAttribute('data-export-type');
+        if (type === 'copy_markdown') {
+          showToast('Markdown copied to clipboard!', 'content_copy');
+        } else {
+          showToast('Downloading Markdown (.md) document...', 'download');
+        }
+      });
+    });
+  }
+
+  const clearChatBtn = document.getElementById('clearChatBtn');
+  if (clearChatBtn) {
+    clearChatBtn.addEventListener('click', () => {
+      showToast('Conversation cleared and reset', 'delete_sweep');
+    });
+  }
+
+  const headerRenameBtn = document.getElementById('headerRenameBtn');
+  if (headerRenameBtn) {
+    headerRenameBtn.addEventListener('click', () => {
+      showToast('Edit thread name in settings', 'edit');
+    });
+  }
+
+  // Global Outside-Click Listener
+  document.addEventListener('click', (e) => {
+    // Close 3-dots thread menu if clicked outside
+    if (threadOptionsMenu && !threadOptionsMenu.contains(e.target) && threadMenuTrigger && !threadMenuTrigger.contains(e.target)) {
+      setThreadMenuVisibility(false);
+    }
+    // Close export dropdown if clicked outside
+    if (exportMenu && !exportMenu.contains(e.target) && exportBtn && !exportBtn.contains(e.target)) {
+      exportMenu.classList.add('hidden');
+    }
+  });
+</script>
+
+
+<div id="snapdom-sandbox" data-snapdom-sandbox="true" aria-hidden="true" style="position: absolute; left: -9999px; top: -9999px; width: 0px; height: 0px; overflow: hidden;"></div></body></html>

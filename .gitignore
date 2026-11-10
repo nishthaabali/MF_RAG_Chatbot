@@ -1,0 +1,28 @@
+# Runtime data (raw snapshots, SQLite, Chroma, BM25)
+data/*
+!data/.gitkeep
+
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+frontend/dist/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Daily refresh working folders (ingest.bundle pack --out dist, CI reports)
+/dist/
+/prev/
+/work/

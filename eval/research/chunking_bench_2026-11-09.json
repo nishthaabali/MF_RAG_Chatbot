@@ -1,0 +1,1325 @@
+{
+ "chunk_stats": {
+  "A_window400": {
+   "n": 253,
+   "median_tok": 412,
+   "max_tok": 417,
+   "over_512": 0,
+   "total_tok": 96857
+  },
+  "B_section350": {
+   "n": 588,
+   "median_tok": 106.0,
+   "max_tok": 346,
+   "over_512": 0,
+   "total_tok": 90285
+  },
+  "C_section350_clean_noholdings": {
+   "n": 378,
+   "median_tok": 89.0,
+   "max_tok": 343,
+   "over_512": 0,
+   "total_tok": 42400
+  }
+ },
+ "runs": [
+  {
+   "strategy": "A_window400",
+   "model": "BAAI/bge-small-en-v1.5",
+   "query_prefix": "prefix",
+   "index_seconds": 30.2,
+   "query_ms": 6.1,
+   "dim": 384,
+   "gold_cos_min": 0.588,
+   "gold_cos_p10": 0.685,
+   "dense_global": {
+    "hit@1": 0.295,
+    "hit@5": 0.318,
+    "mrr": 0.301
+   },
+   "dense_scoped": {
+    "hit@1": 0.295,
+    "hit@5": 0.318,
+    "mrr": 0.301
+   },
+   "bm25_scoped": {
+    "hit@1": 0.295,
+    "hit@5": 0.318,
+    "mrr": 0.301
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.318,
+    "hit@5": 0.318,
+    "mrr": 0.318
+   },
+   "misses_hybrid": [
+    "What is the exit load of Kotak Multi Cap Fund?",
+    "expense ratio parag parikh flexi cap",
+    "Minimum SIP amount for HDFC Flexi Cap",
+    "riskometer of ICICI Prudential Large Cap",
+    "benchmark index of Nippon India Large Cap Fund",
+    "Who manages the Bandhan Small Cap fund",
+    "NAV of HDFC Nifty Next 50 index fund",
+    "AUM of ABSL Small Cap fund",
+    "3 year return of Aditya Birla Sun Life Flexi Cap",
+    "SIP returns of HDFC Pharma and Healthcare fund",
+    "Sharpe ratio of ICICI Prudential Corporate Bond Fund",
+    "rank of Kotak Multi Cap in its category",
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "Is there a lock-in for HDFC Silver ETF FoF?",
+    "Rajeev Thakkar education and experience",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "category average 5 year return for credit risk funds",
+    "PPFAS Mutual Fund registered office address",
+    "launch date of ABSL BSE total market index fund",
+    "funds similar to HDFC Flexi Cap",
+    "stamp duty on Nippon India large cap",
+    "How do I download my capital gains statement?",
+    "what is a benchmark for a mutual fund",
+    "What is credit risk in debt funds?",
+    "difference between direct plan and regular plan",
+    "what is a close ended scheme",
+    "dividend reinvestment option meaning",
+    "charges if I withdraw early from kotak multicap",
+    "how much do i need to start investing monthly in ppfas",
+    "how risky is the HDFC corporate bond fund"
+   ],
+   "misses_dense_global_top5": [
+    "What is the exit load of Kotak Multi Cap Fund?",
+    "expense ratio parag parikh flexi cap",
+    "Minimum SIP amount for HDFC Flexi Cap",
+    "riskometer of ICICI Prudential Large Cap",
+    "benchmark index of Nippon India Large Cap Fund",
+    "Who manages the Bandhan Small Cap fund",
+    "NAV of HDFC Nifty Next 50 index fund",
+    "AUM of ABSL Small Cap fund",
+    "3 year return of Aditya Birla Sun Life Flexi Cap",
+    "SIP returns of HDFC Pharma and Healthcare fund",
+    "Sharpe ratio of ICICI Prudential Corporate Bond Fund",
+    "rank of Kotak Multi Cap in its category",
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "Is there a lock-in for HDFC Silver ETF FoF?",
+    "Rajeev Thakkar education and experience",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "category average 5 year return for credit risk funds",
+    "PPFAS Mutual Fund registered office address",
+    "launch date of ABSL BSE total market index fund",
+    "funds similar to HDFC Flexi Cap",
+    "stamp duty on Nippon India large cap",
+    "How do I download my capital gains statement?",
+    "what is a benchmark for a mutual fund",
+    "What is credit risk in debt funds?",
+    "difference between direct plan and regular plan",
+    "what is a close ended scheme",
+    "dividend reinvestment option meaning",
+    "charges if I withdraw early from kotak multicap",
+    "how much do i need to start investing monthly in ppfas",
+    "how risky is the HDFC corporate bond fund"
+   ]
+  },
+  {
+   "strategy": "A_window400",
+   "model": "BAAI/bge-small-en-v1.5",
+   "query_prefix": "noprefix",
+   "index_seconds": 30.2,
+   "query_ms": 3.9,
+   "dim": 384,
+   "gold_cos_min": 0.616,
+   "gold_cos_p10": 0.708,
+   "dense_global": {
+    "hit@1": 0.295,
+    "hit@5": 0.318,
+    "mrr": 0.307
+   },
+   "dense_scoped": {
+    "hit@1": 0.295,
+    "hit@5": 0.318,
+    "mrr": 0.307
+   },
+   "bm25_scoped": {
+    "hit@1": 0.295,
+    "hit@5": 0.318,
+    "mrr": 0.301
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.318,
+    "hit@5": 0.318,
+    "mrr": 0.318
+   },
+   "misses_hybrid": [
+    "What is the exit load of Kotak Multi Cap Fund?",
+    "expense ratio parag parikh flexi cap",
+    "Minimum SIP amount for HDFC Flexi Cap",
+    "riskometer of ICICI Prudential Large Cap",
+    "benchmark index of Nippon India Large Cap Fund",
+    "Who manages the Bandhan Small Cap fund",
+    "NAV of HDFC Nifty Next 50 index fund",
+    "AUM of ABSL Small Cap fund",
+    "3 year return of Aditya Birla Sun Life Flexi Cap",
+    "SIP returns of HDFC Pharma and Healthcare fund",
+    "Sharpe ratio of ICICI Prudential Corporate Bond Fund",
+    "rank of Kotak Multi Cap in its category",
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "Is there a lock-in for HDFC Silver ETF FoF?",
+    "Rajeev Thakkar education and experience",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "category average 5 year return for credit risk funds",
+    "PPFAS Mutual Fund registered office address",
+    "launch date of ABSL BSE total market index fund",
+    "funds similar to HDFC Flexi Cap",
+    "stamp duty on Nippon India large cap",
+    "How do I download my capital gains statement?",
+    "what is a benchmark for a mutual fund",
+    "What is credit risk in debt funds?",
+    "difference between direct plan and regular plan",
+    "what is a close ended scheme",
+    "dividend reinvestment option meaning",
+    "charges if I withdraw early from kotak multicap",
+    "how much do i need to start investing monthly in ppfas",
+    "how risky is the HDFC corporate bond fund"
+   ],
+   "misses_dense_global_top5": [
+    "What is the exit load of Kotak Multi Cap Fund?",
+    "expense ratio parag parikh flexi cap",
+    "Minimum SIP amount for HDFC Flexi Cap",
+    "riskometer of ICICI Prudential Large Cap",
+    "benchmark index of Nippon India Large Cap Fund",
+    "Who manages the Bandhan Small Cap fund",
+    "NAV of HDFC Nifty Next 50 index fund",
+    "AUM of ABSL Small Cap fund",
+    "3 year return of Aditya Birla Sun Life Flexi Cap",
+    "SIP returns of HDFC Pharma and Healthcare fund",
+    "Sharpe ratio of ICICI Prudential Corporate Bond Fund",
+    "rank of Kotak Multi Cap in its category",
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "Is there a lock-in for HDFC Silver ETF FoF?",
+    "Rajeev Thakkar education and experience",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "category average 5 year return for credit risk funds",
+    "PPFAS Mutual Fund registered office address",
+    "launch date of ABSL BSE total market index fund",
+    "funds similar to HDFC Flexi Cap",
+    "stamp duty on Nippon India large cap",
+    "How do I download my capital gains statement?",
+    "what is a benchmark for a mutual fund",
+    "What is credit risk in debt funds?",
+    "difference between direct plan and regular plan",
+    "what is a close ended scheme",
+    "dividend reinvestment option meaning",
+    "charges if I withdraw early from kotak multicap",
+    "how much do i need to start investing monthly in ppfas",
+    "how risky is the HDFC corporate bond fund"
+   ]
+  },
+  {
+   "strategy": "A_window400",
+   "model": "BAAI/bge-base-en-v1.5",
+   "query_prefix": "prefix",
+   "index_seconds": 92.1,
+   "query_ms": 23.0,
+   "dim": 768,
+   "gold_cos_min": 0.55,
+   "gold_cos_p10": 0.602,
+   "dense_global": {
+    "hit@1": 0.318,
+    "hit@5": 0.318,
+    "mrr": 0.318
+   },
+   "dense_scoped": {
+    "hit@1": 0.318,
+    "hit@5": 0.318,
+    "mrr": 0.318
+   },
+   "bm25_scoped": {
+    "hit@1": 0.295,
+    "hit@5": 0.318,
+    "mrr": 0.301
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.295,
+    "hit@5": 0.318,
+    "mrr": 0.307
+   },
+   "misses_hybrid": [
+    "What is the exit load of Kotak Multi Cap Fund?",
+    "expense ratio parag parikh flexi cap",
+    "Minimum SIP amount for HDFC Flexi Cap",
+    "riskometer of ICICI Prudential Large Cap",
+    "benchmark index of Nippon India Large Cap Fund",
+    "Who manages the Bandhan Small Cap fund",
+    "NAV of HDFC Nifty Next 50 index fund",
+    "AUM of ABSL Small Cap fund",
+    "3 year return of Aditya Birla Sun Life Flexi Cap",
+    "SIP returns of HDFC Pharma and Healthcare fund",
+    "Sharpe ratio of ICICI Prudential Corporate Bond Fund",
+    "rank of Kotak Multi Cap in its category",
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "Is there a lock-in for HDFC Silver ETF FoF?",
+    "Rajeev Thakkar education and experience",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "category average 5 year return for credit risk funds",
+    "PPFAS Mutual Fund registered office address",
+    "launch date of ABSL BSE total market index fund",
+    "funds similar to HDFC Flexi Cap",
+    "stamp duty on Nippon India large cap",
+    "How do I download my capital gains statement?",
+    "what is a benchmark for a mutual fund",
+    "What is credit risk in debt funds?",
+    "difference between direct plan and regular plan",
+    "what is a close ended scheme",
+    "dividend reinvestment option meaning",
+    "charges if I withdraw early from kotak multicap",
+    "how much do i need to start investing monthly in ppfas",
+    "how risky is the HDFC corporate bond fund"
+   ],
+   "misses_dense_global_top5": [
+    "What is the exit load of Kotak Multi Cap Fund?",
+    "expense ratio parag parikh flexi cap",
+    "Minimum SIP amount for HDFC Flexi Cap",
+    "riskometer of ICICI Prudential Large Cap",
+    "benchmark index of Nippon India Large Cap Fund",
+    "Who manages the Bandhan Small Cap fund",
+    "NAV of HDFC Nifty Next 50 index fund",
+    "AUM of ABSL Small Cap fund",
+    "3 year return of Aditya Birla Sun Life Flexi Cap",
+    "SIP returns of HDFC Pharma and Healthcare fund",
+    "Sharpe ratio of ICICI Prudential Corporate Bond Fund",
+    "rank of Kotak Multi Cap in its category",
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "Is there a lock-in for HDFC Silver ETF FoF?",
+    "Rajeev Thakkar education and experience",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "category average 5 year return for credit risk funds",
+    "PPFAS Mutual Fund registered office address",
+    "launch date of ABSL BSE total market index fund",
+    "funds similar to HDFC Flexi Cap",
+    "stamp duty on Nippon India large cap",
+    "How do I download my capital gains statement?",
+    "what is a benchmark for a mutual fund",
+    "What is credit risk in debt funds?",
+    "difference between direct plan and regular plan",
+    "what is a close ended scheme",
+    "dividend reinvestment option meaning",
+    "charges if I withdraw early from kotak multicap",
+    "how much do i need to start investing monthly in ppfas",
+    "how risky is the HDFC corporate bond fund"
+   ]
+  },
+  {
+   "strategy": "A_window400",
+   "model": "BAAI/bge-base-en-v1.5",
+   "query_prefix": "noprefix",
+   "index_seconds": 92.1,
+   "query_ms": 14.4,
+   "dim": 768,
+   "gold_cos_min": 0.599,
+   "gold_cos_p10": 0.656,
+   "dense_global": {
+    "hit@1": 0.318,
+    "hit@5": 0.318,
+    "mrr": 0.318
+   },
+   "dense_scoped": {
+    "hit@1": 0.318,
+    "hit@5": 0.318,
+    "mrr": 0.318
+   },
+   "bm25_scoped": {
+    "hit@1": 0.295,
+    "hit@5": 0.318,
+    "mrr": 0.301
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.318,
+    "hit@5": 0.318,
+    "mrr": 0.318
+   },
+   "misses_hybrid": [
+    "What is the exit load of Kotak Multi Cap Fund?",
+    "expense ratio parag parikh flexi cap",
+    "Minimum SIP amount for HDFC Flexi Cap",
+    "riskometer of ICICI Prudential Large Cap",
+    "benchmark index of Nippon India Large Cap Fund",
+    "Who manages the Bandhan Small Cap fund",
+    "NAV of HDFC Nifty Next 50 index fund",
+    "AUM of ABSL Small Cap fund",
+    "3 year return of Aditya Birla Sun Life Flexi Cap",
+    "SIP returns of HDFC Pharma and Healthcare fund",
+    "Sharpe ratio of ICICI Prudential Corporate Bond Fund",
+    "rank of Kotak Multi Cap in its category",
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "Is there a lock-in for HDFC Silver ETF FoF?",
+    "Rajeev Thakkar education and experience",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "category average 5 year return for credit risk funds",
+    "PPFAS Mutual Fund registered office address",
+    "launch date of ABSL BSE total market index fund",
+    "funds similar to HDFC Flexi Cap",
+    "stamp duty on Nippon India large cap",
+    "How do I download my capital gains statement?",
+    "what is a benchmark for a mutual fund",
+    "What is credit risk in debt funds?",
+    "difference between direct plan and regular plan",
+    "what is a close ended scheme",
+    "dividend reinvestment option meaning",
+    "charges if I withdraw early from kotak multicap",
+    "how much do i need to start investing monthly in ppfas",
+    "how risky is the HDFC corporate bond fund"
+   ],
+   "misses_dense_global_top5": [
+    "What is the exit load of Kotak Multi Cap Fund?",
+    "expense ratio parag parikh flexi cap",
+    "Minimum SIP amount for HDFC Flexi Cap",
+    "riskometer of ICICI Prudential Large Cap",
+    "benchmark index of Nippon India Large Cap Fund",
+    "Who manages the Bandhan Small Cap fund",
+    "NAV of HDFC Nifty Next 50 index fund",
+    "AUM of ABSL Small Cap fund",
+    "3 year return of Aditya Birla Sun Life Flexi Cap",
+    "SIP returns of HDFC Pharma and Healthcare fund",
+    "Sharpe ratio of ICICI Prudential Corporate Bond Fund",
+    "rank of Kotak Multi Cap in its category",
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "Is there a lock-in for HDFC Silver ETF FoF?",
+    "Rajeev Thakkar education and experience",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "category average 5 year return for credit risk funds",
+    "PPFAS Mutual Fund registered office address",
+    "launch date of ABSL BSE total market index fund",
+    "funds similar to HDFC Flexi Cap",
+    "stamp duty on Nippon India large cap",
+    "How do I download my capital gains statement?",
+    "what is a benchmark for a mutual fund",
+    "What is credit risk in debt funds?",
+    "difference between direct plan and regular plan",
+    "what is a close ended scheme",
+    "dividend reinvestment option meaning",
+    "charges if I withdraw early from kotak multicap",
+    "how much do i need to start investing monthly in ppfas",
+    "how risky is the HDFC corporate bond fund"
+   ]
+  },
+  {
+   "strategy": "A_window400",
+   "model": "sentence-transformers/all-MiniLM-L6-v2",
+   "query_prefix": "noprefix",
+   "index_seconds": 10.0,
+   "query_ms": 2.3,
+   "dim": 384,
+   "gold_cos_min": 0.299,
+   "gold_cos_p10": 0.385,
+   "dense_global": {
+    "hit@1": 0.318,
+    "hit@5": 0.318,
+    "mrr": 0.318
+   },
+   "dense_scoped": {
+    "hit@1": 0.318,
+    "hit@5": 0.318,
+    "mrr": 0.318
+   },
+   "bm25_scoped": {
+    "hit@1": 0.295,
+    "hit@5": 0.318,
+    "mrr": 0.301
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.318,
+    "hit@5": 0.318,
+    "mrr": 0.318
+   },
+   "misses_hybrid": [
+    "What is the exit load of Kotak Multi Cap Fund?",
+    "expense ratio parag parikh flexi cap",
+    "Minimum SIP amount for HDFC Flexi Cap",
+    "riskometer of ICICI Prudential Large Cap",
+    "benchmark index of Nippon India Large Cap Fund",
+    "Who manages the Bandhan Small Cap fund",
+    "NAV of HDFC Nifty Next 50 index fund",
+    "AUM of ABSL Small Cap fund",
+    "3 year return of Aditya Birla Sun Life Flexi Cap",
+    "SIP returns of HDFC Pharma and Healthcare fund",
+    "Sharpe ratio of ICICI Prudential Corporate Bond Fund",
+    "rank of Kotak Multi Cap in its category",
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "Is there a lock-in for HDFC Silver ETF FoF?",
+    "Rajeev Thakkar education and experience",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "category average 5 year return for credit risk funds",
+    "PPFAS Mutual Fund registered office address",
+    "launch date of ABSL BSE total market index fund",
+    "funds similar to HDFC Flexi Cap",
+    "stamp duty on Nippon India large cap",
+    "How do I download my capital gains statement?",
+    "what is a benchmark for a mutual fund",
+    "What is credit risk in debt funds?",
+    "difference between direct plan and regular plan",
+    "what is a close ended scheme",
+    "dividend reinvestment option meaning",
+    "charges if I withdraw early from kotak multicap",
+    "how much do i need to start investing monthly in ppfas",
+    "how risky is the HDFC corporate bond fund"
+   ],
+   "misses_dense_global_top5": [
+    "What is the exit load of Kotak Multi Cap Fund?",
+    "expense ratio parag parikh flexi cap",
+    "Minimum SIP amount for HDFC Flexi Cap",
+    "riskometer of ICICI Prudential Large Cap",
+    "benchmark index of Nippon India Large Cap Fund",
+    "Who manages the Bandhan Small Cap fund",
+    "NAV of HDFC Nifty Next 50 index fund",
+    "AUM of ABSL Small Cap fund",
+    "3 year return of Aditya Birla Sun Life Flexi Cap",
+    "SIP returns of HDFC Pharma and Healthcare fund",
+    "Sharpe ratio of ICICI Prudential Corporate Bond Fund",
+    "rank of Kotak Multi Cap in its category",
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "Is there a lock-in for HDFC Silver ETF FoF?",
+    "Rajeev Thakkar education and experience",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "category average 5 year return for credit risk funds",
+    "PPFAS Mutual Fund registered office address",
+    "launch date of ABSL BSE total market index fund",
+    "funds similar to HDFC Flexi Cap",
+    "stamp duty on Nippon India large cap",
+    "How do I download my capital gains statement?",
+    "what is a benchmark for a mutual fund",
+    "What is credit risk in debt funds?",
+    "difference between direct plan and regular plan",
+    "what is a close ended scheme",
+    "dividend reinvestment option meaning",
+    "charges if I withdraw early from kotak multicap",
+    "how much do i need to start investing monthly in ppfas",
+    "how risky is the HDFC corporate bond fund"
+   ]
+  },
+  {
+   "strategy": "A_window400",
+   "model": "intfloat/e5-small-v2",
+   "query_prefix": "prefix",
+   "index_seconds": 31.1,
+   "query_ms": 4.4,
+   "dim": 384,
+   "gold_cos_min": 0.826,
+   "gold_cos_p10": 0.834,
+   "dense_global": {
+    "hit@1": 0.273,
+    "hit@5": 0.318,
+    "mrr": 0.292
+   },
+   "dense_scoped": {
+    "hit@1": 0.273,
+    "hit@5": 0.318,
+    "mrr": 0.292
+   },
+   "bm25_scoped": {
+    "hit@1": 0.295,
+    "hit@5": 0.318,
+    "mrr": 0.301
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.295,
+    "hit@5": 0.318,
+    "mrr": 0.301
+   },
+   "misses_hybrid": [
+    "What is the exit load of Kotak Multi Cap Fund?",
+    "expense ratio parag parikh flexi cap",
+    "Minimum SIP amount for HDFC Flexi Cap",
+    "riskometer of ICICI Prudential Large Cap",
+    "benchmark index of Nippon India Large Cap Fund",
+    "Who manages the Bandhan Small Cap fund",
+    "NAV of HDFC Nifty Next 50 index fund",
+    "AUM of ABSL Small Cap fund",
+    "3 year return of Aditya Birla Sun Life Flexi Cap",
+    "SIP returns of HDFC Pharma and Healthcare fund",
+    "Sharpe ratio of ICICI Prudential Corporate Bond Fund",
+    "rank of Kotak Multi Cap in its category",
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "Is there a lock-in for HDFC Silver ETF FoF?",
+    "Rajeev Thakkar education and experience",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "category average 5 year return for credit risk funds",
+    "PPFAS Mutual Fund registered office address",
+    "launch date of ABSL BSE total market index fund",
+    "funds similar to HDFC Flexi Cap",
+    "stamp duty on Nippon India large cap",
+    "How do I download my capital gains statement?",
+    "what is a benchmark for a mutual fund",
+    "What is credit risk in debt funds?",
+    "difference between direct plan and regular plan",
+    "what is a close ended scheme",
+    "dividend reinvestment option meaning",
+    "charges if I withdraw early from kotak multicap",
+    "how much do i need to start investing monthly in ppfas",
+    "how risky is the HDFC corporate bond fund"
+   ],
+   "misses_dense_global_top5": [
+    "What is the exit load of Kotak Multi Cap Fund?",
+    "expense ratio parag parikh flexi cap",
+    "Minimum SIP amount for HDFC Flexi Cap",
+    "riskometer of ICICI Prudential Large Cap",
+    "benchmark index of Nippon India Large Cap Fund",
+    "Who manages the Bandhan Small Cap fund",
+    "NAV of HDFC Nifty Next 50 index fund",
+    "AUM of ABSL Small Cap fund",
+    "3 year return of Aditya Birla Sun Life Flexi Cap",
+    "SIP returns of HDFC Pharma and Healthcare fund",
+    "Sharpe ratio of ICICI Prudential Corporate Bond Fund",
+    "rank of Kotak Multi Cap in its category",
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "Is there a lock-in for HDFC Silver ETF FoF?",
+    "Rajeev Thakkar education and experience",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "category average 5 year return for credit risk funds",
+    "PPFAS Mutual Fund registered office address",
+    "launch date of ABSL BSE total market index fund",
+    "funds similar to HDFC Flexi Cap",
+    "stamp duty on Nippon India large cap",
+    "How do I download my capital gains statement?",
+    "what is a benchmark for a mutual fund",
+    "What is credit risk in debt funds?",
+    "difference between direct plan and regular plan",
+    "what is a close ended scheme",
+    "dividend reinvestment option meaning",
+    "charges if I withdraw early from kotak multicap",
+    "how much do i need to start investing monthly in ppfas",
+    "how risky is the HDFC corporate bond fund"
+   ]
+  },
+  {
+   "strategy": "A_window400",
+   "model": "intfloat/e5-small-v2",
+   "query_prefix": "noprefix",
+   "index_seconds": 31.1,
+   "query_ms": 4.6,
+   "dim": 384,
+   "gold_cos_min": 0.819,
+   "gold_cos_p10": 0.829,
+   "dense_global": {
+    "hit@1": 0.273,
+    "hit@5": 0.318,
+    "mrr": 0.292
+   },
+   "dense_scoped": {
+    "hit@1": 0.273,
+    "hit@5": 0.318,
+    "mrr": 0.292
+   },
+   "bm25_scoped": {
+    "hit@1": 0.295,
+    "hit@5": 0.318,
+    "mrr": 0.301
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.295,
+    "hit@5": 0.318,
+    "mrr": 0.301
+   },
+   "misses_hybrid": [
+    "What is the exit load of Kotak Multi Cap Fund?",
+    "expense ratio parag parikh flexi cap",
+    "Minimum SIP amount for HDFC Flexi Cap",
+    "riskometer of ICICI Prudential Large Cap",
+    "benchmark index of Nippon India Large Cap Fund",
+    "Who manages the Bandhan Small Cap fund",
+    "NAV of HDFC Nifty Next 50 index fund",
+    "AUM of ABSL Small Cap fund",
+    "3 year return of Aditya Birla Sun Life Flexi Cap",
+    "SIP returns of HDFC Pharma and Healthcare fund",
+    "Sharpe ratio of ICICI Prudential Corporate Bond Fund",
+    "rank of Kotak Multi Cap in its category",
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "Is there a lock-in for HDFC Silver ETF FoF?",
+    "Rajeev Thakkar education and experience",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "category average 5 year return for credit risk funds",
+    "PPFAS Mutual Fund registered office address",
+    "launch date of ABSL BSE total market index fund",
+    "funds similar to HDFC Flexi Cap",
+    "stamp duty on Nippon India large cap",
+    "How do I download my capital gains statement?",
+    "what is a benchmark for a mutual fund",
+    "What is credit risk in debt funds?",
+    "difference between direct plan and regular plan",
+    "what is a close ended scheme",
+    "dividend reinvestment option meaning",
+    "charges if I withdraw early from kotak multicap",
+    "how much do i need to start investing monthly in ppfas",
+    "how risky is the HDFC corporate bond fund"
+   ],
+   "misses_dense_global_top5": [
+    "What is the exit load of Kotak Multi Cap Fund?",
+    "expense ratio parag parikh flexi cap",
+    "Minimum SIP amount for HDFC Flexi Cap",
+    "riskometer of ICICI Prudential Large Cap",
+    "benchmark index of Nippon India Large Cap Fund",
+    "Who manages the Bandhan Small Cap fund",
+    "NAV of HDFC Nifty Next 50 index fund",
+    "AUM of ABSL Small Cap fund",
+    "3 year return of Aditya Birla Sun Life Flexi Cap",
+    "SIP returns of HDFC Pharma and Healthcare fund",
+    "Sharpe ratio of ICICI Prudential Corporate Bond Fund",
+    "rank of Kotak Multi Cap in its category",
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "Is there a lock-in for HDFC Silver ETF FoF?",
+    "Rajeev Thakkar education and experience",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "category average 5 year return for credit risk funds",
+    "PPFAS Mutual Fund registered office address",
+    "launch date of ABSL BSE total market index fund",
+    "funds similar to HDFC Flexi Cap",
+    "stamp duty on Nippon India large cap",
+    "How do I download my capital gains statement?",
+    "what is a benchmark for a mutual fund",
+    "What is credit risk in debt funds?",
+    "difference between direct plan and regular plan",
+    "what is a close ended scheme",
+    "dividend reinvestment option meaning",
+    "charges if I withdraw early from kotak multicap",
+    "how much do i need to start investing monthly in ppfas",
+    "how risky is the HDFC corporate bond fund"
+   ]
+  },
+  {
+   "strategy": "B_section350",
+   "model": "BAAI/bge-small-en-v1.5",
+   "query_prefix": "prefix",
+   "index_seconds": 29.9,
+   "query_ms": 5.8,
+   "dim": 384,
+   "gold_cos_min": 0.588,
+   "gold_cos_p10": 0.701,
+   "dense_global": {
+    "hit@1": 0.864,
+    "hit@5": 0.955,
+    "mrr": 0.901
+   },
+   "dense_scoped": {
+    "hit@1": 0.864,
+    "hit@5": 1.0,
+    "mrr": 0.911
+   },
+   "bm25_scoped": {
+    "hit@1": 0.705,
+    "hit@5": 0.909,
+    "mrr": 0.805
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.932,
+    "hit@5": 0.977,
+    "mrr": 0.954
+   },
+   "misses_hybrid": [
+    "how much do i need to start investing monthly in ppfas"
+   ],
+   "misses_dense_global_top5": [
+    "AUM of ABSL Small Cap fund",
+    "What does expense ratio mean"
+   ]
+  },
+  {
+   "strategy": "B_section350",
+   "model": "BAAI/bge-small-en-v1.5",
+   "query_prefix": "noprefix",
+   "index_seconds": 29.9,
+   "query_ms": 4.3,
+   "dim": 384,
+   "gold_cos_min": 0.616,
+   "gold_cos_p10": 0.719,
+   "dense_global": {
+    "hit@1": 0.818,
+    "hit@5": 0.932,
+    "mrr": 0.866
+   },
+   "dense_scoped": {
+    "hit@1": 0.841,
+    "hit@5": 0.955,
+    "mrr": 0.891
+   },
+   "bm25_scoped": {
+    "hit@1": 0.705,
+    "hit@5": 0.909,
+    "mrr": 0.805
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.841,
+    "hit@5": 1.0,
+    "mrr": 0.901
+   },
+   "misses_hybrid": [],
+   "misses_dense_global_top5": [
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "funds similar to HDFC Flexi Cap",
+    "What does expense ratio mean"
+   ]
+  },
+  {
+   "strategy": "B_section350",
+   "model": "BAAI/bge-base-en-v1.5",
+   "query_prefix": "prefix",
+   "index_seconds": 6926.3,
+   "query_ms": 29.0,
+   "dim": 768,
+   "gold_cos_min": 0.587,
+   "gold_cos_p10": 0.645,
+   "dense_global": {
+    "hit@1": 0.932,
+    "hit@5": 1.0,
+    "mrr": 0.966
+   },
+   "dense_scoped": {
+    "hit@1": 0.955,
+    "hit@5": 1.0,
+    "mrr": 0.977
+   },
+   "bm25_scoped": {
+    "hit@1": 0.705,
+    "hit@5": 0.909,
+    "mrr": 0.805
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.909,
+    "hit@5": 1.0,
+    "mrr": 0.947
+   },
+   "misses_hybrid": [],
+   "misses_dense_global_top5": []
+  },
+  {
+   "strategy": "B_section350",
+   "model": "BAAI/bge-base-en-v1.5",
+   "query_prefix": "noprefix",
+   "index_seconds": 6926.3,
+   "query_ms": 18.6,
+   "dim": 768,
+   "gold_cos_min": 0.63,
+   "gold_cos_p10": 0.691,
+   "dense_global": {
+    "hit@1": 0.909,
+    "hit@5": 1.0,
+    "mrr": 0.955
+   },
+   "dense_scoped": {
+    "hit@1": 0.932,
+    "hit@5": 1.0,
+    "mrr": 0.966
+   },
+   "bm25_scoped": {
+    "hit@1": 0.705,
+    "hit@5": 0.909,
+    "mrr": 0.805
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.886,
+    "hit@5": 1.0,
+    "mrr": 0.939
+   },
+   "misses_hybrid": [],
+   "misses_dense_global_top5": []
+  },
+  {
+   "strategy": "B_section350",
+   "model": "sentence-transformers/all-MiniLM-L6-v2",
+   "query_prefix": "noprefix",
+   "index_seconds": 12.9,
+   "query_ms": 2.0,
+   "dim": 384,
+   "gold_cos_min": 0.314,
+   "gold_cos_p10": 0.472,
+   "dense_global": {
+    "hit@1": 0.773,
+    "hit@5": 0.955,
+    "mrr": 0.841
+   },
+   "dense_scoped": {
+    "hit@1": 0.841,
+    "hit@5": 1.0,
+    "mrr": 0.889
+   },
+   "bm25_scoped": {
+    "hit@1": 0.705,
+    "hit@5": 0.909,
+    "mrr": 0.805
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.841,
+    "hit@5": 0.955,
+    "mrr": 0.896
+   },
+   "misses_hybrid": [
+    "Who manages the Bandhan Small Cap fund",
+    "how much do i need to start investing monthly in ppfas"
+   ],
+   "misses_dense_global_top5": [
+    "What does expense ratio mean",
+    "how much do i need to start investing monthly in ppfas"
+   ]
+  },
+  {
+   "strategy": "B_section350",
+   "model": "intfloat/e5-small-v2",
+   "query_prefix": "prefix",
+   "index_seconds": 28.3,
+   "query_ms": 3.9,
+   "dim": 384,
+   "gold_cos_min": 0.816,
+   "gold_cos_p10": 0.856,
+   "dense_global": {
+    "hit@1": 0.864,
+    "hit@5": 0.932,
+    "mrr": 0.899
+   },
+   "dense_scoped": {
+    "hit@1": 0.909,
+    "hit@5": 1.0,
+    "mrr": 0.951
+   },
+   "bm25_scoped": {
+    "hit@1": 0.705,
+    "hit@5": 0.909,
+    "mrr": 0.805
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.932,
+    "hit@5": 1.0,
+    "mrr": 0.956
+   },
+   "misses_hybrid": [],
+   "misses_dense_global_top5": [
+    "What is an exit load?",
+    "What does expense ratio mean",
+    "how much do i need to start investing monthly in ppfas"
+   ]
+  },
+  {
+   "strategy": "B_section350",
+   "model": "intfloat/e5-small-v2",
+   "query_prefix": "noprefix",
+   "index_seconds": 28.3,
+   "query_ms": 3.9,
+   "dim": 384,
+   "gold_cos_min": 0.814,
+   "gold_cos_p10": 0.847,
+   "dense_global": {
+    "hit@1": 0.864,
+    "hit@5": 0.932,
+    "mrr": 0.903
+   },
+   "dense_scoped": {
+    "hit@1": 0.955,
+    "hit@5": 1.0,
+    "mrr": 0.977
+   },
+   "bm25_scoped": {
+    "hit@1": 0.705,
+    "hit@5": 0.909,
+    "mrr": 0.805
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.932,
+    "hit@5": 1.0,
+    "mrr": 0.962
+   },
+   "misses_hybrid": [],
+   "misses_dense_global_top5": [
+    "What is an exit load?",
+    "What does expense ratio mean",
+    "how much do i need to start investing monthly in ppfas"
+   ]
+  },
+  {
+   "strategy": "C_section350_clean_noholdings",
+   "model": "BAAI/bge-small-en-v1.5",
+   "query_prefix": "prefix",
+   "index_seconds": 14.7,
+   "query_ms": 5.5,
+   "dim": 384,
+   "gold_cos_min": 0.588,
+   "gold_cos_p10": 0.701,
+   "dense_global": {
+    "hit@1": 0.841,
+    "hit@5": 0.932,
+    "mrr": 0.878
+   },
+   "dense_scoped": {
+    "hit@1": 0.841,
+    "hit@5": 0.977,
+    "mrr": 0.888
+   },
+   "bm25_scoped": {
+    "hit@1": 0.727,
+    "hit@5": 0.909,
+    "mrr": 0.812
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.955,
+    "hit@5": 0.955,
+    "mrr": 0.958
+   },
+   "misses_hybrid": [
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "how much do i need to start investing monthly in ppfas"
+   ],
+   "misses_dense_global_top5": [
+    "AUM of ABSL Small Cap fund",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "What does expense ratio mean"
+   ]
+  },
+  {
+   "strategy": "C_section350_clean_noholdings",
+   "model": "BAAI/bge-small-en-v1.5",
+   "query_prefix": "noprefix",
+   "index_seconds": 14.7,
+   "query_ms": 3.9,
+   "dim": 384,
+   "gold_cos_min": 0.616,
+   "gold_cos_p10": 0.718,
+   "dense_global": {
+    "hit@1": 0.795,
+    "hit@5": 0.909,
+    "mrr": 0.848
+   },
+   "dense_scoped": {
+    "hit@1": 0.818,
+    "hit@5": 0.932,
+    "mrr": 0.874
+   },
+   "bm25_scoped": {
+    "hit@1": 0.727,
+    "hit@5": 0.909,
+    "mrr": 0.812
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.886,
+    "hit@5": 0.955,
+    "mrr": 0.912
+   },
+   "misses_hybrid": [
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?"
+   ],
+   "misses_dense_global_top5": [
+    "ISIN of Parag Parikh Flexi Cap direct growth",
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "funds similar to HDFC Flexi Cap",
+    "What does expense ratio mean"
+   ]
+  },
+  {
+   "strategy": "C_section350_clean_noholdings",
+   "model": "BAAI/bge-base-en-v1.5",
+   "query_prefix": "prefix",
+   "index_seconds": 46.8,
+   "query_ms": 20.8,
+   "dim": 768,
+   "gold_cos_min": 0.587,
+   "gold_cos_p10": 0.645,
+   "dense_global": {
+    "hit@1": 0.909,
+    "hit@5": 0.977,
+    "mrr": 0.943
+   },
+   "dense_scoped": {
+    "hit@1": 0.932,
+    "hit@5": 0.977,
+    "mrr": 0.955
+   },
+   "bm25_scoped": {
+    "hit@1": 0.727,
+    "hit@5": 0.909,
+    "mrr": 0.812
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.909,
+    "hit@5": 0.977,
+    "mrr": 0.936
+   },
+   "misses_hybrid": [
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?"
+   ],
+   "misses_dense_global_top5": [
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?"
+   ]
+  },
+  {
+   "strategy": "C_section350_clean_noholdings",
+   "model": "BAAI/bge-base-en-v1.5",
+   "query_prefix": "noprefix",
+   "index_seconds": 46.8,
+   "query_ms": 14.7,
+   "dim": 768,
+   "gold_cos_min": 0.63,
+   "gold_cos_p10": 0.691,
+   "dense_global": {
+    "hit@1": 0.909,
+    "hit@5": 0.977,
+    "mrr": 0.943
+   },
+   "dense_scoped": {
+    "hit@1": 0.932,
+    "hit@5": 0.977,
+    "mrr": 0.955
+   },
+   "bm25_scoped": {
+    "hit@1": 0.727,
+    "hit@5": 0.909,
+    "mrr": 0.812
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.909,
+    "hit@5": 0.977,
+    "mrr": 0.939
+   },
+   "misses_hybrid": [
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?"
+   ],
+   "misses_dense_global_top5": [
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?"
+   ]
+  },
+  {
+   "strategy": "C_section350_clean_noholdings",
+   "model": "sentence-transformers/all-MiniLM-L6-v2",
+   "query_prefix": "noprefix",
+   "index_seconds": 8.1,
+   "query_ms": 2.1,
+   "dim": 384,
+   "gold_cos_min": 0.308,
+   "gold_cos_p10": 0.468,
+   "dense_global": {
+    "hit@1": 0.773,
+    "hit@5": 0.932,
+    "mrr": 0.838
+   },
+   "dense_scoped": {
+    "hit@1": 0.841,
+    "hit@5": 0.977,
+    "mrr": 0.886
+   },
+   "bm25_scoped": {
+    "hit@1": 0.727,
+    "hit@5": 0.909,
+    "mrr": 0.812
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.864,
+    "hit@5": 0.955,
+    "mrr": 0.904
+   },
+   "misses_hybrid": [
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "how much do i need to start investing monthly in ppfas"
+   ],
+   "misses_dense_global_top5": [
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "What does expense ratio mean",
+    "how much do i need to start investing monthly in ppfas"
+   ]
+  },
+  {
+   "strategy": "C_section350_clean_noholdings",
+   "model": "intfloat/e5-small-v2",
+   "query_prefix": "prefix",
+   "index_seconds": 16.8,
+   "query_ms": 4.4,
+   "dim": 384,
+   "gold_cos_min": 0.816,
+   "gold_cos_p10": 0.855,
+   "dense_global": {
+    "hit@1": 0.864,
+    "hit@5": 0.909,
+    "mrr": 0.893
+   },
+   "dense_scoped": {
+    "hit@1": 0.932,
+    "hit@5": 0.977,
+    "mrr": 0.955
+   },
+   "bm25_scoped": {
+    "hit@1": 0.727,
+    "hit@5": 0.909,
+    "mrr": 0.812
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.909,
+    "hit@5": 0.977,
+    "mrr": 0.943
+   },
+   "misses_hybrid": [
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?"
+   ],
+   "misses_dense_global_top5": [
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "What is an exit load?",
+    "What does expense ratio mean",
+    "how much do i need to start investing monthly in ppfas"
+   ]
+  },
+  {
+   "strategy": "C_section350_clean_noholdings",
+   "model": "intfloat/e5-small-v2",
+   "query_prefix": "noprefix",
+   "index_seconds": 16.8,
+   "query_ms": 4.3,
+   "dim": 384,
+   "gold_cos_min": 0.814,
+   "gold_cos_p10": 0.847,
+   "dense_global": {
+    "hit@1": 0.864,
+    "hit@5": 0.909,
+    "mrr": 0.893
+   },
+   "dense_scoped": {
+    "hit@1": 0.955,
+    "hit@5": 0.977,
+    "mrr": 0.966
+   },
+   "bm25_scoped": {
+    "hit@1": 0.727,
+    "hit@5": 0.909,
+    "mrr": 0.812
+   },
+   "hybrid_scoped": {
+    "hit@1": 0.909,
+    "hit@5": 0.977,
+    "mrr": 0.943
+   },
+   "misses_hybrid": [
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?"
+   ],
+   "misses_dense_global_top5": [
+    "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+    "What is an exit load?",
+    "What does expense ratio mean",
+    "how much do i need to start investing monthly in ppfas"
+   ]
+  }
+ ],
+ "noise_dropped": {
+  "amfi-awareness-program": [
+   [
+    null,
+    "too-short"
+   ],
+   [
+    "Schedule of Investor Awareness Program",
+    "menu-like"
+   ],
+   [
+    "Dark",
+    "nav-heading"
+   ],
+   [
+    "View More",
+    "nav-heading"
+   ],
+   [
+    "Videos",
+    "nav-heading"
+   ]
+  ],
+  "amfi-glossary": [
+   [
+    null,
+    "navigated-to"
+   ]
+  ],
+  "amfi-investor": [
+   [
+    "Dark",
+    "nav-heading"
+   ],
+   [
+    "View More",
+    "nav-heading"
+   ],
+   [
+    "Videos",
+    "nav-heading"
+   ]
+  ],
+  "amfi-mfsh-home": [
+   [
+    "When the noise gets louder, choose focus. Mute The Noise",
+    "too-short"
+   ],
+   [
+    "Unclaimed ko claim karna Aasaan Hai!",
+    "too-short"
+   ],
+   [
+    "Mutual Funds KYC Aasaan Hai",
+    "too-short"
+   ],
+   [
+    "Mutual Funds Simplified.",
+    "too-short"
+   ],
+   [
+    "Scheme Performance Indicator",
+    "too-short"
+   ]
+  ],
+  "rta-cams-capital-gains": [
+   [
+    null,
+    "menu-like"
+   ],
+   [
+    "Quick Links",
+    "nav-heading"
+   ]
+  ],
+  "rta-cams-cas": [
+   [
+    null,
+    "menu-like"
+   ],
+   [
+    "Quick Links",
+    "nav-heading"
+   ]
+  ],
+  "sebi-cas": [
+   [
+    null,
+    "too-short"
+   ]
+  ],
+  "sebi-investor-home": [
+   [
+    "Money Matters : Lets Understand",
+    "too-short"
+   ],
+   [
+    "Vigilance Awareness Week 2026",
+    "too-short"
+   ],
+   [
+    "Topics of Interest",
+    "menu-like"
+   ]
+  ],
+  "sebi-secure-account": [
+   [
+    null,
+    "too-short"
+   ]
+  ],
+  "sebi-smart-investor": [
+   [
+    null,
+    "too-short"
+   ]
+  ]
+ },
+ "offtopic_best_cos": {
+  "What is the colour of HDFC Flexi Cap?": 0.744,
+  "Who won the cricket world cup?": 0.489,
+  "best pizza in Mumbai": 0.502,
+  "What is the weather today": 0.492,
+  "Tell me a joke about bonds": 0.629
+ }
+}

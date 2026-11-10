@@ -1,0 +1,55 @@
+{
+ "chunks": 387,
+ "queries": 44,
+ "text_answerable": 42,
+ "dense": {
+  "hit@1": 0.929,
+  "hit@5": 1.0,
+  "mrr": 0.96
+ },
+ "bm25": {
+  "hit@1": 0.786,
+  "hit@5": 1.0,
+  "mrr": 0.862
+ },
+ "hybrid": {
+  "hit@1": 0.952,
+  "hit@5": 1.0,
+  "mrr": 0.972
+ },
+ "hybrid_all_queries_raw": {
+  "hit@1": 0.909,
+  "hit@5": 0.955,
+  "mrr": 0.928
+ },
+ "hybrid_not_first": [
+  {
+   "q": "how much do i need to start investing monthly in ppfas",
+   "hybrid_rank": 2,
+   "got": [
+    "groww-ppfas-flexi-cap::fund-house::0",
+    "groww-ppfas-flexi-cap::investment-limits-and-lock-in::0",
+    "groww-ppfas-flexi-cap::fund-manager-mansi-kariya::0"
+   ]
+  },
+  {
+   "q": "how risky is the HDFC corporate bond fund",
+   "hybrid_rank": 3,
+   "got": [
+    "groww-hdfc-corporate-bond::corporate-bond-category-average-returns-for-periods-up-to-1-::0",
+    "groww-hdfc-corporate-bond::corporate-bond-category-average-annualised-returns::0",
+    "groww-hdfc-corporate-bond::scheme-details::0"
+   ]
+  }
+ ],
+ "answered_from_sql": [
+  {
+   "q": "Does Parag Parikh Flexi Cap hold Alphabet / Google shares?",
+   "gold_content_in_text_index": false
+  },
+  {
+   "q": "funds similar to HDFC Flexi Cap",
+   "gold_content_in_text_index": false
+  }
+ ]
+}

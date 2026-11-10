@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mutual-fund-faq"
+version = "0.1.0"
+description = "Facts-only RAG assistant for mutual fund scheme FAQs"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "httpx",
+    "playwright",
+    "selectolax",
+    "beautifulsoup4",
+    "pdfplumber",
+    "sqlalchemy",
+    "chromadb",
+    "rank-bm25",
+    "sentence-transformers",
+    "transformers",          # bge tokenizer for chunk sizes (ingest/chunker.py)
+    "numpy",                 # embeddings (ingest/indexer.py)
+    "rapidfuzz",
+    "groq",
+    "pydantic-settings",
+    "pyyaml",
+    "apscheduler",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "ruff",
+]
+
+[tool.setuptools.packages.find]
+where = ["backend"]
+include = ["app*", "ingest*"]
+
+[tool.pytest.ini_options]
+testpaths = ["backend/tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = ["slow: loads the real embedding model (deselect with -m 'not slow')"]
+
+[tool.ruff]
+line-length = 100
+src = ["backend"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

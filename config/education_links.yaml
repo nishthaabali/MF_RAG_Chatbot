@@ -1,0 +1,15 @@
+# topic -> source id from config/sources.yaml (never a raw URL, so every educational link is
+# on the allowlist and gets a fetched_at date for the "Last updated from sources" footer).
+# `default` is required.
+
+topics:
+  default: amfi-mfsh-home
+  choosing_a_fund: amfi-choosing-advisor
+  comparing_funds: amfi-compare-performance
+  risk: amfi-riskometer
+  sip_basics: amfi-sip
+  tax: amfi-exit-load
+  elss: amfi-elss
+  statements: sebi-cas
+  privacy: sebi-secure-account
+  scope: amfi-mfsh-home

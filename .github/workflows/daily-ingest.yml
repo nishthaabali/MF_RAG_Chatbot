@@ -1,0 +1,181 @@
+# Daily data refresh (docs/implementation-plan.md, Phase 11).
+#
+# Every day at 10:00 IST: restore yesterday's bundle, run the full ingestion pipeline on the
+# live sources (fetch -> parse/normalise -> clean -> chunk -> embed -> Chroma + BM25), check
+# the result, and publish it as a GitHub Release. Servers pull `data-latest` (app/jobs.py).
+# A run that fails any check publishes nothing, so `data-latest` keeps the last good bundle.
+
+name: Daily data refresh
+
+on:
+  schedule:
+    # GitHub cron is UTC: 04:30 UTC = 10:00 IST. Keep equal to ingestion.schedule_cron in
+    # config/settings.yaml (a test checks this). Scheduled runs can start some minutes late.
+    - cron: "30 4 * * *"
+  workflow_dispatch:
+    inputs:
+      rebuild_index:
+        description: Drop and rebuild the vector index
+        type: boolean
+        default: false
+      only:
+        description: Fetch only these source ids (space-separated; empty = all)
+        type: string
+        default: ""
+
+concurrency:
+  group: daily-ingest
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  PYTHONUTF8: "1"
+  APP_ENV: ci
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # CPU-only PyTorch: the default wheel pulls gigabytes of CUDA libraries.
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -e ".[dev]"
+
+      - name: Cache the embedding model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-BAAI-bge-small-en-v1.5
+
+      - name: Cache the Playwright browser
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('pyproject.toml') }}
+
+      - name: Install Chromium (sources with render browser)
+        run: python -m playwright install --with-deps chromium
+
+      - name: Restore the previous bundle
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p prev work
+          if gh release download data-latest --dir prev \
+               --pattern data-bundle.tar.gz --pattern data-bundle.tar.gz.sha256 \
+               --pattern bundle.json; then
+            cd backend
+            python -m ingest.bundle unpack ../prev/data-bundle.tar.gz \
+              --sha256 ../prev/data-bundle.tar.gz.sha256
+          else
+            echo "No previous bundle: building from scratch."
+            rm -f prev/*
+          fi
+
+      - name: Ingest
+        working-directory: backend
+        env:
+          REBUILD: ${{ inputs.rebuild_index }}
+          ONLY: ${{ inputs.only }}
+        run: |
+          args=(--report ../work/ingest_report.json)
+          if [ "$REBUILD" = "true" ]; then args+=(--rebuild-index); fi
+          if [ -n "$ONLY" ]; then
+            if ! [[ "$ONLY" =~ ^[a-z0-9\ -]+$ ]]; then echo "invalid source ids"; exit 1; fi
+            read -ra ids <<< "$ONLY"
+            args+=(--only "${ids[@]}")
+          fi
+          python -m ingest "${args[@]}" 2>&1 | tee ../work/ingest.log
+
+      - name: Quality gate
+        working-directory: backend
+        run: |
+          python -m ingest.gate --report ../work/ingest_report.json \
+            --previous ../prev/bundle.json \
+            --out ../work/gate_report.json --summary "$GITHUB_STEP_SUMMARY"
+
+      - name: Unit tests
+        working-directory: backend
+        run: python -m pytest -q -m "not slow"
+
+      - name: Evaluation without the LLM (routing, format, privacy)
+        run: python eval/run.py --no-llm --ignore-drift --no-save 2>&1 | tee work/eval.log
+
+      - name: Pack the bundle
+        working-directory: backend
+        run: |
+          python -m ingest.bundle pack --out ../dist \
+            --report ../work/ingest_report.json --gate ../work/gate_report.json
+
+      - name: Upload the bundle for publishing
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundle
+          path: dist/
+          retention-days: 3
+
+      - name: Upload run reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ingest-reports
+          path: work/
+          retention-days: 14
+          if-no-files-found: ignore
+
+  publish:
+    needs: ingest
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: bundle
+          path: dist
+
+      - name: Publish the dated release and move data-latest
+        run: |
+          id=$(jq -r .id dist/bundle.json)
+          tag="data-${id:0:10}"
+          notes="Corpus bundle ${id}: $(jq -r .chunk_count dist/bundle.json) chunks, $(jq -r '.sources | length' dist/bundle.json) sources. Built by run ${GITHUB_RUN_ID}."
+          # The archive first and bundle.json last: a server that reads the new bundle.json
+          # while the old archive is still there sees a checksum mismatch and retries later.
+          files=(dist/data-bundle.tar.gz dist/data-bundle.tar.gz.sha256 dist/bundle.json)
+          for t in "$tag" data-latest; do
+            if gh release view "$t" > /dev/null 2>&1; then
+              for f in "${files[@]}"; do gh release upload "$t" "$f" --clobber; done
+              gh release edit "$t" --notes "$notes"
+            else
+              gh release create "$t" "${files[@]}" --title "Data bundle ${t#data-}" \
+                --notes "$notes" --latest=false
+            fi
+          done
+
+      - name: Delete dated releases older than 14 days
+        run: |
+          cutoff=$(date -u -d '14 days ago' +%Y-%m-%d)
+          gh release list --limit 200 --json tagName --jq '.[].tagName' \
+            | grep -E '^data-[0-9]{4}-[0-9]{2}-[0-9]{2}$' \
+            | while read -r t; do
+                if [[ "${t#data-}" < "$cutoff" ]]; then
+                  gh release delete "$t" --cleanup-tag --yes
+                fi
+              done

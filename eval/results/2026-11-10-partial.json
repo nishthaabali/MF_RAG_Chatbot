@@ -1,0 +1,797 @@
+{
+ "date": "2026-11-10",
+ "golden": "golden.yaml",
+ "partial": true,
+ "config": {
+  "model": "openai/gpt-oss-120b",
+  "no_llm": false,
+  "min_relevance": 0.6,
+  "fuzzy_mean_min": 88,
+  "fuzzy_token_min": 75,
+  "overrides": {}
+ },
+ "elapsed_seconds": 141.9,
+ "summary": {
+  "buckets": {
+   "scheme_facts": {
+    "pass_rate": 1.0,
+    "passed": 10,
+    "counted": 10,
+    "skipped": 0
+   },
+   "general_facts": {
+    "pass_rate": 1.0,
+    "passed": 1,
+    "counted": 1,
+    "skipped": 0
+   },
+   "metrics": {
+    "pass_rate": 0.5,
+    "passed": 1,
+    "counted": 2,
+    "skipped": 0
+   },
+   "follow_ups": {
+    "pass_rate": 0.0,
+    "passed": 0,
+    "counted": 2,
+    "skipped": 0
+   }
+  },
+  "gates": {
+   "pii": {
+    "target": 1.0,
+    "value": null,
+    "met": null
+   },
+   "advisory": {
+    "target": 1.0,
+    "value": null,
+    "met": null
+   },
+   "performance_judgement": {
+    "target": 1.0,
+    "value": null,
+    "met": null
+   },
+   "format": {
+    "target": 1.0,
+    "value": 1.0,
+    "met": true
+   },
+   "factual": {
+    "target": 0.95,
+    "value": 0.9230769230769231,
+    "met": false
+   },
+   "follow_ups": {
+    "target": 0.9,
+    "value": 0.0,
+    "met": false
+   },
+   "other_routes": {
+    "target": 0.95,
+    "value": null,
+    "met": null
+   }
+  },
+  "follow_up_scheme_resolution": 1.0,
+  "replies": 17,
+  "routes": {
+   "answer": 13,
+   "no_evidence": 2,
+   "no_evidence_fallback": 1,
+   "clarify": 1
+  },
+  "llm_calls": 19,
+  "prompt_tokens": 20070,
+  "completion_tokens": 1911,
+  "llm_unavailable_replies": 0,
+  "validator_retries": 3,
+  "template_fallbacks": 0
+ },
+ "cases": [
+  {
+   "id": "sf-hdfc-flexi-managers",
+   "bucket": "scheme_facts",
+   "passed": true,
+   "skipped": false,
+   "turns": [
+    {
+     "q": "Who are the fund managers of HDFC Equity Fund?",
+     "type": "answer",
+     "route": "answer",
+     "scheme": "hdfc-flexi-cap",
+     "answer": "The fund managers of HDFC Flexi Cap Fund (Direct Plan - Growth) are Dhruv Muchhal and Amit Ganatra.",
+     "citation": "https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "compliance.no_judgement": true,
+      "route": true,
+      "scheme": true,
+      "citation": true,
+      "values": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 1,
+     "prompt_tokens": 1146,
+     "completion_tokens": 101,
+     "llm_unavailable": false,
+     "fallback_used": null,
+     "validator_failures": [],
+     "retrieval_top_score": 0.820489227771759,
+     "latency_ms": 15500
+    }
+   ]
+  },
+  {
+   "id": "sf-hdfc-cb-lumpsum",
+   "bucket": "scheme_facts",
+   "passed": true,
+   "skipped": false,
+   "turns": [
+    {
+     "q": "What is the minimum lumpsum investment in HDFC Medium Term Opportunities Fund?",
+     "type": "answer",
+     "route": "answer",
+     "scheme": "hdfc-corporate-bond",
+     "answer": "The minimum lumpsum investment in HDFC Corporate Bond Fund (Direct Plan - Growth) is ₹100.",
+     "citation": "https://groww.in/mutual-funds/hdfc-medium-term-opportunities-fund-direct-growth",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "compliance.no_judgement": true,
+      "route": true,
+      "scheme": true,
+      "citation": true,
+      "values": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 1,
+     "prompt_tokens": 982,
+     "completion_tokens": 107,
+     "llm_unavailable": false,
+     "fallback_used": null,
+     "validator_failures": [],
+     "retrieval_top_score": 0.8570518493652344,
+     "latency_ms": 1327
+    }
+   ]
+  },
+  {
+   "id": "sf-absl-mc-ter",
+   "bucket": "scheme_facts",
+   "passed": true,
+   "skipped": false,
+   "turns": [
+    {
+     "q": "ABSL Multicap TER?",
+     "type": "answer",
+     "route": "answer",
+     "scheme": "absl-multi-cap",
+     "answer": "The expense ratio of Aditya Birla Sun Life Multi Cap Fund (Direct Plan - Growth) is 1.01%.",
+     "citation": "https://groww.in/mutual-funds/aditya-birla-sun-life-multi-cap-fund-direct-growth",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "compliance.no_judgement": true,
+      "route": true,
+      "scheme": true,
+      "citation": true,
+      "values": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 1,
+     "prompt_tokens": 1143,
+     "completion_tokens": 86,
+     "llm_unavailable": false,
+     "fallback_used": null,
+     "validator_failures": [],
+     "retrieval_top_score": 0.8624358177185059,
+     "latency_ms": 1219
+    }
+   ]
+  },
+  {
+   "id": "sf-absl-sc-ter",
+   "bucket": "scheme_facts",
+   "passed": true,
+   "skipped": false,
+   "turns": [
+    {
+     "q": "Expense ratio of ABSL Small & Midcap",
+     "type": "answer",
+     "route": "answer",
+     "scheme": "absl-small-cap",
+     "answer": "The expense ratio of Aditya Birla Sun Life Small Cap Fund (Direct Plan - Growth) is 1.07%.",
+     "citation": "https://groww.in/mutual-funds/birla-sun-life-small-midcap-fund-direct-growth",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "compliance.no_judgement": true,
+      "route": true,
+      "scheme": true,
+      "citation": true,
+      "values": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 1,
+     "prompt_tokens": 1047,
+     "completion_tokens": 86,
+     "llm_unavailable": false,
+     "fallback_used": null,
+     "validator_failures": [],
+     "retrieval_top_score": 0.8538078665733337,
+     "latency_ms": 827
+    }
+   ]
+  },
+  {
+   "id": "sf-absl-cb-exit",
+   "bucket": "scheme_facts",
+   "passed": true,
+   "skipped": false,
+   "turns": [
+    {
+     "q": "Is there any exit load on Birla Sun Life Short Term Fund?",
+     "type": "answer",
+     "route": "answer",
+     "scheme": "absl-corporate-bond",
+     "answer": "The exit load for Aditya Birla Sun Life Corporate Bond Fund (Direct Plan - Growth) is Nil.",
+     "citation": "https://groww.in/mutual-funds/birla-sun-life-short-term-fund-direct-growth",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "compliance.no_judgement": true,
+      "route": true,
+      "scheme": true,
+      "citation": true,
+      "values": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 1,
+     "prompt_tokens": 1125,
+     "completion_tokens": 78,
+     "llm_unavailable": false,
+     "fallback_used": null,
+     "validator_failures": [],
+     "retrieval_top_score": 0.8703567981719971,
+     "latency_ms": 1108
+    }
+   ]
+  },
+  {
+   "id": "sf-nippon-lc-ter",
+   "bucket": "scheme_facts",
+   "passed": true,
+   "skipped": false,
+   "turns": [
+    {
+     "q": "Reliance Large Cap Fund expense ratio",
+     "type": "answer",
+     "route": "answer",
+     "scheme": "nippon-large-cap",
+     "answer": "The expense ratio of Nippon India Large Cap Fund (Direct Plan - Growth) is 0.85%.",
+     "citation": "https://groww.in/mutual-funds/nippon-india-large-cap-fund-direct-growth",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "compliance.no_judgement": true,
+      "route": true,
+      "scheme": true,
+      "citation": true,
+      "values": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 1,
+     "prompt_tokens": 1125,
+     "completion_tokens": 78,
+     "llm_unavailable": false,
+     "fallback_used": null,
+     "validator_failures": [],
+     "retrieval_top_score": 0.8307393789291382,
+     "latency_ms": 703
+    }
+   ]
+  },
+  {
+   "id": "sf-icici-lc-exit",
+   "bucket": "scheme_facts",
+   "passed": true,
+   "skipped": false,
+   "turns": [
+    {
+     "q": "What is the exit load of ICICI Pru Bluechip?",
+     "type": "answer",
+     "route": "answer",
+     "scheme": "icici-large-cap",
+     "answer": "The exit load of ICICI Prudential Large Cap Fund (Direct Plan - Growth) is 1% if redeemed within 1 month.",
+     "citation": "https://groww.in/mutual-funds/icici-prudential-large-cap-fund-direct-growth",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "compliance.no_judgement": true,
+      "route": true,
+      "scheme": true,
+      "citation": true,
+      "values": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 1,
+     "prompt_tokens": 1096,
+     "completion_tokens": 103,
+     "llm_unavailable": false,
+     "fallback_used": null,
+     "validator_failures": [],
+     "retrieval_top_score": 0.8484871983528137,
+     "latency_ms": 54562
+    }
+   ]
+  },
+  {
+   "id": "sf-icici-cb-ter",
+   "bucket": "scheme_facts",
+   "passed": true,
+   "skipped": false,
+   "turns": [
+    {
+     "q": "What is the TER of ICICI Pru Corporate Bond?",
+     "type": "answer",
+     "route": "answer",
+     "scheme": "icici-corporate-bond",
+     "answer": "The TER (expense ratio) of ICICI Prudential Corporate Bond Fund Direct Plan Growth is 0.37%.",
+     "citation": "https://groww.in/mutual-funds/icici-prudential-corporate-bond-fund-direct-plan-growth",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "compliance.no_judgement": true,
+      "route": true,
+      "scheme": true,
+      "citation": true,
+      "values": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 1,
+     "prompt_tokens": 1018,
+     "completion_tokens": 89,
+     "llm_unavailable": false,
+     "fallback_used": null,
+     "validator_failures": [],
+     "retrieval_top_score": 0.7990963459014893,
+     "latency_ms": 1000
+    }
+   ]
+  },
+  {
+   "id": "sf-ppfas-exit",
+   "bucket": "scheme_facts",
+   "passed": true,
+   "skipped": false,
+   "turns": [
+    {
+     "q": "Exit load of Parag Parikh Long Term Value Fund?",
+     "type": "answer",
+     "route": "answer",
+     "scheme": "ppfas-flexi-cap",
+     "answer": "The exit load for Parag Parikh Flexi Cap Fund (Direct Plan - Growth) is 2% if redeemed within 365 days and 1% if redeemed after 365 days but on or before 730 days for units above 10% of the investment.",
+     "citation": "https://groww.in/mutual-funds/parag-parikh-long-term-value-fund-direct-growth",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "compliance.no_judgement": true,
+      "route": true,
+      "scheme": true,
+      "citation": true,
+      "values": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 1,
+     "prompt_tokens": 1058,
+     "completion_tokens": 142,
+     "llm_unavailable": false,
+     "fallback_used": null,
+     "validator_failures": [],
+     "retrieval_top_score": 0.8419705629348755,
+     "latency_ms": 2047
+    }
+   ]
+  },
+  {
+   "id": "sf-edelweiss-ter",
+   "bucket": "scheme_facts",
+   "passed": true,
+   "skipped": false,
+   "turns": [
+    {
+     "q": "expense ratio Edelweiss Mid and Small Cap Fund",
+     "type": "answer",
+     "route": "answer",
+     "scheme": "edelweiss-mid-cap",
+     "answer": "The expense ratio of Edelweiss Mid Cap Fund (Direct Plan - Growth) is 0.70%.",
+     "citation": "https://groww.in/mutual-funds/edelweiss-mid-and-small-cap-fund-direct-growth",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "compliance.no_judgement": true,
+      "route": true,
+      "scheme": true,
+      "citation": true,
+      "values": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 1,
+     "prompt_tokens": 1094,
+     "completion_tokens": 89,
+     "llm_unavailable": false,
+     "fallback_used": null,
+     "validator_failures": [],
+     "retrieval_top_score": 0.7751816511154175,
+     "latency_ms": 1405
+    }
+   ]
+  },
+  {
+   "id": "gf-capital-gains",
+   "bucket": "general_facts",
+   "passed": true,
+   "skipped": false,
+   "turns": [
+    {
+     "q": "How do I download my capital gains statement?",
+     "type": "answer",
+     "route": "answer",
+     "scheme": null,
+     "answer": "To download your capital gains statement, fill out the form on the CAMS portal to request the statement, which will then be emailed to the registered address after you set a password for encryption.",
+     "citation": "https://www.camsonline.com/Investors/Statements/Capital-Gain&Capital-Loss-statement",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "compliance.no_judgement": true,
+      "route": true,
+      "citation": true,
+      "values": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 1,
+     "prompt_tokens": 1258,
+     "completion_tokens": 113,
+     "llm_unavailable": false,
+     "fallback_used": null,
+     "validator_failures": [],
+     "retrieval_top_score": 0.763232946395874,
+     "latency_ms": 1422
+    }
+   ]
+  },
+  {
+   "id": "met-bandhan-rank",
+   "bucket": "metrics",
+   "passed": true,
+   "skipped": false,
+   "turns": [
+    {
+     "q": "What is Bandhan Small Cap's Groww rank for 3-year returns?",
+     "type": "answer",
+     "route": "answer",
+     "scheme": "bandhan-small-cap",
+     "answer": "Bandhan Small Cap Fund (Direct Plan - Growth) has a Groww rank of 1 of 36 for 3-year returns as of 06 Nov 2026.",
+     "citation": "https://groww.in/mutual-funds/bandhan-small-cap-fund-direct-growth",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "compliance.no_judgement": true,
+      "route": true,
+      "scheme": true,
+      "citation": true,
+      "values": true,
+      "as_of": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 1,
+     "prompt_tokens": 1135,
+     "completion_tokens": 107,
+     "llm_unavailable": false,
+     "fallback_used": null,
+     "validator_failures": [],
+     "retrieval_top_score": 0.8697670102119446,
+     "latency_ms": 719
+    }
+   ]
+  },
+  {
+   "id": "met-ppfas-holdings",
+   "bucket": "metrics",
+   "passed": false,
+   "skipped": false,
+   "turns": [
+    {
+     "q": "What are the top holdings of Parag Parikh Flexi Cap Fund?",
+     "type": "no_evidence",
+     "route": "no_evidence_fallback",
+     "scheme": "ppfas-flexi-cap",
+     "answer": "I couldn't find that in my sources. You can check the scheme's official page here.",
+     "citation": "https://groww.in/mutual-funds/parag-parikh-long-term-value-fund-direct-growth",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "route": false,
+      "scheme": true,
+      "citation": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [
+      "route: got no_evidence (no_evidence_fallback), want ['answer']"
+     ],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 2,
+     "prompt_tokens": 2829,
+     "completion_tokens": 379,
+     "llm_unavailable": false,
+     "fallback_used": "validator",
+     "validator_failures": [
+      "basis_and_date#1",
+      "basis_and_date#2"
+     ],
+     "retrieval_top_score": 0.8095712661743164,
+     "latency_ms": 56030
+    }
+   ]
+  },
+  {
+   "id": "fu-switch-scheme",
+   "bucket": "follow_ups",
+   "passed": false,
+   "skipped": false,
+   "turns": [
+    {
+     "q": "Expense ratio of HDFC Flexi Cap?",
+     "type": "answer",
+     "route": "answer",
+     "scheme": "hdfc-flexi-cap",
+     "answer": "The expense ratio of HDFC Flexi Cap Fund (Direct Plan - Growth) is 0.75%.",
+     "citation": "https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "compliance.no_judgement": true,
+      "route": true,
+      "scheme": true,
+      "citation": true,
+      "values": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 1,
+     "prompt_tokens": 1103,
+     "completion_tokens": 87,
+     "llm_unavailable": false,
+     "fallback_used": null,
+     "validator_failures": [],
+     "retrieval_top_score": 0.8315820693969727,
+     "latency_ms": 1015
+    },
+    {
+     "q": "And for Bandhan Small Cap?",
+     "type": "no_evidence",
+     "route": "no_evidence",
+     "scheme": "bandhan-small-cap",
+     "answer": "I couldn't find that in my sources. You can check the scheme's official page here.",
+     "citation": "https://groww.in/mutual-funds/bandhan-small-cap-fund-direct-growth",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "route": false,
+      "scheme": true,
+      "citation": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [
+      "route: got no_evidence (no_evidence), want ['answer']"
+     ],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 2,
+     "prompt_tokens": 1389,
+     "completion_tokens": 120,
+     "llm_unavailable": false,
+     "fallback_used": null,
+     "validator_failures": [
+      "answerable#1"
+     ],
+     "retrieval_top_score": 0.7889646291732788,
+     "latency_ms": 1531
+    }
+   ]
+  },
+  {
+   "id": "fu-clarify-icici",
+   "bucket": "follow_ups",
+   "passed": false,
+   "skipped": false,
+   "turns": [
+    {
+     "q": "What is the exit load of the large cap fund?",
+     "type": "clarify",
+     "route": "clarify",
+     "scheme": null,
+     "answer": "Which scheme do you mean: Aditya Birla Sun Life Large Cap Fund, Nippon India Large Cap Fund or ICICI Prudential Large Cap Fund?",
+     "citation": "https://www.mutualfundssahihai.com/en",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "route": true,
+      "candidates": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 0,
+     "prompt_tokens": 0,
+     "completion_tokens": 0,
+     "llm_unavailable": false,
+     "fallback_used": null,
+     "validator_failures": [],
+     "retrieval_top_score": null,
+     "latency_ms": 0
+    },
+    {
+     "q": "the ICICI one",
+     "type": "no_evidence",
+     "route": "no_evidence",
+     "scheme": "icici-large-cap",
+     "answer": "I couldn't find that in my sources. You can check the scheme's official page here.",
+     "citation": "https://groww.in/mutual-funds/icici-prudential-large-cap-fund-direct-growth",
+     "last_updated": "2026-11-09",
+     "checks": {
+      "format.sentences": true,
+      "format.no_url_in_answer": true,
+      "format.one_link": true,
+      "format.allowlisted": true,
+      "format.footer": true,
+      "compliance.no_advice": true,
+      "route": false,
+      "scheme": true,
+      "citation": true,
+      "privacy.no_text_in_logs": true
+     },
+     "failures": [
+      "route: got no_evidence (no_evidence), want ['answer']"
+     ],
+     "skipped": null,
+     "format_ok": true,
+     "llm_calls": 2,
+     "prompt_tokens": 1522,
+     "completion_tokens": 146,
+     "llm_unavailable": false,
+     "fallback_used": null,
+     "validator_failures": [
+      "answerable#1"
+     ],
+     "retrieval_top_score": 0.831070065498352,
+     "latency_ms": 1436
+    }
+   ]
+  }
+ ]
+}

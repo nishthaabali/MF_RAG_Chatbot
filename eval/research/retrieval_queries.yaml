@@ -1,0 +1,141 @@
+description: 'Labelled retrieval queries (docs/chunking-research.md §2). gold_source is a regex on source_id;
+  gold_section a regex searched in the chunk''s section heading (empty = any section). answered_from:
+  sql marks queries whose evidence is deliberately not in the text index (holdings -> scheme_holdings,
+  similar funds -> scheme_peers); they are reported separately. 2026-11-09: ''What is an exit load?''
+  now also accepts the glossary''s Exit Load entry, which entered the corpus after these labels were written
+  (glossary pagination fix).'
+queries:
+- q: What is the exit load of Kotak Multi Cap Fund?
+  gold_source: groww-kotak-multi-cap
+  gold_section: Costs
+- q: expense ratio parag parikh flexi cap
+  gold_source: groww-ppfas-flexi-cap
+  gold_section: Costs
+- q: Minimum SIP amount for HDFC Flexi Cap
+  gold_source: groww-hdfc-flexi-cap
+  gold_section: limits
+- q: riskometer of ICICI Prudential Large Cap
+  gold_source: groww-icici-large-cap
+  gold_section: Scheme details
+- q: benchmark index of Nippon India Large Cap Fund
+  gold_source: groww-nippon-large-cap
+  gold_section: Scheme details
+- q: Who manages the Bandhan Small Cap fund
+  gold_source: groww-bandhan-small-cap
+  gold_section: Scheme details|Fund manager
+- q: What is the investment objective of Edelweiss Mid Cap?
+  gold_source: groww-edelweiss-mid-cap
+  gold_section: objective
+- q: NAV of HDFC Nifty Next 50 index fund
+  gold_source: groww-hdfc-nifty-next-50
+  gold_section: NAV
+- q: AUM of ABSL Small Cap fund
+  gold_source: groww-absl-small-cap
+  gold_section: NAV
+- q: 3 year return of Aditya Birla Sun Life Flexi Cap
+  gold_source: groww-absl-flexi-cap
+  gold_section: Annualised|Absolute
+- q: SIP returns of HDFC Pharma and Healthcare fund
+  gold_source: groww-hdfc-pharma-healthcare
+  gold_section: SIP returns
+- q: Sharpe ratio of ICICI Prudential Corporate Bond Fund
+  gold_source: groww-icici-corporate-bond
+  gold_section: Risk measures
+- q: rank of Kotak Multi Cap in its category
+  gold_source: groww-kotak-multi-cap
+  gold_section: Rank
+- q: ISIN of Parag Parikh Flexi Cap direct growth
+  gold_source: groww-ppfas-flexi-cap
+  gold_section: Identifiers
+- q: Is there a lock-in for HDFC Silver ETF FoF?
+  gold_source: groww-hdfc-silver-etf-fof
+  gold_section: limits
+- q: Rajeev Thakkar education and experience
+  gold_source: groww-ppfas-flexi-cap
+  gold_section: Rajeev Thakkar
+- q: Does Parag Parikh Flexi Cap hold Alphabet / Google shares?
+  gold_source: groww-ppfas-flexi-cap
+  gold_section: Portfolio holdings
+  answered_from: sql
+- q: category average 5 year return for credit risk funds
+  gold_source: groww-absl-credit-risk
+  gold_section: category average
+- q: PPFAS Mutual Fund registered office address
+  gold_source: groww-ppfas-flexi-cap
+  gold_section: Fund house
+- q: launch date of ABSL BSE total market index fund
+  gold_source: groww-absl-bse-total-market
+  gold_section: Scheme details
+- q: funds similar to HDFC Flexi Cap
+  gold_source: groww-hdfc-flexi-cap
+  gold_section: Similar
+  answered_from: sql
+- q: stamp duty on Nippon India large cap
+  gold_source: groww-nippon-large-cap
+  gold_section: Costs
+- q: What is the lock-in period of an ELSS fund?
+  gold_source: amfi-elss
+  gold_section: ''
+- q: How do I download my capital gains statement?
+  gold_source: rta-cams-capital-gains
+  gold_section: Capital Gain
+- q: How can I get a consolidated account statement (CAS)?
+  gold_source: rta-cams-cas|sebi-cas
+  gold_section: ''
+- q: What is an exit load?
+  gold_source: amfi-exit-load|amfi-glossary
+  gold_section: ^(What costs|Exit Load)
+- q: What is a riskometer and how is it calculated?
+  gold_source: amfi-riskometer
+  gold_section: ''
+- q: What is a systematic investment plan?
+  gold_source: amfi-sip
+  gold_section: ''
+- q: What does expense ratio mean
+  gold_source: amfi-exit-load|amfi-glossary
+  gold_section: ''
+- q: what is a benchmark for a mutual fund
+  gold_source: amfi-glossary
+  gold_section: Benchmark
+- q: What is credit risk in debt funds?
+  gold_source: amfi-glossary
+  gold_section: Credit risk
+- q: difference between direct plan and regular plan
+  gold_source: amfi-glossary
+  gold_section: Direct Plans
+- q: what is a close ended scheme
+  gold_source: amfi-glossary
+  gold_section: Close-Ended
+- q: How should I compare two mutual fund schemes?
+  gold_source: amfi-compare-performance
+  gold_section: ''
+- q: Should I go through a distributor or advisor?
+  gold_source: amfi-choosing-advisor
+  gold_section: ''
+- q: low risk vs high risk investments
+  gold_source: amfi-risk
+  gold_section: Low Risk
+- q: What is a mutual fund and how does it work?
+  gold_source: amfi-what-is-mutual-fund|amfi-mf-basics|amfi-mfsh-home
+  gold_section: ''
+- q: things a smart investor checks before investing
+  gold_source: sebi-smart-investor
+  gold_section: ''
+- q: how to keep my demat account secure
+  gold_source: sebi-secure-account
+  gold_section: ''
+- q: dividend reinvestment option meaning
+  gold_source: amfi-glossary
+  gold_section: Dividend Reinvest
+- q: charges if I withdraw early from kotak multicap
+  gold_source: groww-kotak-multi-cap
+  gold_section: Costs
+- q: how much do i need to start investing monthly in ppfas
+  gold_source: groww-ppfas-flexi-cap
+  gold_section: limits
+- q: how risky is the HDFC corporate bond fund
+  gold_source: groww-hdfc-corporate-bond
+  gold_section: Scheme details|Risk measures
+- q: tax benefit 80C mutual fund
+  gold_source: amfi-elss
+  gold_section: ''

@@ -1,0 +1,1925 @@
+{
+ "date": "2026-11-10",
+ "min_relevance": {
+  "current": 0.6,
+  "recommended": 0.6,
+  "sweep": [
+   {
+    "threshold": 0.4,
+    "false_refusals": [],
+    "false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What was the closing price of ICICI Prudential Large Cap on its launch day in 1990?",
+     "How many employees work on Nippon India Large Cap?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ],
+    "general_false_refusals": [],
+    "general_false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ]
+   },
+   {
+    "threshold": 0.425,
+    "false_refusals": [],
+    "false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What was the closing price of ICICI Prudential Large Cap on its launch day in 1990?",
+     "How many employees work on Nippon India Large Cap?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ],
+    "general_false_refusals": [],
+    "general_false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ]
+   },
+   {
+    "threshold": 0.45,
+    "false_refusals": [],
+    "false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What was the closing price of ICICI Prudential Large Cap on its launch day in 1990?",
+     "How many employees work on Nippon India Large Cap?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ],
+    "general_false_refusals": [],
+    "general_false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ]
+   },
+   {
+    "threshold": 0.475,
+    "false_refusals": [],
+    "false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What was the closing price of ICICI Prudential Large Cap on its launch day in 1990?",
+     "How many employees work on Nippon India Large Cap?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ],
+    "general_false_refusals": [],
+    "general_false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ]
+   },
+   {
+    "threshold": 0.5,
+    "false_refusals": [],
+    "false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What was the closing price of ICICI Prudential Large Cap on its launch day in 1990?",
+     "How many employees work on Nippon India Large Cap?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ],
+    "general_false_refusals": [],
+    "general_false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ]
+   },
+   {
+    "threshold": 0.525,
+    "false_refusals": [],
+    "false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What was the closing price of ICICI Prudential Large Cap on its launch day in 1990?",
+     "How many employees work on Nippon India Large Cap?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ],
+    "general_false_refusals": [],
+    "general_false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ]
+   },
+   {
+    "threshold": 0.55,
+    "false_refusals": [],
+    "false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What was the closing price of ICICI Prudential Large Cap on its launch day in 1990?",
+     "How many employees work on Nippon India Large Cap?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ],
+    "general_false_refusals": [],
+    "general_false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ]
+   },
+   {
+    "threshold": 0.575,
+    "false_refusals": [],
+    "false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What was the closing price of ICICI Prudential Large Cap on its launch day in 1990?",
+     "How many employees work on Nippon India Large Cap?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ],
+    "general_false_refusals": [],
+    "general_false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ]
+   },
+   {
+    "threshold": 0.6,
+    "false_refusals": [],
+    "false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What was the closing price of ICICI Prudential Large Cap on its launch day in 1990?",
+     "How many employees work on Nippon India Large Cap?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ],
+    "general_false_refusals": [],
+    "general_false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ]
+   },
+   {
+    "threshold": 0.625,
+    "false_refusals": [],
+    "false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What was the closing price of ICICI Prudential Large Cap on its launch day in 1990?",
+     "How many employees work on Nippon India Large Cap?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ],
+    "general_false_refusals": [],
+    "general_false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?",
+     "What is the minimum age to open a demat account in Japan?"
+    ]
+   },
+   {
+    "threshold": 0.65,
+    "false_refusals": [],
+    "false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What was the closing price of ICICI Prudential Large Cap on its launch day in 1990?",
+     "How many employees work on Nippon India Large Cap?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?"
+    ],
+    "general_false_refusals": [],
+    "general_false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?"
+    ]
+   },
+   {
+    "threshold": 0.675,
+    "false_refusals": [
+     "How small can a SIP instalment be according to AMFI?"
+    ],
+    "false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What was the closing price of ICICI Prudential Large Cap on its launch day in 1990?",
+     "How many employees work on Nippon India Large Cap?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?"
+    ],
+    "general_false_refusals": [
+     "How small can a SIP instalment be according to AMFI?"
+    ],
+    "general_false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?"
+    ]
+   },
+   {
+    "threshold": 0.7,
+    "false_refusals": [
+     "Who should I update my PAN with to receive the CAS?",
+     "How small can a SIP instalment be according to AMFI?"
+    ],
+    "false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What was the closing price of ICICI Prudential Large Cap on its launch day in 1990?",
+     "How many employees work on Nippon India Large Cap?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?"
+    ],
+    "general_false_refusals": [
+     "Who should I update my PAN with to receive the CAS?",
+     "How small can a SIP instalment be according to AMFI?"
+    ],
+    "general_false_answers": [
+     "What is the penalty for late payment of a credit card bill in mutual funds?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?"
+    ]
+   },
+   {
+    "threshold": 0.725,
+    "false_refusals": [
+     "Who should I update my PAN with to receive the CAS?",
+     "How small can a SIP instalment be according to AMFI?"
+    ],
+    "false_answers": [
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What was the closing price of ICICI Prudential Large Cap on its launch day in 1990?",
+     "How many employees work on Nippon India Large Cap?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?"
+    ],
+    "general_false_refusals": [
+     "Who should I update my PAN with to receive the CAS?",
+     "How small can a SIP instalment be according to AMFI?"
+    ],
+    "general_false_answers": [
+     "What is the interest rate on a mutual fund loan against units?",
+     "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+     "What is the interest rate on a mutual fund loan against units?",
+     "What is the maximum speed of a mutual fund?"
+    ]
+   },
+   {
+    "threshold": 0.75,
+    "false_refusals": [
+     "What is a CAS?",
+     "Who should I update my PAN with to receive the CAS?",
+     "What does total expense ratio mean?",
+     "How small can a SIP instalment be according to AMFI?",
+     "What is a direct plan?"
+    ],
+    "false_answers": [
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+     "What was the closing price of ICICI Prudential Large Cap on its launch day in 1990?",
+     "How many employees work on Nippon India Large Cap?"
+    ],
+    "general_false_refusals": [
+     "What is a CAS?",
+     "Who should I update my PAN with to receive the CAS?",
+     "What does total expense ratio mean?",
+     "How small can a SIP instalment be according to AMFI?",
+     "What is a direct plan?"
+    ],
+    "general_false_answers": []
+   }
+  ],
+  "rows": [
+   {
+    "q": "What is the expense ratio of HDFC Flexi Cap Fund?",
+    "expect": "answer",
+    "source": "sf-hdfc-flexi-ter",
+    "scope": "scheme",
+    "top_score": 0.8336099982261658,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "exit load hdfc flexicap",
+    "expect": "answer",
+    "source": "sf-hdfc-flexi-exit",
+    "scope": "scheme",
+    "top_score": 0.8482420444488525,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Who are the fund managers of HDFC Equity Fund?",
+    "expect": "answer",
+    "source": "sf-hdfc-flexi-managers",
+    "scope": "scheme",
+    "top_score": 0.820489227771759,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Min SIP for HDFC Silver ETF FoF?",
+    "expect": "answer",
+    "source": "sf-hdfc-silver-minsip",
+    "scope": "scheme",
+    "top_score": 0.8649000525474548,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Is there an exit load on the HDFC Silver ETF Fund of Fund?",
+    "expect": "answer",
+    "source": "sf-hdfc-silver-exit",
+    "scope": "scheme",
+    "top_score": 0.8703842163085938,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What benchmark does HDFC Silver FoF track?",
+    "expect": "answer",
+    "source": "sf-hdfc-silver-benchmark",
+    "scope": "scheme",
+    "top_score": 0.8667072057723999,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "TER of HDFC Pharma and Healthcare Fund direct plan",
+    "expect": "answer",
+    "source": "sf-hdfc-pharma-ter",
+    "scope": "scheme",
+    "top_score": 0.8519322276115417,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the exit load for HDFC Pharma?",
+    "expect": "answer",
+    "source": "sf-hdfc-pharma-exit",
+    "scope": "scheme",
+    "top_score": 0.9044227600097656,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Which index is the benchmark for HDFC Healthcare Fund?",
+    "expect": "answer",
+    "source": "sf-hdfc-pharma-benchmark",
+    "scope": "scheme",
+    "top_score": 0.8370141983032227,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Does HDFC Nifty Next 50 Index Fund have an exit load?",
+    "expect": "answer",
+    "source": "sf-hdfc-nn50-exit",
+    "scope": "scheme",
+    "top_score": 0.8720888495445251,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "expense ratio of HDFC Next 50 Index",
+    "expect": "answer",
+    "source": "sf-hdfc-nn50-ter",
+    "scope": "scheme",
+    "top_score": 0.8923812508583069,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the riskometer rating of HDFC Nifty Next 50?",
+    "expect": "answer",
+    "source": "sf-hdfc-nn50-risk",
+    "scope": "scheme",
+    "top_score": 0.8686507344245911,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "How risky is HDFC Corporate Bond Fund as per its riskometer?",
+    "expect": "answer",
+    "source": "sf-hdfc-cb-risk",
+    "scope": "scheme",
+    "top_score": 0.8252997398376465,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Benchmark of HDFC Corporate Bond?",
+    "expect": "answer",
+    "source": "sf-hdfc-cb-benchmark",
+    "scope": "scheme",
+    "top_score": 0.8413330912590027,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the minimum lumpsum investment in HDFC Medium Term Opportunities Fund?",
+    "expect": "answer",
+    "source": "sf-hdfc-cb-lumpsum",
+    "scope": "scheme",
+    "top_score": 0.8570518493652344,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What's the expense ratio of Aditya Birla Sun Life Flexi Cap Fund?",
+    "expect": "answer",
+    "source": "sf-absl-flexi-ter",
+    "scope": "scheme",
+    "top_score": 0.8563793897628784,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "exit load for Birla Sun Life Equity Fund",
+    "expect": "answer",
+    "source": "sf-absl-flexi-exit",
+    "scope": "scheme",
+    "top_score": 0.8848967552185059,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "ABSL Flexi Cap benchmark index",
+    "expect": "answer",
+    "source": "sf-absl-flexi-benchmark",
+    "scope": "scheme",
+    "top_score": 0.9004052877426147,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "How much is the expense ratio of ABSL Large Cap?",
+    "expect": "answer",
+    "source": "sf-absl-lc-ter",
+    "scope": "scheme",
+    "top_score": 0.8516735434532166,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Who manages Aditya Birla Sun Life Large Cap Fund?",
+    "expect": "answer",
+    "source": "sf-absl-lc-manager",
+    "scope": "scheme",
+    "top_score": 0.8696743249893188,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the benchmark of ABSL Large Cap Fund?",
+    "expect": "answer",
+    "source": "sf-absl-lc-benchmark",
+    "scope": "scheme",
+    "top_score": 0.859462559223175,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Minimum lumpsum amount for ABSL Multi Cap?",
+    "expect": "answer",
+    "source": "sf-absl-mc-lumpsum",
+    "scope": "scheme",
+    "top_score": 0.876785397529602,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "aditya birla sun life multi cap fund benchmark",
+    "expect": "answer",
+    "source": "sf-absl-mc-benchmark",
+    "scope": "scheme",
+    "top_score": 0.9078238010406494,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "ABSL Multicap TER?",
+    "expect": "answer",
+    "source": "sf-absl-mc-ter",
+    "scope": "scheme",
+    "top_score": 0.8624358177185059,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the minimum one-time investment for Aditya Birla Sun Life Small Cap Fund?",
+    "expect": "answer",
+    "source": "sf-absl-sc-lumpsum",
+    "scope": "scheme",
+    "top_score": 0.8810224533081055,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Expense ratio of ABSL Small & Midcap",
+    "expect": "answer",
+    "source": "sf-absl-sc-ter",
+    "scope": "scheme",
+    "top_score": 0.8538078665733337,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Which benchmark is ABSL Small Cap measured against?",
+    "expect": "answer",
+    "source": "sf-absl-sc-benchmark",
+    "scope": "scheme",
+    "top_score": 0.8620061874389648,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the minimum SIP for ABSL BSE Total Market Index Fund?",
+    "expect": "answer",
+    "source": "sf-absl-tm-minsip",
+    "scope": "scheme",
+    "top_score": 0.893805742263794,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "exit load of Aditya Birla Sun Life BSE Total Market Index Fund",
+    "expect": "answer",
+    "source": "sf-absl-tm-exit",
+    "scope": "scheme",
+    "top_score": 0.9124675989151001,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "benchmark of ABSL Total Market Index",
+    "expect": "answer",
+    "source": "sf-absl-tm-benchmark",
+    "scope": "scheme",
+    "top_score": 0.8966716527938843,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the riskometer level of ABSL Credit Risk Fund?",
+    "expect": "answer",
+    "source": "sf-absl-cr-risk",
+    "scope": "scheme",
+    "top_score": 0.8646576404571533,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Aditya Birla Sun Life Credit Risk Fund expense ratio",
+    "expect": "answer",
+    "source": "sf-absl-cr-ter",
+    "scope": "scheme",
+    "top_score": 0.8817858695983887,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What benchmark does the ABSL Credit Risk fund use?",
+    "expect": "answer",
+    "source": "sf-absl-cr-benchmark",
+    "scope": "scheme",
+    "top_score": 0.8560866117477417,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "expense ratio of Aditya Birla Sun Life Corporate Bond Fund",
+    "expect": "answer",
+    "source": "sf-absl-cb-ter",
+    "scope": "scheme",
+    "top_score": 0.8894461393356323,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Who is the fund manager of ABSL Corporate Bond?",
+    "expect": "answer",
+    "source": "sf-absl-cb-manager",
+    "scope": "scheme",
+    "top_score": 0.8564677834510803,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Is there any exit load on Birla Sun Life Short Term Fund?",
+    "expect": "answer",
+    "source": "sf-absl-cb-exit",
+    "scope": "scheme",
+    "top_score": 0.8703567981719971,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the exit load of Nippon India Large Cap Fund?",
+    "expect": "answer",
+    "source": "sf-nippon-lc-exit",
+    "scope": "scheme",
+    "top_score": 0.8740472793579102,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "benchmark index of Nippon India Large Cap Fund",
+    "expect": "answer",
+    "source": "sf-nippon-lc-benchmark",
+    "scope": "scheme",
+    "top_score": 0.847388505935669,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Reliance Large Cap Fund expense ratio",
+    "expect": "answer",
+    "source": "sf-nippon-lc-ter",
+    "scope": "scheme",
+    "top_score": 0.8307393789291382,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "riskometer of ICICI Prudential Large Cap",
+    "expect": "answer",
+    "source": "sf-icici-lc-risk",
+    "scope": "scheme",
+    "top_score": 0.8559867143630981,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the exit load of ICICI Pru Bluechip?",
+    "expect": "answer",
+    "source": "sf-icici-lc-exit",
+    "scope": "scheme",
+    "top_score": 0.8484871983528137,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "ICICI Prudential Large Cap Fund expense ratio?",
+    "expect": "answer",
+    "source": "sf-icici-lc-ter",
+    "scope": "scheme",
+    "top_score": 0.8608452677726746,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the TER of ICICI Pru Corporate Bond?",
+    "expect": "answer",
+    "source": "sf-icici-cb-ter",
+    "scope": "scheme",
+    "top_score": 0.7990963459014893,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "minimum sip ICICI Prudential Corporate Bond Fund",
+    "expect": "answer",
+    "source": "sf-icici-cb-minsip",
+    "scope": "scheme",
+    "top_score": 0.8805296421051025,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What risk level does the riskometer show for ICICI Prudential Corporate Bond Fund?",
+    "expect": "answer",
+    "source": "sf-icici-cb-risk",
+    "scope": "scheme",
+    "top_score": 0.8229730129241943,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the expense ratio of Parag Parikh Flexi Cap Fund?",
+    "expect": "answer",
+    "source": "sf-ppfas-ter",
+    "scope": "scheme",
+    "top_score": 0.8460517525672913,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "how much do I need to invest monthly in ppfas flexi cap at minimum",
+    "expect": "answer",
+    "source": "sf-ppfas-minsip",
+    "scope": "scheme",
+    "top_score": 0.8679524660110474,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Exit load of Parag Parikh Long Term Value Fund?",
+    "expect": "answer",
+    "source": "sf-ppfas-exit",
+    "scope": "scheme",
+    "top_score": 0.8419705629348755,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "expense ratio of parag parikh flexy cap",
+    "expect": "answer",
+    "source": "sf-ppfas-typo",
+    "scope": "scheme",
+    "top_score": 0.856955885887146,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the exit load of Bandhan Small Cap Fund?",
+    "expect": "answer",
+    "source": "sf-bandhan-exit",
+    "scope": "scheme",
+    "top_score": 0.8660236597061157,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Bandhan Small Cap minimum lumpsum",
+    "expect": "answer",
+    "source": "sf-bandhan-lumpsum",
+    "scope": "scheme",
+    "top_score": 0.8793246150016785,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Who manages the Bandhan Small Cap fund?",
+    "expect": "answer",
+    "source": "sf-bandhan-managers",
+    "scope": "scheme",
+    "top_score": 0.830327033996582,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "expense ratio of bandan small cap",
+    "expect": "answer",
+    "source": "sf-bandhan-typo",
+    "scope": "scheme",
+    "top_score": 0.8111262917518616,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the exit load of Kotak Multi Cap Fund?",
+    "expect": "answer",
+    "source": "sf-kotak-exit",
+    "scope": "scheme",
+    "top_score": 0.8799282312393188,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Kotak Multicap expense ratio",
+    "expect": "answer",
+    "source": "sf-kotak-ter",
+    "scope": "scheme",
+    "top_score": 0.8448418974876404,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is Kotak Multi-Cap's benchmark?",
+    "expect": "answer",
+    "source": "sf-kotak-benchmark",
+    "scope": "scheme",
+    "top_score": 0.8269767761230469,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Does Kotak Multi Cap Fund have a lock-in period?",
+    "expect": "answer",
+    "source": "sf-kotak-lockin",
+    "scope": "scheme",
+    "top_score": 0.8375183343887329,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What's the exit load on Edelweiss Mid Cap Fund?",
+    "expect": "answer",
+    "source": "sf-edelweiss-exit",
+    "scope": "scheme",
+    "top_score": 0.8508009910583496,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Edelweiss Mid Cap benchmark",
+    "expect": "answer",
+    "source": "sf-edelweiss-benchmark",
+    "scope": "scheme",
+    "top_score": 0.8442428112030029,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "expense ratio Edelweiss Mid and Small Cap Fund",
+    "expect": "answer",
+    "source": "sf-edelweiss-ter",
+    "scope": "scheme",
+    "top_score": 0.7751816511154175,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "minimum sip for edelwiess mid cap",
+    "expect": "answer",
+    "source": "sf-edelweiss-typo",
+    "scope": "scheme",
+    "top_score": 0.8405460119247437,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What are the expense ratio and exit load of HDFC Flexi Cap?",
+    "expect": "answer",
+    "source": "sf-hdfc-flexi-two-fields",
+    "scope": "scheme",
+    "top_score": 0.9010143280029297,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the lock-in period of an ELSS fund?",
+    "expect": "answer",
+    "source": "gf-elss-lockin",
+    "scope": "general",
+    "top_score": 0.782703697681427,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "How much deduction can I claim under Section 80C by investing in ELSS?",
+    "expect": "answer",
+    "source": "gf-elss-80c",
+    "scope": "general",
+    "top_score": 0.750274658203125,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "How do I get my Consolidated Account Statement?",
+    "expect": "answer",
+    "source": "gf-cas-how",
+    "scope": "general",
+    "top_score": 0.772972822189331,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "How do I download my capital gains statement?",
+    "expect": "answer",
+    "source": "gf-capital-gains",
+    "scope": "general",
+    "top_score": 0.763232946395874,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is a CAS?",
+    "expect": "answer",
+    "source": "gf-cas-what",
+    "scope": "general",
+    "top_score": 0.7469217777252197,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Who should I update my PAN with to receive the CAS?",
+    "expect": "answer",
+    "source": "gf-cas-pan",
+    "scope": "general",
+    "top_score": 0.6877893805503845,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "How many risk levels does the riskometer have?",
+    "expect": "answer",
+    "source": "gf-riskometer-levels",
+    "scope": "general",
+    "top_score": 0.8088927865028381,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "How often is a scheme's riskometer evaluated?",
+    "expect": "answer",
+    "source": "gf-riskometer-frequency",
+    "scope": "general",
+    "top_score": 0.7624483108520508,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What does the riskometer of a mutual fund show?",
+    "expect": "answer",
+    "source": "gf-riskometer-meaning",
+    "scope": "general",
+    "top_score": 0.8954347968101501,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is an exit load?",
+    "expect": "answer",
+    "source": "gf-exit-load",
+    "scope": "general",
+    "top_score": 0.7532361149787903,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What does total expense ratio mean?",
+    "expect": "answer",
+    "source": "gf-ter",
+    "scope": "general",
+    "top_score": 0.745954692363739,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is a systematic investment plan?",
+    "expect": "answer",
+    "source": "gf-sip",
+    "scope": "general",
+    "top_score": 0.8036835193634033,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "How small can a SIP instalment be according to AMFI?",
+    "expect": "answer",
+    "source": "gf-sip-min",
+    "scope": "general",
+    "top_score": 0.6733330488204956,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is NAV in mutual funds?",
+    "expect": "answer",
+    "source": "gf-nav",
+    "scope": "general",
+    "top_score": 0.7864630222320557,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is a direct plan?",
+    "expect": "answer",
+    "source": "gf-direct-plan",
+    "scope": "general",
+    "top_score": 0.7428123354911804,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is a benchmark for a mutual fund?",
+    "expect": "answer",
+    "source": "gf-benchmark",
+    "scope": "general",
+    "top_score": 0.8850862979888916,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "3-year annualised return of Edelweiss Mid Cap?",
+    "expect": "answer",
+    "source": "met-edelweiss-3y",
+    "scope": "scheme",
+    "top_score": 0.8404215574264526,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "NAV of Kotak Multi Cap?",
+    "expect": "answer",
+    "source": "met-kotak-nav",
+    "scope": "scheme",
+    "top_score": 0.8422878980636597,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the AUM of Parag Parikh Flexi Cap Fund?",
+    "expect": "answer",
+    "source": "met-ppfas-aum",
+    "scope": "scheme",
+    "top_score": 0.8231418132781982,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What was the 1 year return of HDFC Silver ETF FoF?",
+    "expect": "answer",
+    "source": "met-silver-1y",
+    "scope": "scheme",
+    "top_score": 0.8749756813049316,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "5 year return of ICICI Prudential Large Cap Fund",
+    "expect": "answer",
+    "source": "met-icici-lc-5y",
+    "scope": "scheme",
+    "top_score": 0.8551719188690186,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is Bandhan Small Cap's Groww rank for 3-year returns?",
+    "expect": "answer",
+    "source": "met-bandhan-rank",
+    "scope": "scheme",
+    "top_score": 0.8697670102119446,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "HDFC Corporate Bond Fund 3 year annualized return",
+    "expect": "answer",
+    "source": "met-hdfc-cb-3y",
+    "scope": "scheme",
+    "top_score": 0.8590859174728394,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "current NAV of Nippon India Large Cap Fund",
+    "expect": "answer",
+    "source": "met-nippon-nav",
+    "scope": "scheme",
+    "top_score": 0.8561278581619263,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Fund size of HDFC Nifty Next 50 Index Fund?",
+    "expect": "answer",
+    "source": "met-nn50-aum",
+    "scope": "scheme",
+    "top_score": 0.8903293609619141,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the NAV of ABSL Small Cap Fund?",
+    "expect": "answer",
+    "source": "met-absl-sc-nav",
+    "scope": "scheme",
+    "top_score": 0.8574405908584595,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "5-year annualised return of HDFC Flexi Cap",
+    "expect": "answer",
+    "source": "met-hdfc-flexi-5y",
+    "scope": "scheme",
+    "top_score": 0.8719230890274048,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the 10 year annualised return of Aditya Birla Sun Life Large Cap Fund?",
+    "expect": "answer",
+    "source": "met-absl-lc-10y",
+    "scope": "scheme",
+    "top_score": 0.8786976337432861,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the category average 3-year return for Edelweiss Mid Cap's category?",
+    "expect": "answer",
+    "source": "met-edelweiss-cat-avg",
+    "scope": "scheme",
+    "top_score": 0.8615118265151978,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What are the top holdings of Parag Parikh Flexi Cap Fund?",
+    "expect": "answer",
+    "source": "met-ppfas-holdings",
+    "scope": "scheme",
+    "top_score": 0.8095712661743164,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "AUM of ICICI Pru Corporate Bond",
+    "expect": "answer",
+    "source": "met-icici-cb-aum",
+    "scope": "scheme",
+    "top_score": 0.8181712627410889,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Exit load of Kotak Multi Cap?",
+    "expect": "answer",
+    "source": "fu-kotak-benchmark",
+    "scope": "scheme",
+    "top_score": 0.8834206461906433,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "and its benchmark?",
+    "expect": "answer",
+    "source": "fu-kotak-benchmark",
+    "scope": "scheme",
+    "top_score": 0.8495371341705322,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the expense ratio of PPFAS Flexi Cap?",
+    "expect": "answer",
+    "source": "fu-ppfas-minsip",
+    "scope": "scheme",
+    "top_score": 0.8580143451690674,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What about its minimum SIP?",
+    "expect": "answer",
+    "source": "fu-ppfas-minsip",
+    "scope": "scheme",
+    "top_score": 0.8765267133712769,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Tell me the riskometer level of HDFC Corporate Bond Fund",
+    "expect": "answer",
+    "source": "fu-hdfc-cb-exit",
+    "scope": "scheme",
+    "top_score": 0.8536028861999512,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "and the exit load?",
+    "expect": "answer",
+    "source": "fu-hdfc-cb-exit",
+    "scope": "scheme",
+    "top_score": 0.8651636242866516,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the benchmark of Edelweiss Mid Cap Fund?",
+    "expect": "answer",
+    "source": "fu-edelweiss-return",
+    "scope": "scheme",
+    "top_score": 0.8209728598594666,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is its 3 year annualised return?",
+    "expect": "answer",
+    "source": "fu-edelweiss-return",
+    "scope": "scheme",
+    "top_score": 0.834485650062561,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Expense ratio of HDFC Flexi Cap?",
+    "expect": "answer",
+    "source": "fu-switch-scheme",
+    "scope": "scheme",
+    "top_score": 0.8315820693969727,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "And for Bandhan Small Cap?",
+    "expect": "answer",
+    "source": "fu-switch-scheme",
+    "scope": "scheme",
+    "top_score": 0.7889646291732788,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Who manages ABSL Credit Risk Fund?",
+    "expect": "answer",
+    "source": "fu-absl-cr-risk",
+    "scope": "scheme",
+    "top_score": 0.8441271781921387,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is this fund's riskometer level?",
+    "expect": "answer",
+    "source": "fu-absl-cr-risk",
+    "scope": "scheme",
+    "top_score": 0.8796430230140686,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "NAV of Nippon India Large Cap Fund?",
+    "expect": "answer",
+    "source": "fu-nippon-ter",
+    "scope": "scheme",
+    "top_score": 0.8432472348213196,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "and its expense ratio?",
+    "expect": "answer",
+    "source": "fu-nippon-ter",
+    "scope": "scheme",
+    "top_score": 0.8295422792434692,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Minimum SIP for Bandhan Small Cap Fund?",
+    "expect": "answer",
+    "source": "fu-bandhan-lumpsum",
+    "scope": "scheme",
+    "top_score": 0.8661661148071289,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "what about the minimum lumpsum?",
+    "expect": "answer",
+    "source": "fu-bandhan-lumpsum",
+    "scope": "scheme",
+    "top_score": 0.873546838760376,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What's the expense ratio of HDFC Silver ETF FoF?",
+    "expect": "answer",
+    "source": "fu-silver-three-turns",
+    "scope": "scheme",
+    "top_score": 0.8792545795440674,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "OK, what is its exit load then?",
+    "expect": "answer",
+    "source": "fu-silver-three-turns",
+    "scope": "scheme",
+    "top_score": 0.8951873183250427,
+    "structured": true,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the colour of HDFC Flexi Cap?",
+    "expect": "no_evidence",
+    "source": "or-no-evidence-scheme",
+    "scope": "scheme",
+    "top_score": 0.7864256501197815,
+    "structured": false,
+    "supported": false,
+    "no_hits": false
+   },
+   {
+    "q": "What is the penalty for late payment of a credit card bill in mutual funds?",
+    "expect": "no_evidence",
+    "source": "or-no-evidence-general",
+    "scope": "general",
+    "top_score": 0.7112516164779663,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+    "expect": "no_evidence",
+    "source": "or-no-evidence-ceo",
+    "scope": "scheme",
+    "top_score": 0.7680059671401978,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the GST number of HDFC Silver ETF FoF?",
+    "expect": "no_evidence",
+    "source": "or-no-evidence-gst",
+    "scope": "scheme",
+    "top_score": 0.8321259021759033,
+    "structured": false,
+    "supported": false,
+    "no_hits": false
+   },
+   {
+    "q": "What is the interest rate on a mutual fund loan against units?",
+    "expect": "no_evidence",
+    "source": "or-no-evidence-loan",
+    "scope": "general",
+    "top_score": 0.730076789855957,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the colour of HDFC Flexi Cap?",
+    "expect": "no_evidence",
+    "source": "UNANSWERABLE",
+    "scope": "scheme",
+    "top_score": 0.7864256501197815,
+    "structured": false,
+    "supported": false,
+    "no_hits": false
+   },
+   {
+    "q": "Who is the CEO of the company behind Kotak Multi Cap Fund?",
+    "expect": "no_evidence",
+    "source": "UNANSWERABLE",
+    "scope": "scheme",
+    "top_score": 0.7680059671401978,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "Who audits the accounts of Bandhan Small Cap Fund?",
+    "expect": "no_evidence",
+    "source": "UNANSWERABLE",
+    "scope": "scheme",
+    "top_score": 0.7319670915603638,
+    "structured": false,
+    "supported": false,
+    "no_hits": false
+   },
+   {
+    "q": "What is the customer care number for Edelweiss Mid Cap?",
+    "expect": "no_evidence",
+    "source": "UNANSWERABLE",
+    "scope": "scheme",
+    "top_score": 0.7454146146774292,
+    "structured": false,
+    "supported": false,
+    "no_hits": false
+   },
+   {
+    "q": "When is the next dividend date of Parag Parikh Flexi Cap?",
+    "expect": "no_evidence",
+    "source": "UNANSWERABLE",
+    "scope": "scheme",
+    "top_score": 0.8246575593948364,
+    "structured": false,
+    "supported": false,
+    "no_hits": false
+   },
+   {
+    "q": "What was the closing price of ICICI Prudential Large Cap on its launch day in 1990?",
+    "expect": "no_evidence",
+    "source": "UNANSWERABLE",
+    "scope": "scheme",
+    "top_score": 0.7855736017227173,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "How many employees work on Nippon India Large Cap?",
+    "expect": "no_evidence",
+    "source": "UNANSWERABLE",
+    "scope": "scheme",
+    "top_score": 0.7513774633407593,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the GST number of HDFC Silver ETF FoF?",
+    "expect": "no_evidence",
+    "source": "UNANSWERABLE",
+    "scope": "scheme",
+    "top_score": 0.8321259021759033,
+    "structured": false,
+    "supported": false,
+    "no_hits": false
+   },
+   {
+    "q": "Which stock exchange lists the mutual fund penalty for late SIP payment?",
+    "expect": "no_evidence",
+    "source": "UNANSWERABLE",
+    "scope": "general",
+    "top_score": 0.7431826591491699,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the interest rate on a mutual fund loan against units?",
+    "expect": "no_evidence",
+    "source": "UNANSWERABLE",
+    "scope": "general",
+    "top_score": 0.730076789855957,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "How do I change the password of my bank netbanking account?",
+    "expect": "no_evidence",
+    "source": "UNANSWERABLE",
+    "scope": "general",
+    "top_score": 0.5993874073028564,
+    "structured": false,
+    "supported": false,
+    "no_hits": false
+   },
+   {
+    "q": "What is the maximum speed of a mutual fund?",
+    "expect": "no_evidence",
+    "source": "UNANSWERABLE",
+    "scope": "general",
+    "top_score": 0.7401196956634521,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   },
+   {
+    "q": "What is the refund policy for unused mutual fund vouchers?",
+    "expect": "no_evidence",
+    "source": "UNANSWERABLE",
+    "scope": "general",
+    "top_score": 0.6919094324111938,
+    "structured": false,
+    "supported": false,
+    "no_hits": false
+   },
+   {
+    "q": "What is the minimum age to open a demat account in Japan?",
+    "expect": "no_evidence",
+    "source": "UNANSWERABLE",
+    "scope": "general",
+    "top_score": 0.6420348882675171,
+    "structured": false,
+    "supported": true,
+    "no_hits": false
+   }
+  ]
+ },
+ "fuzzy": {
+  "current": [
+   88,
+   75
+  ],
+  "recommended": [
+   88,
+   75
+  ],
+  "sweep": [
+   {
+    "fuzzy_mean_min": 80,
+    "fuzzy_token_min": 70,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 82,
+    "fuzzy_token_min": 70,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 84,
+    "fuzzy_token_min": 70,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 86,
+    "fuzzy_token_min": 70,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 88,
+    "fuzzy_token_min": 70,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 90,
+    "fuzzy_token_min": 70,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 92,
+    "fuzzy_token_min": 70,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 94,
+    "fuzzy_token_min": 70,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER",
+     "HDFC Flexy Cap expense ratio"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 96,
+    "fuzzy_token_min": 70,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER",
+     "HDFC Flexy Cap expense ratio"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 80,
+    "fuzzy_token_min": 75,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 82,
+    "fuzzy_token_min": 75,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 84,
+    "fuzzy_token_min": 75,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 86,
+    "fuzzy_token_min": 75,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 88,
+    "fuzzy_token_min": 75,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 90,
+    "fuzzy_token_min": 75,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 92,
+    "fuzzy_token_min": 75,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 94,
+    "fuzzy_token_min": 75,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER",
+     "HDFC Flexy Cap expense ratio"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 96,
+    "fuzzy_token_min": 75,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER",
+     "HDFC Flexy Cap expense ratio"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 80,
+    "fuzzy_token_min": 80,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 82,
+    "fuzzy_token_min": 80,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 84,
+    "fuzzy_token_min": 80,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 86,
+    "fuzzy_token_min": 80,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 88,
+    "fuzzy_token_min": 80,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 90,
+    "fuzzy_token_min": 80,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 92,
+    "fuzzy_token_min": 80,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 94,
+    "fuzzy_token_min": 80,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER",
+     "HDFC Flexy Cap expense ratio"
+    ],
+    "wrong": []
+   },
+   {
+    "fuzzy_mean_min": 96,
+    "fuzzy_token_min": 80,
+    "missed": [
+     "Aditya Birla Sun Lfe Flexi Cap TER",
+     "HDFC Flexy Cap expense ratio"
+    ],
+    "wrong": []
+   }
+  ]
+ }
+}

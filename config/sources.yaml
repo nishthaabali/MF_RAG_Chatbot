@@ -1,0 +1,281 @@
+# URL allowlist. No URL outside this file is ever fetched or cited.
+#
+# Fields
+#   id          unique source id (also the data/raw/<id>/ folder name)
+#   url         https URL
+#   type        scheme_page | amfi | sebi | rta_help
+#   render      static (httpx) | browser (Playwright). Groww pages are server-rendered (all facts
+#               are in the embedded __NEXT_DATA__ JSON), so they are fetched as static HTML.
+#   scheme_id   scheme_page only; links the page to config/aliases.yaml
+#   amc         scheme_page only; AMC id from config/aliases.yaml `amcs`
+#   name        scheme_page: scheme name as shown on the live page title (checked 2026-11-09)
+#               other types: short description of what the page covers
+#   category    scheme_page only
+#
+# NOTE: several Groww URL slugs are legacy names and now open a different scheme than the
+# slug suggests (e.g. ".../birla-sun-life-short-term-fund-..." is the ABSL Corporate Bond
+# Fund). `name` follows the live page, not the slug. See docs/corpus-review.md.
+
+sources:
+  # ---------------------------------------------------------------- Groww scheme pages (19)
+  - id: groww-hdfc-flexi-cap
+    url: https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: hdfc-flexi-cap
+    amc: hdfc
+    name: HDFC Flexi Cap Fund
+    category: Equity - Flexi Cap
+  - id: groww-hdfc-silver-etf-fof
+    url: https://groww.in/mutual-funds/hdfc-silver-etf-fof-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: hdfc-silver-etf-fof
+    amc: hdfc
+    name: HDFC Silver ETF FoF
+    category: FoF - Commodity
+  - id: groww-hdfc-pharma-healthcare
+    url: https://groww.in/mutual-funds/hdfc-pharma-and-healthcare-fund-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: hdfc-pharma-healthcare
+    amc: hdfc
+    name: HDFC Pharma And Healthcare Fund
+    category: Equity - Sectoral
+  - id: groww-hdfc-nifty-next-50
+    url: https://groww.in/mutual-funds/hdfc-nifty-next-50-index-fund-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: hdfc-nifty-next-50
+    amc: hdfc
+    name: HDFC NIFTY Next 50 Index Fund
+    category: Index
+  - id: groww-hdfc-corporate-bond
+    url: https://groww.in/mutual-funds/hdfc-medium-term-opportunities-fund-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: hdfc-corporate-bond
+    amc: hdfc
+    name: HDFC Corporate Bond Fund
+    category: Debt - Corporate Bond
+  - id: groww-absl-flexi-cap
+    url: https://groww.in/mutual-funds/birla-sun-life-equity-fund-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: absl-flexi-cap
+    amc: absl
+    name: Aditya Birla Sun Life Flexi Cap Fund
+    category: Equity - Flexi Cap
+  - id: groww-absl-large-cap
+    url: https://groww.in/mutual-funds/aditya-birla-sun-life-large-cap-direct-fund-growth
+    type: scheme_page
+    render: static
+    scheme_id: absl-large-cap
+    amc: absl
+    name: Aditya Birla Sun Life Large Cap Fund
+    category: Equity - Large Cap
+  - id: groww-absl-multi-cap
+    url: https://groww.in/mutual-funds/aditya-birla-sun-life-multi-cap-fund-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: absl-multi-cap
+    amc: absl
+    name: Aditya Birla Sun Life Multi Cap Fund
+    category: Equity - Multi Cap
+  - id: groww-absl-small-cap
+    url: https://groww.in/mutual-funds/birla-sun-life-small-midcap-fund-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: absl-small-cap
+    amc: absl
+    name: Aditya Birla Sun Life Small Cap Fund
+    category: Equity - Small Cap
+  - id: groww-absl-bse-total-market
+    url: https://groww.in/mutual-funds/aditya-birla-sun-life-bse-total-market-index-fund-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: absl-bse-total-market
+    amc: absl
+    name: Aditya Birla Sun Life BSE Total Market Index Fund
+    category: Index
+  - id: groww-absl-credit-risk
+    url: https://groww.in/mutual-funds/birla-sun-life-corporate-bond-fund-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: absl-credit-risk
+    amc: absl
+    name: Aditya Birla Sun Life Credit Risk Fund
+    category: Debt - Credit Risk
+  - id: groww-absl-corporate-bond
+    url: https://groww.in/mutual-funds/birla-sun-life-short-term-fund-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: absl-corporate-bond
+    amc: absl
+    name: Aditya Birla Sun Life Corporate Bond Fund
+    category: Debt - Corporate Bond
+  - id: groww-nippon-large-cap
+    url: https://groww.in/mutual-funds/nippon-india-large-cap-fund-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: nippon-large-cap
+    amc: nippon
+    name: Nippon India Large Cap Fund
+    category: Equity - Large Cap
+  - id: groww-icici-large-cap
+    url: https://groww.in/mutual-funds/icici-prudential-large-cap-fund-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: icici-large-cap
+    amc: icici
+    name: ICICI Prudential Large Cap Fund
+    category: Equity - Large Cap
+  - id: groww-icici-corporate-bond
+    url: https://groww.in/mutual-funds/icici-prudential-corporate-bond-fund-direct-plan-growth
+    type: scheme_page
+    render: static
+    scheme_id: icici-corporate-bond
+    amc: icici
+    name: ICICI Prudential Corporate Bond Fund
+    category: Debt - Corporate Bond
+  - id: groww-ppfas-flexi-cap
+    url: https://groww.in/mutual-funds/parag-parikh-long-term-value-fund-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: ppfas-flexi-cap
+    amc: ppfas
+    name: Parag Parikh Flexi Cap Fund
+    category: Equity - Flexi Cap
+  - id: groww-bandhan-small-cap
+    url: https://groww.in/mutual-funds/bandhan-small-cap-fund-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: bandhan-small-cap
+    amc: bandhan
+    name: Bandhan Small Cap Fund
+    category: Equity - Small Cap
+  - id: groww-kotak-multi-cap
+    url: https://groww.in/mutual-funds/kotak-multi-cap-fund-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: kotak-multi-cap
+    amc: kotak
+    name: Kotak Multi Cap Fund
+    category: Equity - Multi Cap
+  - id: groww-edelweiss-mid-cap
+    url: https://groww.in/mutual-funds/edelweiss-mid-and-small-cap-fund-direct-growth
+    type: scheme_page
+    render: static
+    scheme_id: edelweiss-mid-cap
+    amc: edelweiss
+    name: Edelweiss Mid Cap Fund
+    category: Equity - Mid Cap
+
+  # ------------------------------------------------ AMFI / Mutual Funds Sahi Hai (investor education)
+  - id: amfi-mfsh-home
+    url: https://www.mutualfundssahihai.com/en
+    type: amfi
+    render: static
+    name: Mutual Funds Sahi Hai home (AMFI investor education); default educational link
+  - id: amfi-what-is-mutual-fund
+    url: https://www.mutualfundssahihai.com/en/what-is-a-mutual-fund
+    type: amfi
+    render: static
+    name: What is a mutual fund
+  - id: amfi-mf-basics
+    url: https://www.mutualfundssahihai.com/en/mutual-funds-basics
+    type: amfi
+    render: static
+    name: Mutual fund basics for beginners
+  - id: amfi-exit-load
+    url: https://www.mutualfundssahihai.com/en/what-costs-does-one-incur-while-redeeming-mutual-fund-units
+    type: amfi
+    render: static
+    name: Costs on redemption, including exit load and capital gains tax
+  - id: amfi-elss
+    url: https://www.mutualfundssahihai.com/en/elss-fund-tax-saving-mutual-fund
+    type: amfi
+    render: static
+    name: ELSS tax-saving funds and the 3-year lock-in
+  - id: amfi-risk
+    url: https://www.mutualfundssahihai.com/en/low-risk-vs-high-risk-investments
+    type: amfi
+    render: static
+    name: Low-risk vs high-risk investments
+  - id: amfi-riskometer
+    url: https://www.mutualfundssahihai.com/en/how-riskometer-scheme-derived
+    type: amfi
+    render: static
+    name: How the riskometer for a scheme is derived
+  - id: amfi-sip
+    url: https://www.mutualfundssahihai.com/en/what-is-sip
+    type: amfi
+    render: static
+    name: What is a SIP and how it works
+  - id: amfi-glossary
+    url: https://www.mutualfundssahihai.com/en/glossary
+    type: amfi
+    render: browser   # definitions load client-side
+    name: Mutual fund glossary A-Z
+    paginate:         # 10 terms per page at ?page=N; all pages are merged into one snapshot
+      pages: 'nav[aria-label="pagination"] a[aria-label^="Go to page"]'
+      items: h3       # one heading per glossary term
+      max_pages: 10
+  - id: amfi-choosing-advisor
+    url: https://www.mutualfundssahihai.com/en/what-is-the-role-of-an-investment-advisor-or-a-mutual-fund-distributor-in-selecting-a-scheme
+    type: amfi
+    render: static
+    name: Role of an advisor or distributor in selecting a scheme
+  - id: amfi-compare-performance
+    url: https://www.mutualfundssahihai.com/en/how-should-one-compare-performance-any-two-schemes
+    type: amfi
+    render: static
+    name: How to compare performance of schemes
+  - id: amfi-investor
+    url: https://www.amfiindia.com/investor
+    type: amfi
+    render: static
+    name: AMFI investor corner
+  - id: amfi-awareness-program
+    url: https://www.amfiindia.com/investor/awareness-program
+    type: amfi
+    render: static
+    name: AMFI investor awareness programme
+
+  # ------------------------------------------------------------------------ SEBI investor pages
+  - id: sebi-investor-home
+    url: https://investor.sebi.gov.in/
+    type: sebi
+    render: static
+    name: SEBI investor website home
+  - id: sebi-cas
+    url: https://investor.sebi.gov.in/consolidated_account_statement.html
+    type: sebi
+    render: static
+    name: SEBI note on the consolidated account statement (CAS)
+  - id: sebi-smart-investor
+    url: https://investor.sebi.gov.in/smartinvestor.html
+    type: sebi
+    render: static
+    name: SEBI smart investor guidance
+  - id: sebi-secure-account
+    url: https://investor.sebi.gov.in/secure_ur_inv_account.html
+    type: sebi
+    render: static
+    name: Securing your investment account (privacy/PII reminders)
+
+  # ------------------------------------------------------ RTA / statement download help pages
+  - id: rta-cams-cas
+    url: https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement
+    type: rta_help
+    render: browser
+    name: CAMS consolidated account statement request
+  - id: rta-cams-capital-gains
+    url: https://www.camsonline.com/Investors/Statements/Capital-Gain&Capital-Loss-statement
+    type: rta_help
+    render: browser
+    name: CAMS capital gain / loss statement request
+  # KFintech's CAS page (mfs.kfintech.com/investor/General/ConsolidatedAccountStatement) was
+  # removed: when rendered it contains only a chat widget and a date picker, no instructions.
+  # MFCentral (www.mfcentral.com) was removed: its robots.txt returns 403, which means
+  # "disallow all" for crawlers.

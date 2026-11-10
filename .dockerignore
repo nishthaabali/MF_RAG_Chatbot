@@ -1,0 +1,15 @@
+.git
+.github
+.venv
+.env
+data/
+eval/results/
+stitch_groww_mutual_fund_ai_assistant/
+**/__pycache__
+**/*.pyc
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+prev/
+work/

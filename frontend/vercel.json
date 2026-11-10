@@ -1,0 +1,20 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "test -n \"$API_BASE_URL\" || { echo 'Set API_BASE_URL (https://<railway-domain>/api)' >&2; exit 1; }; printf 'window.MF_API_BASE = \"%s\";\n' \"$API_BASE_URL\" > config.js",
+  "outputDirectory": ".",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/config.js",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=60, must-revalidate" }]
+    }
+  ]
+}

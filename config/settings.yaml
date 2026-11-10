@@ -1,0 +1,71 @@
+llm:
+  provider: groq
+  model: openai/gpt-oss-120b       # any Groq-hosted model; change here only
+  temperature: 0
+  max_tokens: 1024                 # max_completion_tokens (includes reasoning tokens)
+  reasoning_effort: low            # gpt-oss: low | medium | high; set null for other models
+  history_messages: 6
+  timeout_seconds: 30
+  classifier_llm: true             # LLM second opinion when the classifier rules aren't decisive
+  # Groq account limits for this model; the client-side limiter keeps under them.
+  requests_per_minute: 30
+  requests_per_day: 1000
+  tokens_per_minute: 8000
+  tokens_per_day: 200000
+  max_concurrent: 2
+  max_wait_seconds: 30             # wait at most this long for budget, then use the fallback reply
+  max_evidence_tokens: 1000        # evidence per answer (~1K prompt tokens), to fit 8K TPM
+retrieval:
+  embedding_model: BAAI/bge-small-en-v1.5
+  query_instruction: "Represent this sentence for searching relevant passages: "  # queries only
+  max_seq_length: 512
+  vector_top_k: 8
+  bm25_top_k: 8
+  final_top_k: 5
+  # Dense-cosine floor for questions without a structured fact. Tuned in Phase 7 (eval/tune.py,
+  # 2026-11-10): no false refusals from 0.40 to 0.65; kept 0.05 below the lowest answerable
+  # general question (0.673). It only separates general questions: scheme-scoped ones score
+  # 0.72-0.89 regardless, so the content-word rule and the model's `answerable` flag do that.
+  min_relevance: 0.60
+citation_policy: groww       # scheme answers cite the Groww page (see architecture §2.3)
+ingestion:
+  schedule_cron: "30 4 * * *" # 10:00 IST, run by .github/workflows/daily-ingest.yml (cron is UTC)
+  rate_limit_seconds: 2
+  user_agent: "MutualFundFAQBot/0.1 (facts-only educational project)"
+  timeout_seconds: 30
+  max_retries: 3
+chunking:                    # see docs/chunking-research.md §6.1
+  version: "1"               # bump when chunk text/ids change; forces a full re-index
+  max_tokens: 350            # per chunk incl. header (bge tokenizer); model limit is 512
+  min_tokens: 12             # shorter sections are banner/nav stubs and are dropped
+  exclude_sections:          # scheme-page headings answered from SQL instead of text search
+    - 'Portfolio holdings\b'           # -> scheme_holdings
+    - 'Similar funds listed on Groww\b' # -> scheme_peers (contains other schemes' figures)
+threads:
+  retention_days: 30
+api:
+  rate_limit_per_minute: 20
+  max_input_chars: 500
+  cors_origins:              # the frontend dev server (Vite); add the deployed origin here
+    - http://localhost:5173
+    - http://127.0.0.1:5173
+  cors_origin_regex: ""       # extra allowed origins as a regex (e.g. Vercel previews)
+  trust_forwarded_for: false  # true only behind a proxy that sets X-Forwarded-For
+  client_ip_header: ""        # header with the real client IP set by an edge proxy (x-real-ip)
+ops:                         # Phase 10: logging, background jobs, health
+  timezone: Asia/Kolkata     # job schedules and "today" for the stale-source check
+  log_format: json           # json | text (one JSON object per line; never message text)
+  log_level: INFO
+  stale_source_days: 7       # /api/health flags sources not fetched for longer
+  retention_cron: "30 3 * * *"   # 03:30 IST: delete threads idle > threads.retention_days
+  summary_cron: "59 23 * * *"    # 23:59 IST: daily summary line (routes, failure rates)
+  reload_check_seconds: 60   # pick up a newly built index without a restart; 0 disables
+data_refresh:                # Phase 11: pull the bundle the daily workflow publishes
+  release_repo: ""           # "owner/repo" on GitHub; empty = don't pull (local ingest only)
+  release_tag: data-latest
+  bundle_asset: data-bundle.tar.gz
+  manifest_asset: bundle.json
+  pull_cron: "45 10 * * *"   # ops.timezone; the workflow starts at 10:00 IST
+  keep_bundles: 2            # installed bundles kept in data/bundles/
+  stale_after_days: 2        # /api/health flags an older bundle while pulling is enabled
+  timeout_seconds: 120

@@ -1,0 +1,127 @@
+# Names users may type. Matching is case-insensitive and ignores punctuation.
+#
+# amcs     alias -> AMC id. Used to detect "the HDFC fund"; if an AMC has several covered
+#          schemes the resolver asks a clarifying question, if it has one it resolves.
+# schemes  scheme_id -> aliases. An alias must belong to exactly one scheme. Generic category
+#          phrases ("large cap fund") are NOT aliases; the resolver handles those as ambiguity.
+#
+# Old names come from earlier Groww URL slugs and well-known renames. Do not add an alias for a
+# scheme that is not in config/sources.yaml (e.g. "ABSL Short Term Fund" is a different, uncovered
+# scheme today) - such names must fall through to "not in my sources".
+
+amcs:
+  hdfc:
+    name: HDFC Mutual Fund
+    aliases: [HDFC, HDFC AMC, HDFC Mutual Fund]
+  absl:
+    name: Aditya Birla Sun Life Mutual Fund
+    aliases: [ABSL, ABSLMF, Aditya Birla, Aditya Birla Sun Life, Birla, Birla Sun Life]
+  nippon:
+    name: Nippon India Mutual Fund
+    aliases: [Nippon, Nippon India, Reliance Mutual Fund]
+  icici:
+    name: ICICI Prudential Mutual Fund
+    aliases: [ICICI, ICICI Pru, ICICI Prudential, Pru]
+  ppfas:
+    name: PPFAS Mutual Fund
+    aliases: [PPFAS, Parag Parikh]
+  bandhan:
+    name: Bandhan Mutual Fund
+    aliases: [Bandhan, IDFC Mutual Fund]
+  kotak:
+    name: Kotak Mutual Fund
+    aliases: [Kotak, Kotak Mahindra]
+  edelweiss:
+    name: Edelweiss Mutual Fund
+    aliases: [Edelweiss]
+
+schemes:
+  hdfc-flexi-cap:
+    - HDFC Flexi Cap Fund
+    - HDFC Flexi Cap
+    - HDFC Flexicap
+    - HDFC Equity Fund
+    - HDFC Equity
+  hdfc-silver-etf-fof:
+    - HDFC Silver ETF FoF
+    - HDFC Silver ETF Fund of Fund
+    - HDFC Silver FoF
+    - HDFC Silver
+  hdfc-pharma-healthcare:
+    - HDFC Pharma and Healthcare Fund
+    - HDFC Pharma and Healthcare
+    - HDFC Pharma
+    - HDFC Healthcare Fund
+  hdfc-nifty-next-50:
+    - HDFC Nifty Next 50 Index Fund
+    - HDFC Nifty Next 50
+    - HDFC Next 50 Index
+  hdfc-corporate-bond:
+    - HDFC Corporate Bond Fund
+    - HDFC Corporate Bond
+    - HDFC Medium Term Opportunities Fund
+  absl-flexi-cap:
+    - Aditya Birla Sun Life Flexi Cap Fund
+    - ABSL Flexi Cap
+    - ABSL Flexicap
+    - Birla Sun Life Equity Fund
+    - Birla Sun Life Equity
+    - Aditya Birla Sun Life Equity Fund
+    - ABSL Equity Fund
+  absl-large-cap:
+    - Aditya Birla Sun Life Large Cap Fund
+    - ABSL Large Cap
+  absl-multi-cap:
+    - Aditya Birla Sun Life Multi Cap Fund
+    - ABSL Multi Cap
+    - ABSL Multicap
+  absl-small-cap:
+    - Aditya Birla Sun Life Small Cap Fund
+    - ABSL Small Cap
+    - ABSL Small and Midcap Fund
+    - ABSL Small & Midcap
+    - Birla Sun Life Small Midcap Fund
+  absl-bse-total-market:
+    - Aditya Birla Sun Life BSE Total Market Index Fund
+    - ABSL BSE Total Market Index
+    - ABSL Total Market Index
+    - BSE Total Market Index Fund
+  absl-credit-risk:
+    - Aditya Birla Sun Life Credit Risk Fund
+    - ABSL Credit Risk
+  absl-corporate-bond:
+    - Aditya Birla Sun Life Corporate Bond Fund
+    - ABSL Corporate Bond
+    - Birla Sun Life Short Term Fund
+  nippon-large-cap:
+    - Nippon India Large Cap Fund
+    - Nippon India Large Cap
+    - Nippon Large Cap
+    - Reliance Large Cap Fund
+  icici-large-cap:
+    - ICICI Prudential Large Cap Fund
+    - ICICI Pru Large Cap
+    - ICICI Prudential Bluechip Fund
+    - ICICI Pru Bluechip
+  icici-corporate-bond:
+    - ICICI Prudential Corporate Bond Fund
+    - ICICI Pru Corporate Bond
+  ppfas-flexi-cap:
+    - Parag Parikh Flexi Cap Fund
+    - Parag Parikh Flexi Cap
+    - PPFAS Flexi Cap
+    - PPFCF
+    - Parag Parikh Long Term Value Fund
+    - Parag Parikh Long Term Equity Fund
+  bandhan-small-cap:
+    - Bandhan Small Cap Fund
+    - Bandhan Small Cap
+  kotak-multi-cap:
+    - Kotak Multi Cap Fund
+    - Kotak Multicap
+    - Kotak Multi-Cap
+  edelweiss-mid-cap:
+    - Edelweiss Mid Cap Fund
+    - Edelweiss Mid Cap
+    - Edelweiss Mid and Small Cap Fund
+    - Edelweiss Mid & Small Cap
