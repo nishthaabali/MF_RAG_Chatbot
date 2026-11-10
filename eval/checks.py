@@ -31,7 +31,7 @@ BUCKETS = (
 )
 REPLY_TYPES = {
     "answer", "advisory_refusal", "performance_refusal", "out_of_scope", "not_covered",
-    "greeting", "pii_blocked", "no_evidence", "clarify", "unavailable",
+    "greeting", "pii_blocked", "no_evidence", "clarify", "unavailable", "comparison",
 }
 EXPECT_KEYS = {"type", "scheme", "cite", "values", "forbid", "basis", "as_of", "candidates"}
 
@@ -272,6 +272,9 @@ def check_format(reply, ctx: CitationContext, tc: TurnCheck) -> None:
     sentences = split_sentences(reply.answer)
     tc.add("format.sentences", 1 <= len(sentences) <= 3, f"{len(sentences)} sentences")
     tc.add("format.no_url_in_answer", not URL_RE.search(reply.answer), "URL inside the answer")
+    if getattr(reply, "comparison", None) is not None:
+        _check_comparison_format(reply, ctx, tc)
+        return
     urls = URL_RE.findall(reply.rendered)
     tc.add("format.one_link", len(urls) == 1 and urls[0] == reply.citation_url,
            f"{len(urls)} links")
@@ -284,10 +287,31 @@ def check_format(reply, ctx: CitationContext, tc: TurnCheck) -> None:
                                 f"source fetched {want}")
 
 
+def _check_comparison_format(reply, ctx: CitationContext, tc: TurnCheck) -> None:
+    """A comparison cites one page per scheme (each allowlisted), and its footer is the date of
+    the oldest of those pages."""
+    from app.pipeline.templates import format_date
+
+    columns = reply.comparison.columns
+    urls = URL_RE.findall(reply.rendered)
+    want_urls = [c.url for c in columns]
+    tc.add("format.one_link_per_scheme", urls == want_urls and len(set(urls)) == len(urls),
+           f"links {urls}, schemes {want_urls}")
+    ids = [ctx.url_to_source.get(u) for u in want_urls]
+    unknown = [u for u, i in zip(want_urls, ids, strict=True) if not i]
+    tc.add("format.allowlisted", not unknown, f"not in sources: {unknown}")
+    dates = [ctx.source_dates.get(i) for i in ids if i]
+    want = min(dates) if dates and all(dates) else None
+    footer = FOOTER_RE.search(reply.rendered)
+    ok = footer is not None and want is not None and footer.group(1) == format_date(want)
+    tc.add("format.footer", ok, f"footer {footer.group(1) if footer else None!r}, "
+                                f"oldest source fetched {want}")
+
+
 def check_compliance(reply, tc: TurnCheck) -> None:
     advice = [p.pattern for p in ADVICE if p.search(reply.answer)]
     tc.add("compliance.no_advice", not advice, f"advice wording {advice}")
-    if reply.type == "answer":  # refusal templates may name what they won't do
+    if reply.type in ("answer", "comparison"):  # refusal templates may name what they won't do
         judged = [p.pattern for p in JUDGEMENT if p.search(reply.answer)]
         tc.add("compliance.no_judgement", not judged, f"judgement wording {judged}")
 
@@ -315,6 +339,8 @@ def check_expectations(result, expect: dict, ctx: CitationContext, sources: dict
     if reply.type not in types:
         return  # content checks only make sense on the expected reply type
     answer = reply.answer
+    if getattr(reply, "comparison", None) is not None:  # the values are in the table
+        answer += "\n" + reply.comparison.markdown()
     missing = [v for v in expect.get("values", []) if not value_present(v, answer)]
     if expect.get("values"):
         tc.add("values", not missing, f"missing {missing}")

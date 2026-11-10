@@ -11,8 +11,8 @@ This document describes how to build the assistant defined in [problemStatement.
 | # | Goal | Source requirement |
 |---|------|--------------------|
 | G1 | Answer factual scheme questions (expense ratio, exit load, min SIP, lock-in, riskometer, benchmark, statement/tax downloads) | §2 FAQ Assistant Requirements |
-| G2 | Every answer is ≤ 3 sentences, has exactly one citation link, and ends with `Last updated from sources: <date>` | §2 |
-| G3 | Politely refuse advisory / comparative / predictive questions with an educational AMFI or SEBI link | §3 Refusal Handling |
+| G2 | Every answer is ≤ 3 sentences, has exactly one citation link, and ends with `Last updated from sources: <date>`. Exception: a side-by-side comparison table (§6.3a) cites one page per scheme | §2 |
+| G3 | Politely refuse advisory / predictive questions, and any comparison that asks for a verdict (which is better / lower / cheaper), with an educational AMFI or SEBI link | §3 Refusal Handling |
 | G4 | Published performance metrics (returns, NAV, AUM, category averages, ranks, risk ratios, holdings) can be stated as facts when asked, with their basis and as-of date. Any judgement of performance (good/bad, better/worse, ranking schemes, whether to invest) is refused with a link to the scheme's Groww page | Content Restrictions (interpreted, see §2.4) |
 | G5 | Never collect, store, or process PAN, Aadhaar, account numbers, OTPs, email addresses, or phone numbers | Privacy and Security |
 | G6 | Support many independent chat threads at the same time | Deliverable 3 |
@@ -21,7 +21,7 @@ This document describes how to build the assistant defined in [problemStatement.
 ### Non-Goals
 
 - Personalised advice, portfolio analysis, or fund recommendations.
-- Computing returns ourselves (projections, "how much will ₹X become", custom CAGR/XIRR), or comparing, ranking or judging schemes. Stating the figures a source publishes is in scope (§2.4).
+- Computing returns ourselves (projections, "how much will ₹X become", custom CAGR/XIRR), or ranking or judging schemes. Stating the figures a source publishes is in scope (§2.4), including several schemes' published figures side by side (§6.3a).
 - Live NAV tracking or real-time market data.
 - User accounts or login. The assistant is anonymous.
 - Transactions of any kind (invest, redeem, SIP setup).
@@ -316,7 +316,17 @@ Maps the user's wording to zero, one, or several `scheme_id`s.
 - Fuzzy matching with `rapidfuzz` against the alias table, with a confidence threshold.
 - **Thread context:** if the message has no scheme mention but uses a reference like "its", "this fund", "what about the exit load?", the resolver uses the `active_scheme_id` saved on the thread from the previous turn.
 - **Ambiguity:** "the large cap fund" matches three schemes. The assistant asks one short clarifying question listing the matches, rather than guessing.
-- **Multiple schemes in a factual question** ("expense ratio of X and Y"): answered only if both facts are in the facts table and the answer still fits 3 sentences and one citation. Otherwise the assistant answers for the first scheme and invites a follow-up question for the second. A request to *compare* the two (rank, which is lower/better) is `advisory`.
+- **Multiple schemes in a factual question** ("expense ratio of X and Y"): answered as a side-by-side comparison table (§6.3a). When nothing asked fits a table (only holdings or similar funds), the assistant answers for the first scheme and invites a follow-up question for the second. A request for a *verdict* on the two (rank, which is lower/better) is `advisory`.
+
+### 6.3a Side-by-side comparison (`app/pipeline/comparison.py`)
+
+"Compare the expense ratio, NAV and 3Y CAGR of Kotak Multi Cap and ICICI Prudential Large Cap" (or "X vs Y", or a field question naming 2-4 schemes) returns a `comparison` reply: a short fixed sentence plus a table with one column per scheme (in the order named) and one row per asked field or figure. With no field named, the table shows category, expense ratio, exit load, min SIP, riskometer, benchmark, NAV, AUM and the 3-year annualised return.
+
+- **Classification.** The rule layer labels neutral wording ("compare", "vs", "versus", "side by side") `comparison` only after removing those words and checking that the rest of the message has no advisory or performance-judgement wording. "Compare X and Y, which is better?" and "X vs Y: which has the lower expense ratio?" are still `advisory`. The LLM classifier is never offered the `comparison` label. A comparison naming no scheme keeps the old advisory refusal; one naming a single covered scheme asks for the other; an uncovered scheme gets `not_covered`. "Compare it with Y" pairs Y with the thread's active scheme.
+- **No LLM.** Cells are read from `scheme_facts` and `scheme_metrics` exactly as published (the retriever's structured evidence, without chunk search). A value the page doesn't publish is shown as "—", never inferred. Columns are never sorted and cells never highlighted.
+- **Dates.** A shared as-of date goes in the row label ("NAV (as of 09 Nov 2026)"); different dates are shown per cell. The footer is the oldest of the compared pages' fetch dates.
+- **Citations.** Each column cites its own Groww scheme page, so this reply type carries one link per scheme (2-4), which relaxes the one-citation rule for this reply type only. `citation_url` is still set (the first scheme's page) for clients that read one link.
+- **Storage and API.** The table is stored as JSON in `messages.comparison` (added to existing databases by `init_db`) and returned as `comparison` on `ReplyOut` and `MessageOut`; `rendered` adds a Markdown table and a Sources list.
 
 ### 6.4 Step 4 — Hybrid retrieval
 

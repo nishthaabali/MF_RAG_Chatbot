@@ -17,7 +17,7 @@ from sqlalchemy import Engine, delete, func, select
 from sqlalchemy.orm import Session, sessionmaker
 
 from app.pipeline.orchestrator import ThreadContext, intent_from_dict, intent_to_dict
-from app.pipeline.templates import Reply
+from app.pipeline.templates import Comparison, Reply
 from app.store.db import init_db, session_factory
 from app.store.models import THREAD_TABLES, Message, Thread
 
@@ -50,6 +50,7 @@ class MessageView:
     citation_url: str | None
     last_updated: date | None
     created_at: datetime
+    comparison: dict | None = None  # Comparison.to_dict() of a comparison reply
 
     @property
     def rendered(self) -> str | None:
@@ -57,7 +58,7 @@ class MessageView:
         if self.role != "assistant" or not self.citation_url:
             return None
         return Reply(self.type or "answer", self.content, self.citation_url,
-                     self.last_updated).rendered
+                     self.last_updated, Comparison.from_dict(self.comparison)).rendered
 
 
 @dataclass(frozen=True)
@@ -72,7 +73,7 @@ class ThreadView:
 
 def _message_view(m: Message) -> MessageView:
     return MessageView(m.id, m.seq, m.role, m.content, m.response_type, m.route,
-                       m.citation_url, m.last_updated, m.created_at)
+                       m.citation_url, m.last_updated, m.created_at, m.comparison)
 
 
 def _thread_view(t: Thread, messages=()) -> ThreadView:
@@ -169,7 +170,9 @@ class ThreadStore:
             bot = Message(id=str(uuid.uuid4()), thread_id=thread_id, seq=seq + 2,
                           role="assistant", content=reply.answer, response_type=reply.type,
                           route=route, citation_url=reply.citation_url,
-                          last_updated=reply.last_updated, created_at=now)
+                          last_updated=reply.last_updated,
+                          comparison=reply.comparison.to_dict() if reply.comparison else None,
+                          created_at=now)
             s.add_all([user, bot])
             thread.message_count = seq + 2
             if thread.title is None:

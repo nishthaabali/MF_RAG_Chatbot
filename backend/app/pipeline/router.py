@@ -1,9 +1,10 @@
 """Steps 1-3 of the online pipeline in order: PII guard -> scheme resolver -> classifier.
 
-`route_message` ends in one of two ways:
+`route_message` ends in one of three ways:
 - a finished template `Reply` (PII blocked, refusal, greeting, out of scope, not covered,
-  clarifying question), with no retrieval or answer LLM call; or
-- a `RetrievalRequest` that Phase 5 (retrieval) and Phase 6 (generation) complete.
+  clarifying question), with no retrieval or answer LLM call;
+- a `RetrievalRequest` that Phase 5 (retrieval) and Phase 6 (generation) complete; or
+- a `ComparisonRequest`: published values for 2-4 schemes side by side (comparison.py).
 
 It also says what the thread should store: the placeholder instead of a blocked message, the new
 active scheme, and the candidates offered by a clarifying question.
@@ -11,7 +12,7 @@ active scheme, and the candidates offered by a clarifying question.
 
 from dataclasses import dataclass, field
 
-from app.pipeline import templates
+from app.pipeline import comparison, templates
 from app.pipeline.catalog import Catalog
 from app.pipeline.classifier import Classification, Classifier, QueryClass
 from app.pipeline.pii_guard import WITHHELD_PLACEHOLDER, check_pii
@@ -19,8 +20,10 @@ from app.pipeline.scheme_resolver import (
     Intent,
     Resolution,
     SchemeResolver,
+    has_reference,
     mentions_other_plan,
 )
+from app.pipeline.text import normalise_name
 
 _KEEP = object()  # sentinel: leave the thread's active scheme unchanged
 
@@ -35,6 +38,14 @@ class RetrievalRequest:
 
 
 @dataclass(frozen=True)
+class ComparisonRequest:
+    scheme_ids: tuple[str, ...]  # 2..MAX_SCHEMES, in order of mention
+    intent: Intent  # what the table shows (DEFAULT_INTENT when nothing was named)
+    left_out: tuple[str, ...] = ()  # asked items a table can't show (holdings, ...)
+    dropped: tuple[str, ...] = ()  # schemes named past MAX_SCHEMES
+
+
+@dataclass(frozen=True)
 class Route:
     stored_text: str  # what the thread stores for the user turn
     reply: templates.Reply | None = None
@@ -46,6 +57,7 @@ class Route:
     active_scheme_id: object = _KEEP  # new active scheme id, or _KEEP
     pending_candidates: tuple[str, ...] = field(default_factory=tuple)
     intent: Intent | None = None  # what the message asks for (fields / metrics), if anything
+    comparison: ComparisonRequest | None = None
 
     @property
     def keeps_active_scheme(self) -> bool:
@@ -115,6 +127,16 @@ class Router:
                 active_scheme_id=new_active, intent=intent,
             )
 
+        if cls == QueryClass.COMPARISON:
+            return self._comparison(text, resolution, intent, active_scheme_id, done,
+                                    classification)
+        if (resolution.status == "resolved" and resolution.via == "alias"
+                and len(resolution.scheme_ids) > 1 and comparison.can_tabulate(intent)
+                and not mentions_other_plan(text)):
+            # "Expense ratio of X and Y?": one table instead of one scheme per answer.
+            return self._comparison(text, resolution, intent, active_scheme_id, done,
+                                    classification)
+
         # factual_scheme / factual_metric need exactly one scheme.
         if resolution.status == "not_covered":
             return done(templates.not_covered(self.catalog), "not_covered")
@@ -132,4 +154,38 @@ class Router:
             stored_text=text, retrieval=request, route="retrieval_scheme",
             classification=classification, resolution=resolution, active_scheme_id=new_active,
             intent=intent,
+        )
+
+    def _comparison(self, text: str, resolution: Resolution, intent: Intent,
+                    active_scheme_id: str | None, done, classification) -> Route:
+        ids = list(resolution.scheme_ids) if resolution.status in ("resolved", "context") else []
+        words = normalise_name(text).split()
+        if len(ids) == 1 and resolution.via == "alias":
+            # An exact name stops the resolver before its typo pass; look for the other scheme
+            # ("compare kotak mutli cap and ICICI Pru Large Cap").
+            fuzzy = self.resolver._fuzzy(words)
+            if fuzzy and ids[0] in fuzzy[0] and len(fuzzy[0]) > 1:
+                ids = list(fuzzy[0])
+        # "Compare it with ICICI Pru Large Cap": the thread's scheme is the other one.
+        if (len(ids) == 1 and active_scheme_id in self.catalog.schemes
+                and active_scheme_id not in ids and has_reference(text)):
+            ids.insert(0, active_scheme_id)
+        if len(ids) < 2:
+            if not ids:
+                # Nothing to put side by side ("direct vs regular plan", "compare ELSS funds"):
+                # the refusal with the AMFI page on comparing funds, as before.
+                return done(templates.advisory_refusal(
+                    self.catalog, templates.pick_education_topic(text)), "advisory")
+            if self.resolver._mentions_uncovered_amc(words):
+                return done(templates.not_covered(self.catalog), "not_covered")
+            return done(comparison.needs_second_scheme(self.catalog, ids[0]), "clarify")
+        if mentions_other_plan(text):
+            return done(templates.plan_not_covered(self.catalog, ids[0]), "plan_not_covered")
+        shown, left_out = comparison.table_intent(intent)
+        kept, dropped = ids[:comparison.MAX_SCHEMES], ids[comparison.MAX_SCHEMES:]
+        request = ComparisonRequest(tuple(kept), shown, tuple(left_out), tuple(dropped))
+        return Route(
+            stored_text=text, route="comparison", classification=classification,
+            resolution=resolution, active_scheme_id=kept[0], intent=intent,
+            comparison=request,
         )

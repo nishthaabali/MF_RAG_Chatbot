@@ -195,9 +195,10 @@ async def test_url_in_the_answer_is_stripped(catalog):
 
 
 async def test_several_schemes_invite_a_follow_up(catalog):  # RES-30
+    # Holdings can't go in a comparison table, so the first scheme is answered on its own.
     fake = FakeGroq(answer("The expense ratio of HDFC Flexi Cap Fund is 0.42%."))
     result = await pipeline(catalog, fake).answer(
-        ThreadContext(), "Expense ratio of HDFC Flexi Cap and PPFAS Flexi Cap?")
+        ThreadContext(), "Top holdings of HDFC Flexi Cap and PPFAS Flexi Cap?")
     assert result.reply.answer.endswith("Ask me about Parag Parikh Flexi Cap Fund in a "
                                         "separate question.")
     assert_format(result.reply)

@@ -290,6 +290,12 @@ class Retriever:
         numbered = tuple(replace(b, id=f"E{i}") for i, b in enumerate(blocks, start=1))
         return RetrievalResult("ok", numbered, scheme_id, fallback, top_score)
 
+    async def structured_for(self, scheme_ids, intent: Intent) -> dict[str, list[Evidence]]:
+        """Fact and metric evidence for each scheme, without chunk search (comparison table)."""
+        def run():
+            return {sid: self._structured(sid, intent) for sid in scheme_ids}
+        return await asyncio.to_thread(run)
+
     # ------------------------------------------------------------------ structured facts
     def _scheme_header(self, scheme_id: str) -> str:
         return f"{self.catalog.schemes[scheme_id].name} (Direct Plan - Growth)"

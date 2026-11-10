@@ -26,6 +26,7 @@
   // How each reply type is presented. Refusals and notices are "info", not answers.
   const KINDS = {
     answer:              { label: "Answer",                 badge: "From source",       tone: "" },
+    comparison:          { label: "Side by side",           badge: "Published figures", tone: "" },
     greeting:            { label: "Hello",                  badge: "",                  tone: "" },
     advisory_refusal:    { label: "Facts only",             badge: "No advice",         tone: "info" },
     performance_refusal: { label: "Performance",            badge: "No judgements",     tone: "info" },
@@ -301,6 +302,25 @@
         kind.badge ? h("span", { class: "card__badge", text: kind.badge }) : null),
       h("p", { class: "card__text", text: m.content }));
 
+    const table = m.comparison;
+    if (table && Array.isArray(table.columns) && table.columns.length) {
+      card.append(comparisonTable(table));
+      for (const note of table.notes || []) card.append(h("p", { class: "card__note", text: note }));
+      const links = table.columns.map((c) => {
+        const u = safeUrl(c.url);
+        return u ? h("a", { class: "source-link", href: u.href, target: "_blank", rel: "noopener noreferrer",
+                           "aria-label": `Source for ${c.name}: ${u.hostname} (opens in a new tab)`, title: u.href },
+                     h("span", { class: "source-link__label", text: c.name }),
+                     icon("external")) : null;
+      });
+      card.append(h("div", { class: "card__foot" },
+        h("div", { class: "source-list" }, ...links),
+        updated ? h("span", { class: "updated" }, icon("calendar"),
+                    `Last updated from sources: ${updated}`) : null));
+      return h("div", { class: "msg" + entering(m) },
+        h("div", { class: "msg__avatar", "aria-hidden": "true" }, icon("logo")), card);
+    }
+
     if (url || updated) {
       card.append(h("div", { class: "card__foot" },
         url ? h("a", { class: "source-link", href: url.href, target: "_blank", rel: "noopener noreferrer",
@@ -313,6 +333,18 @@
     }
     return h("div", { class: "msg" + entering(m) },
       h("div", { class: "msg__avatar", "aria-hidden": "true" }, icon("logo")), card);
+  }
+
+  // Published values only, in the order the schemes were named: never sorted or highlighted.
+  function comparisonTable(table) {
+    const head = h("tr", {}, h("th", { scope: "col", text: "Field" }),
+      ...table.columns.map((c) => h("th", { scope: "col", text: c.name })));
+    const body = (table.rows || []).map((r) =>
+      h("tr", {}, h("th", { scope: "row", text: r.label }),
+        ...r.cells.map((v) => h("td", { class: v === "—" ? "is-missing" : "", text: v }))));
+    return h("div", { class: "compare", role: "region", tabindex: "0",
+                      "aria-label": "Published figures side by side" },
+      h("table", { class: "compare__table" }, h("thead", {}, head), h("tbody", {}, ...body)));
   }
 
   function pendingCard() {
@@ -456,7 +488,8 @@
         userMsg.withheld = true;
       }
       list.push({ role: "assistant", content: reply.answer, type: reply.type,
-                  citation_url: reply.citation_url, last_updated: reply.last_updated });
+                  citation_url: reply.citation_url, last_updated: reply.last_updated,
+                  comparison: reply.comparison || null });
       state.pending.delete(id);
       const t = findThread(id);
       if (t && !t.title) {
@@ -637,7 +670,8 @@
   function fromServer(m) {
     return {
       role: m.role, content: m.content, type: m.type, citation_url: m.citation_url,
-      last_updated: m.last_updated, time: m.role === "user" ? new Date(m.created_at) : null,
+      last_updated: m.last_updated, comparison: m.comparison || null,
+      time: m.role === "user" ? new Date(m.created_at) : null,
       withheld: m.role === "user" && m.content === WITHHELD, shown: true,
     };
   }
@@ -668,6 +702,24 @@
       }
       const kind = (KINDS[m.type] || KINDS.answer).label;
       lines.push(`### Assistant: ${kind}`, "", mdEscape(m.content), "");
+      const table = m.comparison;
+      if (table && Array.isArray(table.columns) && table.columns.length) {
+        const cell = (v) => mdEscape(String(v).replace(/\s+/g, " "));
+        lines.push(`| Field | ${table.columns.map((c) => cell(c.name)).join(" | ")} |`,
+                   `|${"---|".repeat(table.columns.length + 1)}`,
+                   ...(table.rows || []).map((r) => `| ${[r.label, ...r.cells].map(cell).join(" | ")} |`), "");
+        for (const note of table.notes || []) lines.push(mdEscape(note), "");
+        lines.push("Sources:", "");
+        for (const c of table.columns) {
+          const u = safeUrl(c.url);
+          if (u) lines.push(`- ${mdEscape(c.name)}: <${u.href}>`);
+        }
+        lines.push("");
+        const when = formatDate(m.last_updated);
+        if (when) lines.push(`Last updated from sources: ${when}`);
+        lines.push("");
+        continue;
+      }
       const url = safeUrl(m.citation_url);
       if (url) lines.push(`Source: <${url.href}>  `);
       const updated = formatDate(m.last_updated);

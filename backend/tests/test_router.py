@@ -116,8 +116,15 @@ async def test_other_plan(router):  # CLS-31
     assert route.route == "plan_not_covered"
 
 
-async def test_several_schemes_answer_the_first(router):  # RES-30
+async def test_several_schemes_with_a_tabular_field_get_a_comparison(router):
     route = await router.route_message("Expense ratio of HDFC Flexi Cap and PPFAS Flexi Cap?")
+    assert route.route == "comparison" and route.retrieval is None
+    assert route.comparison.scheme_ids == ("hdfc-flexi-cap", "ppfas-flexi-cap")
+    assert route.comparison.intent.fields == ("expense_ratio",)
+
+
+async def test_several_schemes_answer_the_first_when_a_table_cannot_show_it(router):  # RES-30
+    route = await router.route_message("Top holdings of HDFC Flexi Cap and PPFAS Flexi Cap?")
     assert route.retrieval.scheme_id == "hdfc-flexi-cap"
     assert route.retrieval.other_scheme_ids == ("ppfas-flexi-cap",)
 

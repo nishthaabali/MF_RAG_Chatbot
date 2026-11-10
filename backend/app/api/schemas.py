@@ -27,6 +27,9 @@ class MessageOut(BaseModel):
     citation_url: str | None = None
     last_updated: date | None = None
     rendered: str | None = None  # assistant: answer + Source line + footer
+    # assistant, type "comparison": {columns: [{scheme_id, name, url, last_updated}],
+    # rows: [{label, cells}], notes: [...]}; each column cites its own scheme page
+    comparison: dict | None = None
     created_at: datetime
 
     @field_serializer("created_at")
@@ -85,6 +88,7 @@ class ReplyOut(BaseModel):
     citation_url: str
     last_updated: date | None
     rendered: str
+    comparison: dict | None = None  # see MessageOut
 
 
 class SchemeOut(BaseModel):

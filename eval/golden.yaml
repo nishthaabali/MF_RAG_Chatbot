@@ -514,6 +514,14 @@ cases:
   bucket: performance_judgement
   q: Has Kotak Multi Cap given good returns?
   expect: {type: performance_refusal, scheme: kotak-multi-cap, cite: scheme}
+- id: compare-kotak-icici
+  bucket: other_routes
+  q: Compare the expense ratio, NAV and 3Y CAGR of Kotak Multi Cap Fund and ICICI Prudential Large Cap Fund
+  expect: {type: comparison, scheme: kotak-multi-cap, cite: [groww-kotak-multi-cap], values: ["Expense ratio", "NAV", "3-year annualised return"]}
+- id: compare-with-verdict
+  bucket: advisory
+  q: Compare Kotak Multi Cap and HDFC Flexi Cap and tell me which is better
+  expect: {type: advisory_refusal, cite: education}
 - id: perf-ppfas-vs-hdfc
   bucket: performance_judgement
   q: Is PPFAS Flexi Cap better than HDFC Flexi Cap?

@@ -340,6 +340,20 @@ a { color: var(--secondary); }
 .source-link__label { font-weight: 600; }
 .source-link__host { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .source-link .icon { width: 14px; height: 14px; }
+.source-list { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
+.card__note { font-size: 13px; line-height: 20px; color: var(--body); }
+.compare { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r-control); }
+.compare:focus-visible { outline: 2px solid var(--secondary); outline-offset: 2px; }
+.compare__table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 20px; }
+.compare__table th, .compare__table td {
+  padding: 8px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border);
+  min-width: 120px; max-width: 280px; overflow-wrap: anywhere;
+}
+.compare__table tr:last-child th, .compare__table tr:last-child td { border-bottom: none; }
+.compare__table thead th { background: var(--surface-low); color: var(--heading); font-weight: 600; }
+.compare__table tbody th { color: var(--body); font-weight: 500; }
+.compare__table td { color: var(--heading); font-variant-numeric: tabular-nums; }
+.compare__table td.is-missing { color: var(--caption); }
 .updated { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--caption); }
 .updated .icon { width: 14px; height: 14px; }
 

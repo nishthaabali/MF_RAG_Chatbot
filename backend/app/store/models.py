@@ -259,6 +259,7 @@ class Message(Base):
     route: Mapped[str | None] = mapped_column(String)  # assistant: how the reply was made
     citation_url: Mapped[str | None] = mapped_column(Text)
     last_updated: Mapped[date | None] = mapped_column(Date)
+    comparison: Mapped[dict | None] = mapped_column(JSON)  # assistant: a comparison table
     created_at: Mapped[datetime] = mapped_column(DateTime)
 
 

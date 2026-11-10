@@ -265,7 +265,7 @@ The guard errs on the side of blocking ([architecture.md §6.1](architecture.md#
 
 | ID | Scenario / example | Expected behaviour | Phase |
 |----|--------------------|--------------------|-------|
-| RES-30 | "Expense ratio of HDFC Flexi Cap and PPFAS Flexi Cap?" | Two Groww pages → two URLs, but only one citation is allowed. Answer for the first scheme and invite a follow-up for the second. (Architecture's "answer both if both facts exist" conflicts with one-citation; one-citation wins.) | 4, 6 |
+| RES-30 | "Expense ratio of HDFC Flexi Cap and PPFAS Flexi Cap?" | Side-by-side comparison table, one cited Groww page per scheme (architecture §6.3a). Only when nothing asked fits a table (e.g. holdings only): answer for the first scheme and invite a follow-up for the second. | 4, 6 |
 | RES-31 | Three or more schemes | Answer the first, invite follow-ups. | 6 |
 | RES-32 | "Which of these two has the lower expense ratio?" | `advisory` (comparison). | 4 |
 
@@ -484,7 +484,7 @@ These are the gaps found while writing this document. Each needs a decision (and
 | 9 | Routing for NAV and "plan not covered" | NAV → performance link; new template for Regular/IDCW questions | CLS-22, CLS-31 | Phase 4 |
 | 10 | Clarifying-question state and last field intent | Add `pending_candidates` and `active_field` to `threads` | RES-09, RES-23 | Phase 4, 8 |
 | 11 | Max candidates in a clarifying question | List up to 3 by name, otherwise ask for the full scheme name | RES-06 | Phase 4 |
-| 12 | Multi-scheme answers vs one citation | One-citation rule wins: answer the first scheme, invite a follow-up | RES-30 | Phase 6 |
+| 12 | Multi-scheme answers vs one citation | Comparison table citing each scheme's page (one-citation rule relaxed for the `comparison` reply type only); verdicts still refused | RES-30 | Phase 6 |
 | 13 | BM25 results not scheme-filtered; threshold applied to RRF score | Post-filter BM25 by `scheme_id`; threshold on cosine score | RET-03, RET-04 | Phase 5 |
 | 14 | Validator: evidence-scheme mismatch, bare-domain URLs, over-broad advice and performance rules | Add scheme-match check; TLD-based URL detection; narrower advice/performance patterns | GEN-08, VAL-06, VAL-07, VAL-08 | Phase 6 |
 | 15 | Footer date and link for template replies | Ingest every education link so it has a `fetched_at`; default AMFI link for clarify/greeting/PII | FMT-01, FMT-02 | Phase 1, 6 |

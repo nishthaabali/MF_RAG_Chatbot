@@ -19,7 +19,8 @@ PII_TITLE = ("Titles can't contain personal information such as PAN, Aadhaar, ac
 def message_out(m: MessageView) -> MessageOut:
     return MessageOut(id=m.id, role=m.role, content=m.content, type=m.type,
                       citation_url=m.citation_url, last_updated=m.last_updated,
-                      rendered=m.rendered, created_at=m.created_at)
+                      rendered=m.rendered, comparison=m.comparison,
+                      created_at=m.created_at)
 
 
 @router.post("", status_code=status.HTTP_201_CREATED, response_model=ThreadCreated)

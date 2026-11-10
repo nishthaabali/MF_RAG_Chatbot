@@ -60,4 +60,5 @@ async def post_message(thread_id: str, body: MessageIn,
     reply = result.reply
     return ReplyOut(message_id=bot.id, user_message_id=user.id, type=reply.type,
                     answer=reply.answer, citation_url=reply.citation_url,
-                    last_updated=reply.last_updated, rendered=reply.rendered)
+                    last_updated=reply.last_updated, rendered=reply.rendered,
+                    comparison=reply.comparison.to_dict() if reply.comparison else None)

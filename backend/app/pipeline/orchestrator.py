@@ -17,7 +17,7 @@ import re
 from dataclasses import dataclass, field, replace
 from typing import Any
 
-from app.pipeline import templates
+from app.pipeline import comparison, templates
 from app.pipeline.catalog import Catalog, Link
 from app.pipeline.classifier import Classifier, GroqClassifier
 from app.pipeline.formatter import format_answer
@@ -176,6 +176,17 @@ class AnswerPipeline:
 
         if route.reply is not None:
             return result(route.reply, route.route)
+
+        if route.comparison is not None:
+            request = route.comparison
+            trace["compared"] = list(request.scheme_ids)
+            if self.retriever is None:  # degraded: no corpus installed yet
+                return result(templates.corpus_unavailable(self.catalog, request.scheme_ids[0]),
+                              "corpus_unavailable")
+            evidence = await self.retriever.structured_for(request.scheme_ids, request.intent)
+            reply = comparison.build(self.catalog, request.scheme_ids, request.intent, evidence,
+                                     left_out=request.left_out, dropped=request.dropped)
+            return result(reply, "comparison")
 
         request = route.retrieval
         inherited = self._continues_previous(ctx, request, route, text)

@@ -4,12 +4,15 @@ fact and metric templates used when the model is unavailable or misbehaves (§6.
 Every reply has the same shape as a generated answer: `answer` (at most 3 sentences, no URL),
 one `citation_url`, the `last_updated` date of that source, and a `type`. `rendered` adds the
 Source line and the footer, so every response type carries exactly one link.
+
+The one exception is the `comparison` reply (published figures for 2-4 schemes side by side):
+it also carries a `Comparison` table, and cites each scheme's own page (one link per column).
 """
 
 import re
 from dataclasses import dataclass
 from datetime import date, datetime
-from typing import Literal
+from typing import Any, Literal
 
 from app.pipeline.catalog import Catalog, Link, to_ist_date
 from app.pipeline.text import split_sentences
@@ -25,7 +28,68 @@ ReplyType = Literal[
     "no_evidence",
     "clarify",
     "unavailable",
+    "comparison",
 ]
+
+NOT_PUBLISHED = "—"  # a comparison cell whose value the scheme page does not publish
+
+
+@dataclass(frozen=True)
+class ComparisonColumn:
+    scheme_id: str
+    name: str
+    url: str  # the scheme's own page: each column cites its own source
+    last_updated: date | None
+
+
+@dataclass(frozen=True)
+class ComparisonRow:
+    label: str
+    cells: tuple[str, ...]  # one per column, NOT_PUBLISHED when the page has no value
+
+
+@dataclass(frozen=True)
+class Comparison:
+    """Published values for several schemes, side by side, in the order they were named.
+
+    Never sorted, highlighted or ranked: the table restates the pages, it does not judge.
+    """
+
+    columns: tuple[ComparisonColumn, ...]
+    rows: tuple[ComparisonRow, ...]
+    notes: tuple[str, ...] = ()
+
+    def markdown(self) -> str:
+        def cell(text: str) -> str:
+            return " ".join(str(text).split()).replace("|", "\\|")
+
+        head = ["Field", *(c.name for c in self.columns)]
+        lines = ["| " + " | ".join(cell(h) for h in head) + " |",
+                 "|" + "---|" * len(head)]
+        lines += ["| " + " | ".join(cell(x) for x in (r.label, *r.cells)) + " |"
+                  for r in self.rows]
+        return "\n".join(lines)
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "columns": [{"scheme_id": c.scheme_id, "name": c.name, "url": c.url,
+                         "last_updated": c.last_updated.isoformat() if c.last_updated else None}
+                        for c in self.columns],
+            "rows": [{"label": r.label, "cells": list(r.cells)} for r in self.rows],
+            "notes": list(self.notes),
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any] | None) -> "Comparison | None":
+        if not data:
+            return None
+        columns = tuple(
+            ComparisonColumn(c["scheme_id"], c["name"], c["url"],
+                             date.fromisoformat(c["last_updated"]) if c.get("last_updated")
+                             else None)
+            for c in data.get("columns", ()))
+        rows = tuple(ComparisonRow(r["label"], tuple(r["cells"])) for r in data.get("rows", ()))
+        return cls(columns, rows, tuple(data.get("notes", ())))
 
 
 @dataclass(frozen=True)
@@ -34,11 +98,24 @@ class Reply:
     answer: str
     citation_url: str
     last_updated: date | None
+    comparison: Comparison | None = None  # only on a `comparison` reply
 
     @property
     def rendered(self) -> str:
+        if self.comparison is not None:
+            return self._rendered_comparison()
         parts = [self.answer, f"Source: {self.citation_url}"]
         if self.last_updated is not None:  # never print "None" (FMT-03)
+            parts.append(f"Last updated from sources: {format_date(self.last_updated)}")
+        return "\n\n".join(parts)
+
+    def _rendered_comparison(self) -> str:
+        table = self.comparison
+        parts = [self.answer, table.markdown()]
+        if table.notes:
+            parts.append("\n".join(table.notes))
+        parts.append("Sources:\n" + "\n".join(f"- {c.name}: {c.url}" for c in table.columns))
+        if self.last_updated is not None:
             parts.append(f"Last updated from sources: {format_date(self.last_updated)}")
         return "\n\n".join(parts)
 
@@ -49,6 +126,7 @@ class Reply:
             "citation_url": self.citation_url,
             "last_updated": self.last_updated.isoformat() if self.last_updated else None,
             "rendered": self.rendered,
+            "comparison": self.comparison.to_dict() if self.comparison else None,
         }
 
 
